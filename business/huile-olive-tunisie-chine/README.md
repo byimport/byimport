@@ -11,6 +11,7 @@
 | `PROPOSITION_COMMERCIALE.md` | Trois modèles de proposition (e-mail formel, WeChat/WhatsApp court, lettre PDF officielle) avec la structure 30 % d'acompte / 70 % avant embarquement. |
 | `FOURNISSEURS_TUNISIENS.md` | Liste des grands exportateurs tunisiens (CHO/Terra Delyssa, Mahjoub, Olivko, etc.) + sources officielles (CEPEX, ONH) pour identifier 3-5 fournisseurs solides. |
 | `MARGES_ET_PRIX.md` | Calculs de marges détaillés : 2 scénarios (premium bouteille 500 ml et vrac flexitank), structure de paiement 30%/70%, cash-flow, risques. |
+| `SOLUTIONS_FINANCEMENT.md` | 7 solutions concrètes pour permettre aux acheteurs chinois d'acheter sans bloquer la trésorerie (L/C, Trade Assurance, pré-financement BIAT/COTUNACE, distribution, Tmall Global). |
 
 ## 🚀 Plan d'action en 6 étapes
 
