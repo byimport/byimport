@@ -48,9 +48,9 @@ très bon — **à condition** que le coût d'acquisition + outils IA reste loin
 
 ## 3. Bureau gratuit vs remote — le vrai arbitrage
 
-La société de Genève (où travaille votre contact — le nom n'était pas clair à l'audio, je n'ai
-pas pu l'identifier ; précisez-le si vous voulez que j'en tienne compte) vous offre une
-**place de bureau gratuite**. Arbitrage honnête :
+La société de Genève qui vous propose une **place de bureau gratuite** est **SwissKap**
+(Le Lignon, GE — services frontaliers/résidents, prévoyance/2e pilier via `mon2ekap.ch`,
+investissement, création de société : profil cohérent avec vos cas d'usage). Arbitrage honnête :
 
 | | Bureau gratuit chez le courtier | Remote + agents IA (votre préférence) |
 |---|---|---|
@@ -64,6 +64,19 @@ pas pu l'identifier ; précisez-le si vous voulez que j'en tienne compte) vous o
 ne crachez pas sur l'offre de bureau : utilisez-la comme **rampe de lancement** (apprendre les
 produits, voir comment ils signent, obtenir vos premières commissions) pendant que vous montez
 votre machine remote en parallèle. Ne signez pas d'exclusivité qui vous enchaîne.
+
+> ✅ **Due diligence SwissKap — à faire AVANT de produire le moindre RDV :**
+> 1. **Vérifier l'enregistrement** au registre FINMA des intermédiaires d'assurance
+>    (https://www.finma.ch/en/authorisation/insurance-intermediaries/registersuche/) et/ou au
+>    registre des conseillers LSFin ; vérifier l'absence de signalement sur la liste de mise en
+>    garde FINMA. Le pied de page de leur site mentionne « Art. 45 LSA » → territoire
+>    d'intermédiaire en assurance. Un apporteur qui alimente un courtier non enregistré s'expose.
+> 2. **Commission 1,1 % (2e pilier)** : faire préciser par écrit la **base** (1,1 % du capital
+>    de libre passage transféré ?), le **déclencheur** (signature / transfert effectif) et le
+>    **clawback**. Si la prévoyance passe par de l'assurance-vie liée, les reprises de commission
+>    en cas de résiliation précoce sont la norme — l'anticiper dans la convention.
+> 3. **3e pilier** : obtenir un % de prime clair ou un forfait par contrat (négociation en cours).
+> 4. **Pas d'exclusivité** qui vous empêche d'alimenter d'autres courtiers.
 
 ## 4. Stack remote « agents IA » — architecture concrète
 
