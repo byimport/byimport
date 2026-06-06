@@ -1,5 +1,7 @@
 # Module 3 — SEO Ultra-Intent (contourner les géants, ranker sur l'intention d'achat)
 
+> ⚙️ **Implémentation runnable** : le générateur pSEO (pages route/aircraft/event + sitemap + maillage + **garde-fou anti-doorway**) est codé et testé dans [`luxe-pipeline/pseo/`](./luxe-pipeline/) — il injecte les empty legs réelles produites par le connector du Module 1.
+
 > **Thèse : ne combats pas les géants (ACS, VistaJet, YachtCharterFleet) sur les têtes de requêtes** (« private jet charter », « yacht charter »). Ils ont 15 ans de domaine et des millions de backlinks. **Attaque la longue traîne transactionnelle** : routes précises, modèles précis, événements datés. Faible volume unitaire, **intention d'achat maximale, concurrence quasi nulle, conversion élevée.**
 
 ## 3.1 Les 20 mots-clés Long-Tail High-Intent

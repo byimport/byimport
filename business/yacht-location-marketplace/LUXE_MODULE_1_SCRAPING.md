@@ -1,5 +1,7 @@
 # Module 1 — Architecture de scraping & mapping data (Yachts & Jets)
 
+> ⚙️ **Implémentation runnable** : le connector Avinode (jets), le schéma JSON canonique, le DDL Postgres et le stockage sont codés et testés dans [`luxe-pipeline/`](./luxe-pipeline/) — exécutables en stdlib pure (mode `--fixture` sans credentials).
+
 > **Règle d'ingénieur n°1 : ne scrape que ce que tu ne peux pas obtenir par API/feed.** Le scraping DOM est fragile (casse à chaque refonte), risqué (ToS, IP-ban, RGPD si données perso) et coûteux à maintenir. Hiérarchie de collecte ci-dessous, de la plus robuste à la plus fragile.
 
 ## 1.0 Hiérarchie des sources (du robuste au fragile)

@@ -45,6 +45,14 @@ Pour la montée en gamme (superyachts + jets privés, clientèle HNWI), 3 module
 
 > ⚠️ Ces modules touchent **scraping (ToS/IP-ban)**, **données personnelles (RGPD)** et **cold email (ePrivacy)**. Chaque fichier contient sa boîte de garde-fous légaux — à lire, ce ne sont pas des options.
 
+#### ⚙️ Implémentation runnable — `luxe-pipeline/`
+
+Code exécutable (Python 3.11, **stdlib pure, zéro `pip install`**) qui matérialise les modules 1 et 3 :
+
+- **Connector Avinode (jets)** : `luxe-pipeline/connectors/avinode.py` — client + normaliseur vers le schéma JSON canonique, **mode `--fixture`** pour tourner sans credentials.
+- **Générateur pSEO** : `luxe-pipeline/pseo/generate.py` — pages route/aircraft/event + sitemap + maillage, avec **garde-fou anti-doorway** (skip des pages thin) et injection des empty legs réelles.
+- Quickstart, contrat JSON (`schema/`), DDL (`db/`), tests hermétiques : voir `luxe-pipeline/README.md`.
+
 ## 🚀 Plan d'action 90 jours (résumé — détail dans `PLAN_90_JOURS.md`)
 
 | Phase | Jours | Objectif | Livrable |

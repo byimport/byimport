@@ -1,0 +1,7 @@
+# OPTIONAL extras only. The core pipeline (connector + pSEO generator) runs on
+# the Python 3.11 standard library with ZERO installs.
+#
+# Install these only if you want the optional features noted below.
+
+psycopg[binary]>=3.1   # store/postgres_store.py — upsert into Postgres
+jsonschema>=4.0        # tests — validate connector output against schema/listing.schema.json

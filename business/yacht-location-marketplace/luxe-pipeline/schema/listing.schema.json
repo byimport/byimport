@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schema.luxcharter.internal/listing.v1.json",
+  "title": "Canonical luxury charter listing",
+  "type": "object",
+  "required": ["id", "asset_type", "source"],
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Deterministic id 'assettype:source:adid', e.g. jet:avinode:leg-123",
+      "pattern": "^[a-z]+:[a-z0-9_-]+:.+$"
+    },
+    "asset_type": { "type": "string", "enum": ["yacht", "jet"] },
+    "source": {
+      "type": "object",
+      "required": ["site", "scraped_at", "access_layer"],
+      "properties": {
+        "site": { "type": "string" },
+        "url": { "type": ["string", "null"] },
+        "scraped_at": { "type": "string", "format": "date-time" },
+        "access_layer": { "type": "string", "enum": ["api", "affiliate", "json-ld", "css", "fixture"] }
+      }
+    },
+    "title": { "type": ["string", "null"] },
+    "status": { "type": "string", "enum": ["available", "unavailable", "expired"] },
+    "location": {
+      "type": "object",
+      "properties": {
+        "base": { "type": ["string", "null"] },
+        "region": { "type": ["string", "null"] },
+        "country": { "type": ["string", "null"] },
+        "lat": { "type": ["number", "null"] },
+        "lon": { "type": ["number", "null"] }
+      }
+    },
+    "pricing": {
+      "type": "object",
+      "properties": {
+        "currency": { "type": ["string", "null"] },
+        "yacht": { "type": ["object", "null"] },
+        "jet": { "type": ["object", "null"] }
+      }
+    },
+    "yacht_specs": { "type": ["object", "null"] },
+    "jet_specs": {
+      "type": ["object", "null"],
+      "properties": {
+        "aircraft_model": { "type": ["string", "null"] },
+        "category": { "type": ["string", "null"] },
+        "pax": { "type": ["integer", "null"] },
+        "range_nm": { "type": ["integer", "null"] },
+        "year": { "type": ["integer", "null"] },
+        "price_per_hour_est": { "type": ["number", "null"] }
+      }
+    },
+    "empty_leg": {
+      "type": ["object", "null"],
+      "required": ["is_empty_leg", "from", "to", "date"],
+      "properties": {
+        "is_empty_leg": { "type": "boolean" },
+        "from": { "type": "object" },
+        "to": { "type": "object" },
+        "date": { "type": "string" },
+        "window_start": { "type": ["string", "null"] },
+        "window_end": { "type": ["string", "null"] },
+        "price": { "type": ["number", "null"] },
+        "currency": { "type": ["string", "null"] },
+        "discount_pct_est": { "type": ["integer", "null"] },
+        "seats": { "type": ["integer", "null"] }
+      }
+    },
+    "media": { "type": "object" },
+    "raw_hash": { "type": ["string", "null"] },
+    "first_seen": { "type": ["string", "null"] },
+    "last_seen": { "type": ["string", "null"] }
+  }
+}

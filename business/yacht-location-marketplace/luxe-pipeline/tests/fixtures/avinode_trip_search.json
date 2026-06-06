@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "id": "leg-100231",
+      "isEmptyLeg": true,
+      "url": "https://marketplace.avinode.com/legs/leg-100231",
+      "segment": {
+        "departureAirport": {"iata": "LBG", "city": "Paris", "country": "FR"},
+        "arrivalAirport": {"iata": "NCE", "city": "Nice", "country": "FR"},
+        "departureDate": "2026-06-12",
+        "departureDateTime": "2026-06-12T09:30:00Z",
+        "arrivalDateTime": "2026-06-12T10:55:00Z"
+      },
+      "aircraft": {
+        "aircraftType": "Citation XLS+",
+        "category": "Midsize jet",
+        "maxPax": 8,
+        "rangeNm": 2100,
+        "yearOfManufacture": 2019,
+        "imageUrl": "https://img.avinode.example/xls.jpg"
+      },
+      "price": {"amount": 8900, "currency": "EUR"},
+      "discountPct": 62
+    },
+    {
+      "legId": "leg-100244",
+      "emptyLeg": true,
+      "leg": {
+        "from": {"code": "LBG", "name": "Paris Le Bourget", "countryCode": "FR"},
+        "to": {"code": "NCE", "name": "Nice Côte d'Azur", "countryCode": "FR"},
+        "date": "2026-06-13"
+      },
+      "lift": {
+        "type": "Phenom 300",
+        "categoryName": "Light jet",
+        "seats": 7,
+        "range": 1971,
+        "year": 2021
+      },
+      "sellerPrice": {"amount": 7200, "currency": "EUR"},
+      "discountPercentage": 55
+    },
+    {
+      "tripId": "leg-100299",
+      "isEmptyLeg": true,
+      "origin": {"iata": "GVA", "city": "Geneva", "country": "CH"},
+      "destination": {"iata": "IBZ", "city": "Ibiza", "country": "ES"},
+      "departureDateTime": "2026-07-04T14:00:00Z",
+      "aircraft": {"model": "Challenger 350", "category": "Super midsize jet", "pax": 9},
+      "price": 14500,
+      "currency": "EUR"
+    }
+  ],
+  "meta": {"count": 3, "source": "fixture-recorded-shape"}
+}

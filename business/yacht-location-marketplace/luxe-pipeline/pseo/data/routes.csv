@@ -1,0 +1,11 @@
+from_iata,to_iata,flight_min,price_from_eur,p_light_eur,p_mid_eur,p_heavy_eur,keyword
+LBG,NCE,80,9500,9500,13500,21000,private jet charter Paris to Nice price
+GVA,NCE,55,8200,8200,11500,18000,private jet charter Geneva to Nice price
+GVA,IBZ,105,12000,12000,16500,24000,private jet Geneva to Ibiza cost
+LCY,NCE,110,14000,14000,18500,27000,private jet London to Nice price
+LCY,GVA,95,12500,12500,16000,23500,private jet London to Geneva cost
+LIN,OLB,70,8800,8800,12000,17500,private jet Milan to Olbia Sardinia price
+DXB,MLE,255,52000,,52000,68000,Dubai to Maldives private jet charter price
+LBG,IBZ,135,15500,15500,20000,29000,private jet Paris to Ibiza price
+GVA,OLB,90,11000,11000,15000,21500,private jet Geneva to Olbia price
+LCY,IBZ,140,,,,,private jet London to Ibiza price
