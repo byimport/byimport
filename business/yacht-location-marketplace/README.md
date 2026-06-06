@@ -33,6 +33,18 @@ C'est le cœur de la demande, et c'est là qu'il faut être honnête, sinon tout
 | `BUDGET_KPIS.md` | Budget de lancement 90 jours, CAC cible, taux de conversion, P&L par réservation et mensuel, seuils d'alerte. |
 | `PLAN_90_JOURS.md` | Le plan A→Z, semaine par semaine, du choix de la niche jusqu'au scale. |
 
+### 🛥️ Extension « Luxe » — Yachts & Jets privés, ciblage HNWI (couche ultra-technique)
+
+Pour la montée en gamme (superyachts + jets privés, clientèle HNWI), 3 modules d'ingénierie data & growth, orientés développeur (code, schémas, étapes actionnables) :
+
+| Fichier | Module |
+|---------|--------|
+| `LUXE_MODULE_1_SCRAPING.md` | **Scraping & mapping data** : sources yachts/jets, hiérarchie API→feed→JSON-LD→CSS, anti-bot gradué, empty legs temps réel, schéma JSON canonique + DDL PostgreSQL + Airtable, code Playwright/curl_cffi/Scrapy. |
+| `LUXE_MODULE_2_LEADGEN.md` | **Lead gen outbound** : ciblage *indirect* des apporteurs (conciergeries, family offices, gestionnaires de patrimoine, event planners, immobilier de prestige), pipeline Sales Nav→enrichissement→séquenceur, 2 scripts cold email (marque blanche), conformité RGPD/ePrivacy. |
+| `LUXE_MODULE_3_SEO.md` | **SEO ultra-intent** : 20 mots-clés long-tail transactionnels, cocon sémantique jets+yachts (pSEO routes/modèles/événements), template HTML on-page optimisé CRO + JSON-LD. |
+
+> ⚠️ Ces modules touchent **scraping (ToS/IP-ban)**, **données personnelles (RGPD)** et **cold email (ePrivacy)**. Chaque fichier contient sa boîte de garde-fous légaux — à lire, ce ne sont pas des options.
+
 ## 🚀 Plan d'action 90 jours (résumé — détail dans `PLAN_90_JOURS.md`)
 
 | Phase | Jours | Objectif | Livrable |
