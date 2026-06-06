@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MonQR — un QR code pour tous vos réseaux</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="brand"><span class="logo">▦</span> MonQR</div>
+
+    <div class="hero">
+      <h1>Un seul QR code pour tous vos réseaux</h1>
+      <p>Créez votre carte, imprimez le QR code et collez-le où vous voulez.
+         Les gens scannent, vous suivent, et laissent un avis avec un pouce bleu 👍.</p>
+    </div>
+
+    <!-- Formulaire de création -->
+    <div class="card no-print" id="formCard">
+      <h2>Créer ma carte</h2>
+
+      <label>Nom ou pseudo *</label>
+      <input id="name" maxlength="60" placeholder="Ex : Studio Léa" />
+
+      <label>Présentation <span class="hint">(courte description)</span></label>
+      <textarea id="bio" maxlength="280" placeholder="Photographe à Genève — portraits & événements"></textarea>
+
+      <label>Photo / logo <span class="hint">(lien d'image, optionnel)</span></label>
+      <input id="avatar" maxlength="500" placeholder="https://..." />
+
+      <label>Couleur d'accent</label>
+      <input id="accent" type="color" value="#2563eb" style="width:64px;height:42px;padding:4px" />
+
+      <label>Vos réseaux <span class="hint">(remplissez ceux que vous voulez)</span></label>
+      <div class="social-grid" id="socialGrid"></div>
+
+      <div class="spacer"></div>
+      <button class="btn full" id="createBtn">Générer mon QR code</button>
+      <div id="formMsg"></div>
+    </div>
+
+    <!-- Résultat : QR + lien -->
+    <div class="card print-card" id="resultCard" style="display:none">
+      <h2 class="no-print">🎉 Votre carte est prête</h2>
+      <div class="qr-box">
+        <div id="qrcode"></div>
+        <p class="muted" style="margin:12px 0 0" id="qrName"></p>
+      </div>
+      <div class="qr-url no-print">
+        <input id="profileUrl" readonly />
+        <button class="btn secondary" id="copyBtn">Copier</button>
+      </div>
+      <div class="spacer no-print"></div>
+      <div class="no-print" style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" id="openBtn" target="_blank">Voir ma page</a>
+        <button class="btn secondary" id="printBtn">🖨️ Imprimer le QR</button>
+        <button class="btn secondary" id="dlBtn">⬇️ Télécharger (PNG)</button>
+      </div>
+    </div>
+
+    <!-- Liste des dernières cartes -->
+    <div class="card no-print">
+      <h2>Dernières cartes créées</h2>
+      <div id="profileList"><p class="muted">Chargement…</p></div>
+    </div>
+  </div>
+
+  <!-- Librairie QR (rendu côté navigateur). Repli géré si indisponible. -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="/js/socials.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>

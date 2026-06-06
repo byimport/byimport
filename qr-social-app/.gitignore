@@ -1,0 +1,4 @@
+# Données runtime (générées par le serveur)
+data/*.json
+data/*.tmp
+node_modules/
