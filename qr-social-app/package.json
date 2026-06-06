@@ -1,0 +1,14 @@
+{
+  "name": "monqr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Un QR code imprimable qui regroupe tous les réseaux sociaux d'une personne, avec avis et likes (pouce bleu).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
