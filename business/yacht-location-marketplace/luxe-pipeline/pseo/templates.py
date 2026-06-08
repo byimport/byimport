@@ -288,6 +288,34 @@ def render_pillar(asset_type: str, child_links: list[tuple[str, str]]) -> str:
     return "\n".join(parts)
 
 
+def render_home(*, jets: bool, yachts: bool) -> str:
+    """Site root landing page linking to the pillars."""
+    canonical = f"https://{DOMAIN}/"
+    title = f"Private Jet & Superyacht Charter | {BRAND}"
+    intro = ("On-demand private jet and luxury yacht charter. Fixed quotes in "
+             "under 2 hours, certified operators, full discretion, 24/7.")
+    cards = []
+    if jets:
+        cards.append('<a class="card" href="/private-jet-charter/">'
+                     "<h2>Private jet charter &rarr;</h2>"
+                     "<p>Routes, aircraft, live empty legs.</p></a>")
+    if yachts:
+        cards.append('<a class="card" href="/yacht-charter/">'
+                     "<h2>Superyacht charter &rarr;</h2>"
+                     "<p>Mediterranean destinations &amp; events.</p></a>")
+    breadcrumb = _breadcrumb_ld([(BRAND, "/")])
+    parts = [
+        _head(title, intro, canonical, [breadcrumb]),
+        '<a id="top"></a>', '<header class="hero">', _trust_bar(),
+        f"<h1>{esc(BRAND)} — Private Jet &amp; Superyacht Charter</h1>",
+        f'<p class="subhead">{esc(intro)}</p>',
+        _quote_form("home"), "</header>",
+        f'<section class="cluster">{"".join(cards)}</section>',
+        _sticky_cta(), "</body></html>",
+    ]
+    return "\n".join(parts)
+
+
 def _slugify(text: str) -> str:
     out = []
     for ch in text.lower():

@@ -35,6 +35,17 @@ luxe-pipeline/
   requirements-optional.txt    psycopg, jsonschema (extras)
 ```
 
+## Mise en ligne
+
+`build_site.sh` produit un site statique dans `dist/` (par défaut en **PREVIEW
+`noindex`**). Config Vercel (`vercel.json`) et Netlify (`netlify.toml`) fournies.
+Procédure complète, checklist preview→production et garde-fous : **`DEPLOIEMENT.md`**.
+
+```bash
+bash build_site.sh                       # PREVIEW noindex (défaut)
+python3 -m http.server -d dist 8080      # prévisualiser localement
+```
+
 ## Quickstart (hors-ligne, zéro install)
 
 ```bash
