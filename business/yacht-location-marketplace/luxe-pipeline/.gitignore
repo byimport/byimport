@@ -1,0 +1,5 @@
+# Your real brand identity / contacts — keep private, do not commit
+branding.json
+
+__pycache__/
+*.pyc

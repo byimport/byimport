@@ -10,12 +10,41 @@ from __future__ import annotations
 
 import html
 import json
+import os
 from typing import Any, Optional
 
-BRAND = "{{BRAND}}"
-DOMAIN = "example.com"
-WA_NUMBER = "00000000000"
-PHONE = "+377 00 00 00 00"
+
+def _load_branding() -> dict:
+    """Brand identity, overridable without touching code.
+
+    Priority: env vars (SITE_BRAND/SITE_DOMAIN/SITE_PHONE/SITE_WHATSAPP) >
+    branding.json at the luxe-pipeline root > placeholder defaults.
+    Fill branding.json (copy branding.example.json) with your real values to
+    move from PREVIEW placeholders to a production-ready site.
+    """
+    defaults = {"brand": "{{BRAND}}", "domain": "example.com",
+                "phone": "+377 00 00 00 00", "whatsapp": "00000000000"}
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    cfg_path = os.path.join(root, "branding.json")
+    if os.path.isfile(cfg_path):
+        try:
+            with open(cfg_path, encoding="utf-8") as fh:
+                defaults.update({k: v for k, v in json.load(fh).items() if v})
+        except (OSError, ValueError):
+            pass
+    return {
+        "brand": os.environ.get("SITE_BRAND", defaults["brand"]),
+        "domain": os.environ.get("SITE_DOMAIN", defaults["domain"]),
+        "phone": os.environ.get("SITE_PHONE", defaults["phone"]),
+        "whatsapp": os.environ.get("SITE_WHATSAPP", defaults["whatsapp"]),
+    }
+
+
+_BRANDING = _load_branding()
+BRAND = _BRANDING["brand"]
+DOMAIN = _BRANDING["domain"]
+WA_NUMBER = _BRANDING["whatsapp"]
+PHONE = _BRANDING["phone"]
 
 
 def esc(value: Any) -> str:

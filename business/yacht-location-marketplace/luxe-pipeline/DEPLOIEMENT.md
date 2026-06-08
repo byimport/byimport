@@ -9,7 +9,12 @@ Le site contient des **données placeholder** : `{{BRAND}}`, téléphone fictif,
 - **Reste en PREVIEW (`noindex`)** — c'est le build par défaut (`bash build_site.sh`). Chaque page porte `<meta name="robots" content="noindex,follow">` et `robots.txt` interdit toute indexation.
 - **Ne passe en PRODUCTION (indexable)** qu'avec : marque réelle, **opérateur/entité juridique réel**, **prix réels**, mentions légales/CGV (cf. `../CADRE_LEGAL.md`). Annoncer des charters à des prix inventés sans opérateur = trompeur + risque juridique.
 
-Remplace les placeholders dans `pseo/templates.py` (constantes `BRAND`, `DOMAIN`, `WA_NUMBER`, `PHONE`) et les valeurs des CSV `pseo/data/` avant le build `prod`.
+Renseigne tes vraies valeurs **sans toucher au code** : copie `branding.example.json` en `branding.json` (marque, domaine, téléphone, WhatsApp) — ou exporte `SITE_BRAND`/`SITE_DOMAIN`/`SITE_PHONE`/`SITE_WHATSAPP`. Mets tes **prix réels** dans `pseo/data/*.csv`. `branding.json` est gitignoré (données privées).
+
+```bash
+cp branding.example.json branding.json   # puis édite tes vraies valeurs
+bash build_site.sh prod                   # build indexable avec ta marque
+```
 
 ## Build local
 
@@ -62,7 +67,7 @@ Build en CI puis publication. Exemple de job (à adapter, **dans un repo dédié
 - **Production** : un domaine de marque (ex. `charter.tamarque.com`). Configure le DNS chez le host, force HTTPS.
 
 ## Checklist passage PREVIEW → PRODUCTION
-- [ ] `BRAND`, `DOMAIN`, `WA_NUMBER`, `PHONE` réels dans `pseo/templates.py`
+- [ ] `branding.json` créé avec marque / domaine / téléphone / WhatsApp réels
 - [ ] Prix réels dans `pseo/data/*.csv` (ou alimentés par le connector + tes tarifs)
 - [ ] Opérateur/entité juridique réel + assurances (`../CADRE_LEGAL.md`)
 - [ ] Mentions légales, CGV, politique de confidentialité ajoutées
