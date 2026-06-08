@@ -1,0 +1,9 @@
+model,slug,category,pax,range_nm,price_per_hour_eur,keyword
+Citation CJ3,citation-cj3,Light jet,6,1875,3200,Citation CJ3 charter price per hour
+Phenom 300,phenom-300,Light jet,7,1971,3400,Phenom 300 charter rate per hour
+Citation XLS+,citation-xls,Midsize jet,8,2100,4200,Citation XLS charter price Europe
+Challenger 350,challenger-350,Super midsize jet,9,3200,5600,Challenger 350 hourly charter rate
+Gulfstream G450,gulfstream-g450,Heavy jet,13,4350,8200,Gulfstream G450 charter rate Europe
+Gulfstream G650,gulfstream-g650,Ultra long range,14,7000,11500,Gulfstream G650 charter rate per hour
+Global 6000,global-6000,Ultra long range,13,6000,10500,Bombardier Global 6000 charter price
+Legacy 600,legacy-600,Heavy jet,13,3400,
