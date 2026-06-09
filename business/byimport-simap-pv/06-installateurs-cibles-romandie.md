@@ -21,7 +21,16 @@
 
 ⭐ = à contacter en priorité (Betelec : présence avérée sur les marchés publics PV ; tera solar : volume élevé = fort appétit pour baisser le coût module).
 
-> Récupère l'e-mail de contact de chacun sur son site (page « Contact ») avant envoi.
+### Coordonnées vérifiées (juin 2026)
+
+| Entreprise | E-mail | Téléphone |
+|---|---|---|
+| Betelec SA | info@betelec.ch | +41 21 651 64 00 |
+| ElectroSolar SA | info@electrosolar.ch | +41 27 205 88 11 |
+| Energymoov Swiss | info@energymoov.ch | +41 22 552 02 26 |
+| SEFA | info@sefa.ch | +41 21 821 54 00 |
+| tera solar | (pas d'e-mail public — formulaire terasolar.ch) | GE +41 22 772 02 00 · VD +41 21 566 19 20 |
+| Bloom Energy | (pas d'e-mail public — formulaire bloom-energy.ch) | +41 22 566 06 29 |
 
 ## Logique de marge / contrat (à expliquer au partenaire)
 
