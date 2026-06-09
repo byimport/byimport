@@ -17,18 +17,26 @@ segment où ByImport + un partenaire peuvent réellement gagner.
 > Affine l'arborescence (jusqu'à 8 chiffres) dans le gestionnaire CPV de simap :
 > https://www.simap.ch/shabforms/servlet/CpvManagerDispatcher?REDIRECT=CPV&LANGUAGE=FR&MODE=CPV
 
-## Configuration des alertes (à faire une fois)
+## Configuration des alertes (clic par clic — parcours vérifié)
 
-1. Crée un **compte utilisateur** simap (gratuit). Pas besoin de « profil
-   soumissionnaire » juste pour la veille et les alertes.
-2. Crée un **abonnement / alerte par code CPV** ci-dessus → e-mail à chaque
-   nouvel avis, toute la Suisse.
-3. **Filtres prioritaires** : type = *Fournitures* **et** *Travaux* (le PV
-   apparaît dans les deux) ; procédure = *gré à gré* + *sur invitation* en
-   priorité (voir seuils ci-dessous).
-4. Surveille séparément les **avis d'adjudication** sur `09332000` / `45261215`
-   → ils révèlent les installateurs qui gagnent les marchés PV publics
-   (cf. `02-recherche-partenaire.md`).
+> Tous les services simap sont **gratuits**. La recherche est possible sans
+> compte ; le compte sert à s'abonner aux alertes et à télécharger les dossiers.
+
+1. Va sur **https://www.simap.ch/fr** → bouton **« Login »** (`/fr/provider/login`)
+   → **enregistre-toi** (créer un compte personnel), puis **rattache ton
+   entreprise/organisation** (nom, adresse, coordonnées).
+2. Reviens à l'accueil → **champ de recherche principal** : tape un code CPV
+   ci-dessus (ex. `09331200`) ou un mot-clé (« photovoltaïque », « modules solaires »).
+3. Affine avec les filtres : **« Genre de marché »** (= Fournitures **et**
+   Travaux — le PV apparaît dans les deux), **« Lieu d'exécution »** (toute la
+   Suisse), **« Plus de filtres »** pour la procédure.
+4. **À partir de cette recherche, crée ton abonnement « en deux clics »** → tu
+   reçois un e-mail à chaque nouvel avis correspondant. Répète pour chaque CPV.
+5. Crée **une recherche/abonnement séparé sur les avis d'adjudication** des CPV
+   `09332000` / `45261215` → ils révèlent les installateurs qui gagnent les
+   marchés PV publics (= tes partenaires cibles, cf. `02-recherche-partenaire.md`).
+
+> Tutoriels vidéo officiels : https://www.simap.ch/fr/help/tutorials
 
 ## L'échelle des seuils (cantonal AIMP/IVöB, HT, inchangés 2024/2025)
 
