@@ -44,25 +44,26 @@ comme **fournisseur de modules** de l'installateur-porteur.
 
 ## ÉTAPE 3 — Agent 3 : Marge à deux étages
 
-Calculé avec `modele_marge.py --puissance-wc 200000 --cout-rendu 0.13 --marge-pct 20 --prix-marche 0.25` :
+Calculé avec `modele_marge.py --puissance-wc 200000 --cout-rendu 0.10 --prix-marche 0.25`
+(mode défaut : prix cible juste sous le marché) :
 
 ```
 Étage 1 — ByImport (fournisseur module)
-  Coût rendu module         0.130 CHF/Wc   → CHF 26'000
-  Prix vente → installateur 0.156 CHF/Wc   → CHF 31'200  (CA ByImport)
-  >> Marge brute ByImport   CHF 5'200  (16.7 %)
+  Coût rendu module         0.100 CHF/Wc   → CHF 20'000
+  Prix vente → installateur 0.212 CHF/Wc   → CHF 42'400  (CA ByImport)
+  >> Marge brute ByImport   CHF 22'400  (52.8 %)
 
 Étage 2 — Compétitivité vs marché installateur
   Prix module marché CH     0.250 CHF/Wc   → CHF 50'000
-  Économie offerte à l'installateur  CHF 18'800  (37.6 %)
+  Économie offerte à l'installateur  CHF 7'600  (15.2 %)
 
   VERDICT : ✅ COMPÉTITIF
 ```
 
-**Lecture :** sur ce marché fictif, ByImport encaisse **~5 200 CHF** de marge brute
-sur le poste module tout en faisant **économiser ~18 800 CHF** à l'installateur vs
-son sourcing habituel. Tout le monde y gagne, et l'installateur devient plus
-agressif sur le prix global → meilleures chances d'adjudication.
+**Lecture :** en visant juste sous le prix marché (0,212 vs 0,25), ByImport
+encaisse **~22 400 CHF** de marge brute (53 %) sur le poste module tout en faisant
+**économiser 15 %** à l'installateur — assez pour qu'il ait un vrai intérêt à
+travailler avec toi, sans brader. Crédible (Tier-1 certifié) et rentable.
 
 > Sur des marchés plus gros ou répétés (contrats-cadres), l'effet volume rend la
 > marge absolue bien plus intéressante.

@@ -30,17 +30,34 @@ Hypothèses et ordres de grandeur (2025-2026 — À RECONFIRMER, marché volatil
   Marge ByImport cible          15–25 %
   Part module dans le clé en main   ~25–40 %
 
-Règle d'or : Prix vente ByImport < Prix module marché installateur.
-Sinon, pas d'offre — quelle que soit la marge cible.
+Stratégie de prix (recommandée) : vise JUSTE SOUS le prix marché de
+l'installateur (par défaut 15 % en dessous), pas le prix cassé. Tu maximises
+ta marge, tu restes crédible (un prix absurdement bas inquiète sur la qualité),
+et tu laisses à l'installateur une vraie économie (~10-20 %).
 
-Garde-fou produit : modules certifiés IEC 61215 / 61730 + CE, éligibles Pronovo.
+Règle d'or : Prix vente ByImport < Prix module marché installateur.
+Au-dessus, l'installateur achète ailleurs → pas d'offre.
+
+Garde-fou produit : modules Tier-1 certifiés IEC 61215 / 61730 + CE, éligibles
+Pronovo. La confiance B2B vient des certifs + garantie, pas d'un prix élevé.
 """
 
 
-def calcul(puissance_wc, cout_rendu, marge_pct, prix_marche):
-    """Retourne un dict des indicateurs financiers du poste module."""
+def calcul(puissance_wc, cout_rendu, prix_marche, marge_pct=None, prix_vente=None):
+    """Indicateurs financiers du poste module.
+
+    Deux modes de fixation du prix de vente ByImport → installateur :
+      - prix_vente (CHF/Wc) : on vise directement un prix, idéalement JUSTE SOUS
+        le prix marché de l'installateur (recommandé — maximise la marge tout en
+        restant crédible et compétitif) ;
+      - marge_pct (%) : on applique une marge sur le coût rendu.
+    prix_vente l'emporte s'il est fourni.
+    """
     cout_total = puissance_wc * cout_rendu
-    prix_vente_wc = cout_rendu * (1 + marge_pct / 100.0)
+    if prix_vente is not None:
+        prix_vente_wc = prix_vente
+    else:
+        prix_vente_wc = cout_rendu * (1 + (marge_pct or 0) / 100.0)
     ca_byimport = puissance_wc * prix_vente_wc
     marge_brute = ca_byimport - cout_total
     marge_brute_pct = (marge_brute / ca_byimport * 100.0) if ca_byimport else 0.0
@@ -101,8 +118,9 @@ def main(argv=None):
     p = argparse.ArgumentParser(description="Modèle de marge à deux étages (modules PV, Voie C).")
     p.add_argument("--puissance-wc", type=float, help="Puissance totale du lot module, en Wc (ex. 200000 = 200 kWc).")
     p.add_argument("--cout-rendu", type=float, help="Coût rendu ByImport, CHF/Wc (prix usine + appro + douane).")
-    p.add_argument("--marge-pct", type=float, default=20.0, help="Marge ByImport cible en %% (défaut 20).")
-    p.add_argument("--prix-marche", type=float, help="Prix module marché installateur CH, CHF/Wc (étalon).")
+    p.add_argument("--prix-vente", type=float, help="Prix de vente cible ByImport → installateur, CHF/Wc (recommandé : viser juste sous le prix marché).")
+    p.add_argument("--marge-pct", type=float, help="Alternative : marge ByImport en %% sur le coût rendu (ignoré si --prix-vente est fourni).")
+    p.add_argument("--prix-marche", type=float, help="Prix module marché installateur CH, CHF/Wc (étalon = plafond).")
     p.add_argument("--aide-hypotheses", action="store_true", help="Affiche les hypothèses et ordres de grandeur.")
     args = p.parse_args(argv)
 
@@ -118,7 +136,15 @@ def main(argv=None):
         print("Lance `python3 modele_marge.py --aide-hypotheses` pour les ordres de grandeur.", file=sys.stderr)
         return 2
 
-    r = calcul(args.puissance_wc, args.cout_rendu, args.marge_pct, args.prix_marche)
+    prix_vente = args.prix_vente
+    marge_pct = args.marge_pct
+    if prix_vente is None and marge_pct is None:
+        # Défaut recommandé : prix cible 15 % SOUS le prix marché (juste sous le plafond).
+        prix_vente = round(args.prix_marche * 0.85, 4)
+        print(f"(défaut : prix cible fixé à 15 % sous le marché = {prix_vente:.3f} CHF/Wc)", file=sys.stderr)
+
+    r = calcul(args.puissance_wc, args.cout_rendu, args.prix_marche,
+               marge_pct=marge_pct, prix_vente=prix_vente)
     print(rapport(r))
     return 0
 

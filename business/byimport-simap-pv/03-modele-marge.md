@@ -32,14 +32,21 @@ Si ce n'est pas vrai, tu n'as pas d'offre — peu importe ta marge cible.
 
 ## Le calculateur
 
-`modele_marge.py` (stdlib uniquement) chiffre tout instantanément :
+`modele_marge.py` (stdlib uniquement) chiffre tout instantanément.
+
+**Mode recommandé — prix cible juste sous le marché** (par défaut, le prix est
+fixé à 15 % sous le prix marché, ce qui maximise la marge sans brader) :
 
 ```bash
-python3 modele_marge.py \
-  --puissance-wc 200000 \
-  --cout-rendu 0.13 \
-  --marge-pct 20 \
-  --prix-marche 0.25
+python3 modele_marge.py --puissance-wc 150000 --cout-rendu 0.10 --prix-marche 0.25
+# → prix auto 0.212 CHF/Wc, marge ~53 %, l'installateur économise 15 %
+```
+
+Tu peux aussi fixer toi-même le prix de vente, ou raisonner en marge :
+
+```bash
+python3 modele_marge.py --puissance-wc 150000 --cout-rendu 0.10 --prix-vente 0.21 --prix-marche 0.25
+python3 modele_marge.py --puissance-wc 150000 --cout-rendu 0.10 --marge-pct 50 --prix-marche 0.25
 ```
 
 Sorties : CA ByImport, marge brute (CHF + %), prix/Wc au partenaire, **économie
