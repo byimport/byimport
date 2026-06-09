@@ -9,7 +9,7 @@ Le site contient des **données placeholder** : `{{BRAND}}`, téléphone fictif,
 - **Reste en PREVIEW (`noindex`)** — c'est le build par défaut (`bash build_site.sh`). Chaque page porte `<meta name="robots" content="noindex,follow">` et `robots.txt` interdit toute indexation.
 - **Ne passe en PRODUCTION (indexable)** qu'avec : marque réelle, **opérateur/entité juridique réel**, **prix réels**, mentions légales/CGV (cf. `../CADRE_LEGAL.md`). Annoncer des charters à des prix inventés sans opérateur = trompeur + risque juridique.
 
-Renseigne tes vraies valeurs **sans toucher au code** : copie `branding.example.json` en `branding.json` (marque, domaine, téléphone, WhatsApp) — ou exporte `SITE_BRAND`/`SITE_DOMAIN`/`SITE_PHONE`/`SITE_WHATSAPP`. Mets tes **prix réels** dans `pseo/data/*.csv`. `branding.json` est gitignoré (données privées).
+Renseigne tes vraies valeurs **sans toucher au code** dans `branding.json` (marque, **domaine réel**, téléphone, WhatsApp) — ou exporte `SITE_BRAND`/`SITE_DOMAIN`/`SITE_PHONE`/`SITE_WHATSAPP`. Mets tes **prix réels** dans `pseo/data/*.csv`. `branding.json` est committé (identité publique du site) ; les **secrets** (`.env`, `api/owners.json`, clés Stripe) sont gitignorés. Marge & affichage par personne : `pseo/pricing.py` (`SITE_MARGIN_PCT`, `SITE_GROUP_SIZE`). Paiement carte : voir `api/README.md`.
 
 ```bash
 cp branding.example.json branding.json   # puis édite tes vraies valeurs

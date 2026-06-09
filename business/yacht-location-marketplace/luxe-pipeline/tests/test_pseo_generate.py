@@ -64,6 +64,26 @@ class TestPseo(unittest.TestCase):
         self.assertIn("wa.me", html)                 # WhatsApp CTA
         self.assertIn("<link rel=\"canonical\"", html)
 
+    def test_per_person_pricing_and_card_payment(self) -> None:
+        page = os.path.join(self.out,
+                            "private-jet-charter/routes/geneva-to-nice/index.html")
+        with open(page, encoding="utf-8") as fh:
+            html = fh.read()
+        self.assertIn("/ person", html)              # per-person headline (÷ group)
+        self.assertIn("total", html)                 # total shown (compliance)
+        self.assertIn("guests", html)                # group basis shown
+        self.assertIn("Book &amp; pay by card", html)  # card payment CTA
+
+    def test_margin_split_math(self) -> None:
+        from pseo import pricing
+        total = 8200
+        self.assertEqual(pricing.per_person(total, 10), 820)
+        self.assertAlmostEqual(
+            pricing.owner_payout(total) + pricing.platform_margin(total), total, places=2)
+        # platform keeps the configured margin share
+        self.assertAlmostEqual(
+            pricing.platform_margin(total), total * pricing.MARGIN_PCT, places=2)
+
     def test_sitemap_lists_all_generated(self) -> None:
         with open(os.path.join(self.out, "sitemap.xml"), encoding="utf-8") as fh:
             sitemap = fh.read()

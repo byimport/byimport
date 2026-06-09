@@ -13,6 +13,8 @@ import json
 import os
 from typing import Any, Optional
 
+from pseo import pricing
+
 
 def _load_branding() -> dict:
     """Brand identity, overridable without touching code.
@@ -77,13 +79,30 @@ def _trust_bar() -> str:
             '<span>&#10003; Full discretion</span></nav>')
 
 
+def price_headline(total, unit: str = "total") -> str:
+    """Per-person headline (÷ group size) shown WITH the real total + basis.
+
+    Compliant display: the per-person figure attracts, the total and the
+    'N guests' basis are always visible right next to it.
+    """
+    pp = pricing.per_person(total)
+    amt = pricing.to_amount(total)
+    if pp is None or amt is None:
+        return '<p class="subhead">Price on request &middot; pay by card</p>'
+    return (f'<p class="subhead">From <strong>&euro;{pp:,} / person</strong> '
+            f'<span class="price-basis">({pricing.GROUP_SIZE} guests &middot; '
+            f'&euro;{amt:,.0f} {esc(unit)} &middot; pay securely by card)</span></p>')
+
+
 def _quote_form(route_tag: str) -> str:
-    return f"""  <form class="quote" action="/api/quote" method="post" data-route="{esc(route_tag)}">
+    return f"""  <form class="quote" action="/api/create-checkout-session" method="post" data-ref="{esc(route_tag)}">
+    <input type="hidden" name="ref" value="{esc(route_tag)}">
     <input type="date" name="date" required aria-label="Date">
-    <input type="number" name="pax" min="1" max="19" placeholder="Passengers" required>
+    <input type="number" name="pax" min="1" max="40" placeholder="Guests" required>
     <input type="tel" name="phone" placeholder="Phone (instant callback)" required>
-    <button type="submit">Get my price &rarr;</button>
+    <button type="submit" class="btn-book">Book &amp; pay by card &rarr;</button>
   </form>
+  <p class="pay-note">Secure card payment &middot; instant booking sent to the owner &middot; full discretion</p>
   <div class="cta-instant">
     <a class="btn-wa" href="https://wa.me/{WA_NUMBER}">WhatsApp now</a>
     <a class="btn-call" href="tel:{esc(PHONE)}">Call {esc(PHONE)}</a>
@@ -187,8 +206,7 @@ def render_route(route: dict, aircraft_rows: list[dict],
         _head(title, desc, canonical, [service_ld, _faqpage_ld(faqs), breadcrumb]),
         '<a id="top"></a>', '<header class="hero">', _trust_bar(),
         f"<h1>Private Jet Charter — {esc(frm)} &rarr; {esc(to)}</h1>",
-        (f'<p class="subhead">Indicative price from <strong>€{esc(price_from)}'
-         f"</strong> &middot; {esc(route['flight_min'])} min flight</p>"),
+        price_headline(price_from, unit=f"total · {esc(route['flight_min'])} min flight"),
         _quote_form(route["slug"]), "</header>",
         _empty_legs_block(empty_legs), table, _faq_section(faqs),
         _related(related + [("All private jet charters", "/private-jet-charter/")]),

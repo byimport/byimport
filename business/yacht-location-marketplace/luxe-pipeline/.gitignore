@@ -1,5 +1,8 @@
-# Your real brand identity / contacts — keep private, do not commit
-branding.json
+# Secrets — NEVER commit
+.env
+.env.*
+api/owners.json
 
+# Python
 __pycache__/
 *.pyc
