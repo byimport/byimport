@@ -13,6 +13,7 @@
 | `MARGES_ET_PRIX.md` | Calculs de marges détaillés : 2 scénarios (premium bouteille 500 ml et vrac flexitank), structure de paiement 30%/70%, cash-flow, risques. |
 | `SOLUTIONS_FINANCEMENT.md` | 7 solutions concrètes pour permettre aux acheteurs chinois d'acheter sans bloquer la trésorerie (L/C, Trade Assurance, pré-financement BIAT/COTUNACE, distribution, Tmall Global). |
 | `IMPORTATEURS_CHINOIS_CIBLE.md` | Liste de 16 importateurs/distributeurs chinois réels (COFCO, Yihai Kerry, AusNZ Foods, DCH Auriga, Hema, Tmall Global, etc.) + 4 voies concrètes pour obtenir les vrais e-mails des décideurs (Alibaba RFQ, LinkedIn Sales Navigator, missions CEPEX). |
+| `EMAILS_CEPEX_ONH.md` | 2 e-mails prêts à copier-coller pour le CEPEX (liste exportateurs GACC + missions Chine) et l'ONH (cours FOB Radès + conditions d'achat vrac), avec adresses, sujets, corps et checklist d'envoi. |
 
 ## 🚀 Plan d'action en 6 étapes
 
