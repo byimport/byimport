@@ -46,29 +46,31 @@ Tu ne fixes pas un prix dans le vide : tu **compares**.
 ## E-mail partenariat — prêt à envoyer (remplir [nom] / [téléphone])
 
 ```
-Objet : Modules PV à coût frontalier pour vos marchés publics — partenariat
+Objet : Modules PV Tier-1 certifiés à coût frontalier — partenariat appels d'offres
 
-Bonjour [Nom du contact],
+Bonjour,
 
-Je suis [ton nom], de ByImport (Saint-Julien-en-Genevois, à 10 min de
-Genève). Nous importons des modules photovoltaïques certifiés (IEC 61215 /
-IEC 61730, CE, éligibles Pronovo).
+ByImport (Saint-Julien-en-Genevois, à 10 min de Genève) fournit aux
+installateurs romands des modules photovoltaïques Tier-1 (Jinko, Trina,
+Longi) : certifiés IEC 61215 / IEC 61730 et CE, éligibles Pronovo, garantie
+produit 25 ans et performance 30 ans. Documentation de conformité fournie
+pour chaque dossier.
 
-Votre entreprise est reconnue sur les installations PV en Suisse romande, et
-je vous propose un partenariat simple : je sécurise votre approvisionnement
-modules à un coût rendu Suisse très compétitif (position frontalière =
-transport court, délais rapides, droits de douane industriels supprimés
-depuis 2024). Vous portez l'offre et la pose ; je fournis.
+Notre proposition : sécuriser votre approvisionnement modules à un coût rendu
+Suisse compétitif — position frontalière = livraison rapide, droits de douane
+industriels supprimés depuis 2024 — pour renforcer votre compétitivité sur
+vos appels d'offres publics. Vous portez l'offre et la pose ; nous fournissons
+des modules fiables, à temps.
 
 Concrètement : indiquez-moi le module et le prix au Wc que vous utilisez
-aujourd'hui sur une référence type — je vous renvoie mon prix rendu
-équivalent. Si je suis en dessous, vous gagnez en compétitivité sur vos
-prochains appels d'offres publics (ou en marge à prix égal).
+aujourd'hui — je vous renvoie mon prix rendu équivalent, certificats et fiche
+technique à l'appui.
 
-Seriez-vous ouvert à 20 minutes d'échange cette semaine ?
+20 minutes d'échange cette semaine ?
 
 Cordialement,
-[ton nom] — ByImport
+ByImport
+Saint-Julien-en-Genevois (France) — à 10 min de Genève
 [téléphone] · byimport2@gmail.com
 ```
 
