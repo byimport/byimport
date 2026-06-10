@@ -1,0 +1,33 @@
+{
+  "skill_name": "meta-ads-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Audit my Meta ads account. Here's the data:\n\n```json\n{\"account\": {\"name\": \"Glow Skincare DTC\", \"id\": \"act_1122334455\", \"currency\": \"USD\", \"timezone\": \"America/New_York\", \"account_status\": 1},\n\"pixel\": {\"pixel_id\": \"998877\", \"capi_enabled\": false, \"emq_score\": 4.2, \"last_event_at\": \"2026-06-09T18:00:00Z\"},\n\"campaigns\": [{\"name\": \"Prospecting - ASC\", \"objective\": \"OUTCOME_SALES\", \"status\": \"ACTIVE\", \"daily_budget\": 400, \"spend_30d\": 11800, \"purchases\": 310, \"purchase_value\": 35400, \"roas\": 3.0, \"frequency\": 2.1, \"cpm\": 14.2, \"link_ctr\": 1.6},\n{\"name\": \"Retargeting - 30d\", \"objective\": \"OUTCOME_SALES\", \"status\": \"ACTIVE\", \"daily_budget\": 250, \"spend_30d\": 7400, \"purchases\": 96, \"purchase_value\": 11100, \"roas\": 1.5, \"frequency\": 8.4, \"cpm\": 22.8, \"link_ctr\": 0.7},\n{\"name\": \"Traffic - Blog\", \"objective\": \"OUTCOME_TRAFFIC\", \"status\": \"ACTIVE\", \"daily_budget\": 100, \"spend_30d\": 2950, \"purchases\": 2, \"purchase_value\": 140, \"roas\": 0.05, \"frequency\": 1.4, \"cpm\": 6.1, \"link_ctr\": 2.4}],\n\"ad_sets\": [{\"name\": \"ASC - Broad\", \"campaign\": \"Prospecting - ASC\", \"learning_stage\": \"SUCCESS\", \"attribution_setting\": \"7d_click_1d_view\"}, {\"name\": \"RT 30d visitors\", \"campaign\": \"Retargeting - 30d\", \"learning_stage\": \"LEARNING_LIMITED\", \"attribution_setting\": \"7d_click_1d_view\"}]}\n```",
+      "expected_output": "A read-only audit that ranks findings by dollar impact: the Retargeting campaign's frequency 8.4 with 1.5x ROAS and learning-limited ad set is the biggest problem (audience exhaustion / budget too high for the pool); the Traffic campaign spends ~$3k/month with near-zero purchase value and deserves objective scrutiny; pixel health flags CAPI disabled and a mediocre EMQ score. ROAS figures are cited with the 7d-click/1d-view attribution window. The audit recommends fixes but never mutates the account, and points the user to /meta-ads to execute.",
+      "files": [],
+      "expectations": [
+        "The audit is read-only — no pause, budget, or campaign mutations are attempted",
+        "Flags the Retargeting campaign's frequency 8.4 and weak ROAS as audience exhaustion with a concrete dollar-impact estimate",
+        "Flags the learning-limited retargeting ad set and ties it to the small audience or budget sizing",
+        "Flags CAPI disabled and the EMQ score as pixel-health issues affecting signal quality",
+        "Questions the Traffic objective campaign's ~$2,950/30d spend given near-zero purchase value",
+        "Cites the attribution window when quoting ROAS",
+        "Findings are prioritized by impact rather than listed in data order"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Set up my Meta ads — this is my first time using NotFair on this account.",
+      "expected_output": "The skill runs the onboarding path: shared preamble (MCP detection, OAuth, ad account selection), then gathers business context through conversation, then persists the filesystem contract — business-context.json under the account data dir's meta/ subdirectory and personas under meta/personas/. If a Google Ads business-context.json already exists in the data dir, it reuses the platform-agnostic fields instead of re-asking, and only collects Meta-specific extensions (funnel events, creative inventory, custom audiences, pixel health).",
+      "files": [],
+      "expectations": [
+        "The skill resolves MCP connectivity and ad account selection via the shared preamble before anything else",
+        "The skill writes business-context.json to the meta/ subdirectory of the account data dir",
+        "The skill writes personas JSON including meta_creative_angles and visual_cues fields",
+        "If a Google Ads business-context.json exists, the skill reuses platform-agnostic fields instead of re-asking the user",
+        "The skill collects Meta-specific extensions such as funnel events and pixel health rather than only the generic schema"
+      ]
+    }
+  ]
+}

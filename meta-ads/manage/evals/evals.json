@@ -1,0 +1,43 @@
+{
+  "skill_name": "meta-ads",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Can you help me manage my Meta ads?",
+      "expected_output": "The skill follows the shared preamble first: it verifies the NotFair Meta MCP server connection, handles OAuth if needed, and resolves the ad account (metaAccountId from .notfair.json or account selection). It should not attempt to pull campaign or ad set data before the setup flow is complete.",
+      "files": [],
+      "expectations": [
+        "The skill attempts to verify Meta MCP server connectivity before pulling data",
+        "The skill resolves the ad account via the shared preamble (metaAccountId in .notfair.json) instead of asking the user to paste an account id unprompted",
+        "The skill does not call insights or mutation tools before account selection is resolved",
+        "If any setup step is missing, the skill guides the user through resolution before proceeding"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "My prospecting ad set 'Cold - Broad US' is doing well, should I double its budget? Here's the data:\n\n```json\n{\"ad_set\": {\"name\": \"Cold - Broad US\", \"status\": \"ACTIVE\", \"daily_budget\": 150, \"optimization_goal\": \"OFFSITE_CONVERSIONS\", \"attribution_setting\": \"7d_click_1d_view\", \"learning_stage\": \"SUCCESS\"},\n\"insights_last_14d\": {\"spend\": 2100, \"impressions\": 168000, \"reach\": 41000, \"frequency\": 4.1, \"cpm\": 12.50, \"cpm_prior_14d\": 8.90, \"link_clicks\": 1850, \"link_ctr\": 1.1, \"link_ctr_prior_14d\": 1.9, \"purchases\": 52, \"purchase_value\": 6760, \"roas\": 3.2}}\n```",
+      "expected_output": "The skill applies frequency-first triage instead of rubber-stamping the budget increase: frequency 4.1 on cold prospecting with CPM up ~40% and link CTR nearly halved is creative fatigue, and adding budget would make it worse. It recommends refreshing creative (and possibly broadening the audience) before any budget change, cites ROAS with its attribution window (3.2x on 7d-click/1d-view), and uses link CTR rather than all-clicks CTR.",
+      "files": [],
+      "expectations": [
+        "The skill checks frequency and CPM trend before endorsing a budget increase",
+        "The skill identifies frequency 4.1 with rising CPM and falling link CTR as creative fatigue on a prospecting audience",
+        "The skill advises against doubling the budget while fatigue persists and recommends a creative refresh first",
+        "The skill cites the attribution window when quoting ROAS or CPA figures",
+        "The skill does not mutate anything — it presents the finding and waits for direction"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Pause my 'Retargeting - 30d site visitors' ad set, it's wasting money.",
+      "expected_output": "The skill confirms before writing: it pulls the ad set's current status, spend, and recent performance, shows the current state and the expected impact of pausing (spend saved, any revenue at risk given its ROAS), and asks for confirmation. The pause itself goes through the dedicated write tool (pauseAdSet), never through runScript.",
+      "files": [],
+      "expectations": [
+        "The skill reads the ad set's current status and recent performance before acting",
+        "The skill presents the current value, the proposed change, and the expected impact before mutating",
+        "The skill waits for explicit confirmation before executing the pause",
+        "The mutation goes through the dedicated write tool, not a runScript wrapper",
+        "If the data shows the ad set is actually profitable, the skill says so instead of silently complying"
+      ]
+    }
+  ]
+}
