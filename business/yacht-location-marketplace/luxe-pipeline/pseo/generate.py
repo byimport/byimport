@@ -29,6 +29,7 @@ import csv
 import hashlib
 import os
 import re
+import shutil
 import sys
 from typing import Any, Optional
 
@@ -300,9 +301,17 @@ def generate(out_dir: str, empty_legs_path: Optional[str] = None,
     report.generated.append("index.html")
     final_paths.append("index.html")
 
+    _copy_assets(out_dir)
     _sitemap(out_dir, final_paths)
     _write_robots(out_dir, preview)
     return report
+
+
+def _copy_assets(out_dir: str) -> None:
+    """Copy static assets (CSS, etc.) into the build output."""
+    src = os.path.join(_HERE, "assets")
+    if os.path.isdir(src):
+        shutil.copytree(src, os.path.join(out_dir, "assets"), dirs_exist_ok=True)
 
 
 def main(argv: Optional[list[str]] = None) -> int:

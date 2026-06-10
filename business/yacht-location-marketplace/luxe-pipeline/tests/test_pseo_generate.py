@@ -74,6 +74,15 @@ class TestPseo(unittest.TestCase):
         self.assertIn("guests", html)                # group basis shown
         self.assertIn("Book &amp; pay by card", html)  # card payment CTA
 
+    def test_assets_copied_and_linked(self) -> None:
+        css = os.path.join(self.out, "assets", "styles.css")
+        self.assertTrue(os.path.isfile(css))
+        self.assertGreater(os.path.getsize(css), 500)
+        page = os.path.join(self.out, "index.html")
+        with open(page, encoding="utf-8") as fh:
+            html = fh.read()
+        self.assertIn('/assets/styles.css', html)
+
     def test_margin_split_math(self) -> None:
         from pseo import pricing
         total = 8200
