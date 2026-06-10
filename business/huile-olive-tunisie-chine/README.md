@@ -14,6 +14,7 @@
 | `SOLUTIONS_FINANCEMENT.md` | 7 solutions concrètes pour permettre aux acheteurs chinois d'acheter sans bloquer la trésorerie (L/C, Trade Assurance, pré-financement BIAT/COTUNACE, distribution, Tmall Global). |
 | `IMPORTATEURS_CHINOIS_CIBLE.md` | Liste de 16 importateurs/distributeurs chinois réels (COFCO, Yihai Kerry, AusNZ Foods, DCH Auriga, Hema, Tmall Global, etc.) + 4 voies concrètes pour obtenir les vrais e-mails des décideurs (Alibaba RFQ, LinkedIn Sales Navigator, missions CEPEX). |
 | `EMAILS_CEPEX_ONH.md` | 2 e-mails prêts à copier-coller pour le CEPEX (liste exportateurs GACC + missions Chine) et l'ONH (cours FOB Radès + conditions d'achat vrac), avec adresses, sujets, corps et checklist d'envoi. |
+| `PROPOSITION_CHINOIS_ZH.md` | Version chinoise (中文) de la pitch + e-mail commercial long, plus calcul de marges du **point de vue de l'acheteur chinois** (en RMB) montrant +62 % à +277 % de marge selon le canal de vente. Vocabulaire bilingue inclus. |
 
 ## 🚀 Plan d'action en 6 étapes
 
