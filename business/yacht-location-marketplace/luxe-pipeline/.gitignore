@@ -1,0 +1,8 @@
+# Secrets — NEVER commit
+.env
+.env.*
+api/owners.json
+
+# Python
+__pycache__/
+*.pyc

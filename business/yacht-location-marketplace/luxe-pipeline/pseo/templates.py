@@ -10,12 +10,43 @@ from __future__ import annotations
 
 import html
 import json
+import os
 from typing import Any, Optional
 
-BRAND = "{{BRAND}}"
-DOMAIN = "example.com"
-WA_NUMBER = "00000000000"
-PHONE = "+377 00 00 00 00"
+from pseo import pricing
+
+
+def _load_branding() -> dict:
+    """Brand identity, overridable without touching code.
+
+    Priority: env vars (SITE_BRAND/SITE_DOMAIN/SITE_PHONE/SITE_WHATSAPP) >
+    branding.json at the luxe-pipeline root > placeholder defaults.
+    Fill branding.json (copy branding.example.json) with your real values to
+    move from PREVIEW placeholders to a production-ready site.
+    """
+    defaults = {"brand": "{{BRAND}}", "domain": "example.com",
+                "phone": "+377 00 00 00 00", "whatsapp": "00000000000"}
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    cfg_path = os.path.join(root, "branding.json")
+    if os.path.isfile(cfg_path):
+        try:
+            with open(cfg_path, encoding="utf-8") as fh:
+                defaults.update({k: v for k, v in json.load(fh).items() if v})
+        except (OSError, ValueError):
+            pass
+    return {
+        "brand": os.environ.get("SITE_BRAND", defaults["brand"]),
+        "domain": os.environ.get("SITE_DOMAIN", defaults["domain"]),
+        "phone": os.environ.get("SITE_PHONE", defaults["phone"]),
+        "whatsapp": os.environ.get("SITE_WHATSAPP", defaults["whatsapp"]),
+    }
+
+
+_BRANDING = _load_branding()
+BRAND = _BRANDING["brand"]
+DOMAIN = _BRANDING["domain"]
+WA_NUMBER = _BRANDING["whatsapp"]
+PHONE = _BRANDING["phone"]
 
 
 def esc(value: Any) -> str:
@@ -37,6 +68,11 @@ def _head(title: str, description: str, canonical: str, ld_blocks: list[dict]) -
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(description)}">
   <link rel="canonical" href="{esc(canonical)}">
+  <meta name="theme-color" content="#0b1f33">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/assets/styles.css">
   {blocks}
 </head>
 <body>"""
@@ -48,13 +84,30 @@ def _trust_bar() -> str:
             '<span>&#10003; Full discretion</span></nav>')
 
 
+def price_headline(total, unit: str = "total") -> str:
+    """Per-person headline (÷ group size) shown WITH the real total + basis.
+
+    Compliant display: the per-person figure attracts, the total and the
+    'N guests' basis are always visible right next to it.
+    """
+    pp = pricing.per_person(total)
+    amt = pricing.to_amount(total)
+    if pp is None or amt is None:
+        return '<p class="subhead">Price on request &middot; pay by card</p>'
+    return (f'<p class="subhead">From <strong>&euro;{pp:,} / person</strong> '
+            f'<span class="price-basis">({pricing.GROUP_SIZE} guests &middot; '
+            f'&euro;{amt:,.0f} {esc(unit)} &middot; pay securely by card)</span></p>')
+
+
 def _quote_form(route_tag: str) -> str:
-    return f"""  <form class="quote" action="/api/quote" method="post" data-route="{esc(route_tag)}">
+    return f"""  <form class="quote" action="/api/create-checkout-session" method="post" data-ref="{esc(route_tag)}">
+    <input type="hidden" name="ref" value="{esc(route_tag)}">
     <input type="date" name="date" required aria-label="Date">
-    <input type="number" name="pax" min="1" max="19" placeholder="Passengers" required>
+    <input type="number" name="pax" min="1" max="40" placeholder="Guests" required>
     <input type="tel" name="phone" placeholder="Phone (instant callback)" required>
-    <button type="submit">Get my price &rarr;</button>
+    <button type="submit" class="btn-book">Book &amp; pay by card &rarr;</button>
   </form>
+  <p class="pay-note">Secure card payment &middot; instant booking sent to the owner &middot; full discretion</p>
   <div class="cta-instant">
     <a class="btn-wa" href="https://wa.me/{WA_NUMBER}">WhatsApp now</a>
     <a class="btn-call" href="tel:{esc(PHONE)}">Call {esc(PHONE)}</a>
@@ -158,8 +211,7 @@ def render_route(route: dict, aircraft_rows: list[dict],
         _head(title, desc, canonical, [service_ld, _faqpage_ld(faqs), breadcrumb]),
         '<a id="top"></a>', '<header class="hero">', _trust_bar(),
         f"<h1>Private Jet Charter — {esc(frm)} &rarr; {esc(to)}</h1>",
-        (f'<p class="subhead">Indicative price from <strong>€{esc(price_from)}'
-         f"</strong> &middot; {esc(route['flight_min'])} min flight</p>"),
+        price_headline(price_from, unit=f"total · {esc(route['flight_min'])} min flight"),
         _quote_form(route["slug"]), "</header>",
         _empty_legs_block(empty_legs), table, _faq_section(faqs),
         _related(related + [("All private jet charters", "/private-jet-charter/")]),
@@ -284,6 +336,34 @@ def render_pillar(asset_type: str, child_links: list[tuple[str, str]]) -> str:
         _quote_form(f"pillar-{asset_type}"), "</header>",
         f'<section class="cluster"><h2>Popular {esc(h1.lower())}</h2>'
         f"<ul>{links}</ul></section>", _sticky_cta(), "</body></html>",
+    ]
+    return "\n".join(parts)
+
+
+def render_home(*, jets: bool, yachts: bool) -> str:
+    """Site root landing page linking to the pillars."""
+    canonical = f"https://{DOMAIN}/"
+    title = f"Private Jet & Superyacht Charter | {BRAND}"
+    intro = ("On-demand private jet and luxury yacht charter. Fixed quotes in "
+             "under 2 hours, certified operators, full discretion, 24/7.")
+    cards = []
+    if jets:
+        cards.append('<a class="card" href="/private-jet-charter/">'
+                     "<h2>Private jet charter &rarr;</h2>"
+                     "<p>Routes, aircraft, live empty legs.</p></a>")
+    if yachts:
+        cards.append('<a class="card" href="/yacht-charter/">'
+                     "<h2>Superyacht charter &rarr;</h2>"
+                     "<p>Mediterranean destinations &amp; events.</p></a>")
+    breadcrumb = _breadcrumb_ld([(BRAND, "/")])
+    parts = [
+        _head(title, intro, canonical, [breadcrumb]),
+        '<a id="top"></a>', '<header class="hero">', _trust_bar(),
+        f"<h1>{esc(BRAND)} — Private Jet &amp; Superyacht Charter</h1>",
+        f'<p class="subhead">{esc(intro)}</p>',
+        _quote_form("home"), "</header>",
+        f'<section class="cluster">{"".join(cards)}</section>',
+        _sticky_cta(), "</body></html>",
     ]
     return "\n".join(parts)
 

@@ -1,0 +1,10 @@
+{
+  "geneva-to-nice": {
+    "email": "owner1@example.com",
+    "stripe_account": "acct_XXXXXXXXXXXXXXXX"
+  },
+  "paris-to-nice": {
+    "email": "owner2@example.com",
+    "stripe_account": "acct_YYYYYYYYYYYYYYYY"
+  }
+}

@@ -32,6 +32,8 @@ C'est le cœur de la demande, et c'est là qu'il faut être honnête, sinon tout
 | `CADRE_LEGAL.md` | **À lire avant de lancer.** Mandat de courtage, assurance RC, dépôt de garantie, responsabilité skipper, TVA, juridiction, statut d'intermédiaire. |
 | `BUDGET_KPIS.md` | Budget de lancement 90 jours, CAC cible, taux de conversion, P&L par réservation et mensuel, seuils d'alerte. |
 | `PLAN_90_JOURS.md` | Le plan A→Z, semaine par semaine, du choix de la niche jusqu'au scale. |
+| `STRATEGIE_ACQUISITION.md` | **Stratégie d'acquisition de nouveaux clients** : le moteur à deux temps (outbound apporteurs + paid pour le cash rapide, pSEO/organique/partenariats pour l'effet composé), séquence 90 j « 100 premiers clients », budget, KPIs. |
+| `PROPOSITION_COMMERCIALE.md` | **Proposition de partenariat (1 page, PDF-ready)** à joindre quand un apporteur dit oui : offre marque blanche Byimport, commission, fonctionnement en 3 étapes. |
 
 ### 🛥️ Extension « Luxe » — Yachts & Jets privés, ciblage HNWI (couche ultra-technique)
 

@@ -29,6 +29,7 @@ import csv
 import hashlib
 import os
 import re
+import shutil
 import sys
 from typing import Any, Optional
 
@@ -214,8 +215,18 @@ def _sitemap(out_dir: str, paths: list[str]) -> str:
 # ----------------------------------------------------------------------------
 # Orchestration
 # ----------------------------------------------------------------------------
+def _write_robots(out_dir: str, preview: bool) -> None:
+    if preview:
+        body = "User-agent: *\nDisallow: /\n"
+    else:
+        body = (f"User-agent: *\nAllow: /\n"
+                f"Sitemap: https://{T.DOMAIN}/sitemap.xml\n")
+    with open(os.path.join(out_dir, "robots.txt"), "w", encoding="utf-8") as fh:
+        fh.write(body)
+
+
 def generate(out_dir: str, empty_legs_path: Optional[str] = None,
-             thin_policy: str = "skip") -> Report:
+             thin_policy: str = "skip", preview: bool = False) -> Report:
     airports = _load_airports()
     empty_legs = _load_empty_legs(empty_legs_path)
     report = Report()
@@ -253,7 +264,7 @@ def generate(out_dir: str, empty_legs_path: Optional[str] = None,
             links = [(s[2].replace("index.html", ""), s[1].replace("-", " ").title())
                      for s in siblings]
             html = _inject_related(html, links)
-            _write(out_dir, path, html, noindex=False)
+            _write(out_dir, path, html, noindex=preview)
             report.generated.append(path)
             final_paths.append(path)
 
@@ -264,12 +275,12 @@ def generate(out_dir: str, empty_legs_path: Optional[str] = None,
                       for p in final_paths if p.startswith("yacht-charter/")]
     if jet_children:
         _write(out_dir, "private-jet-charter/index.html",
-               T.render_pillar("jet", jet_children), noindex=False)
+               T.render_pillar("jet", jet_children), noindex=preview)
         report.generated.append("private-jet-charter/index.html")
         final_paths.append("private-jet-charter/index.html")
     if yacht_children:
         _write(out_dir, "yacht-charter/index.html",
-               T.render_pillar("yacht", yacht_children), noindex=False)
+               T.render_pillar("yacht", yacht_children), noindex=preview)
         report.generated.append("yacht-charter/index.html")
         final_paths.append("yacht-charter/index.html")
 
@@ -283,8 +294,24 @@ def generate(out_dir: str, empty_legs_path: Optional[str] = None,
                     f"</body></html>")
             _write(out_dir, f"_thin/{T.slugify(pid)}.html", stub, noindex=False)
 
+    # root landing page linking the two pillars (site entry point)
+    home = T.render_home(
+        jets=bool(jet_children), yachts=bool(yacht_children))
+    _write(out_dir, "index.html", home, noindex=preview)
+    report.generated.append("index.html")
+    final_paths.append("index.html")
+
+    _copy_assets(out_dir)
     _sitemap(out_dir, final_paths)
+    _write_robots(out_dir, preview)
     return report
+
+
+def _copy_assets(out_dir: str) -> None:
+    """Copy static assets (CSS, etc.) into the build output."""
+    src = os.path.join(_HERE, "assets")
+    if os.path.isdir(src):
+        shutil.copytree(src, os.path.join(out_dir, "assets"), dirs_exist_ok=True)
 
 
 def main(argv: Optional[list[str]] = None) -> int:
@@ -293,6 +320,8 @@ def main(argv: Optional[list[str]] = None) -> int:
     parser.add_argument("--empty-legs", dest="empty_legs",
                         help="Path to connector output JSON (inject live legs)")
     parser.add_argument("--thin-policy", choices=["skip", "noindex"], default="skip")
+    parser.add_argument("--preview", action="store_true",
+                        help="Preview build: noindex on every page + robots.txt Disallow all")
     args = parser.parse_args(argv)
 
     if args.out:
@@ -303,12 +332,14 @@ def main(argv: Optional[list[str]] = None) -> int:
     os.makedirs(out_dir, exist_ok=True)
 
     try:
-        report = generate(out_dir, args.empty_legs, args.thin_policy)
+        report = generate(out_dir, args.empty_legs, args.thin_policy, preview=args.preview)
     except (OSError, ValueError, KeyError) as exc:
         print(f"[pseo] error: {exc}", file=sys.stderr)
         return 1
 
-    print(f"[pseo] generated {len(report.generated)} pages → {out_dir}", file=sys.stderr)
+    mode = " (PREVIEW noindex)" if args.preview else ""
+    print(f"[pseo] generated {len(report.generated)} pages{mode} → {out_dir}",
+          file=sys.stderr)
     print(f"[pseo] sitemap → {os.path.join(out_dir, 'sitemap.xml')}", file=sys.stderr)
     if report.skipped:
         print(f"[pseo] skipped {len(report.skipped)} thin page(s) "

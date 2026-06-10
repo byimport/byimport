@@ -1,0 +1,13 @@
+# Netlify config — deploy the static charter site (PREVIEW noindex by default).
+# Set the base directory to this folder (business/yacht-location-marketplace/luxe-pipeline)
+# when creating the Netlify site, or deploy this folder directly.
+
+[build]
+  command = "bash build_site.sh preview"
+  publish = "dist"
+
+# Belt-and-suspenders: keep the whole preview deploy out of search engines.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
