@@ -12,7 +12,7 @@
 | `FOURNISSEURS_TUNISIENS.md` | Liste des grands exportateurs tunisiens (CHO/Terra Delyssa, Mahjoub, Olivko, etc.) + sources officielles (CEPEX, ONH) pour identifier 3-5 fournisseurs solides. |
 | `MARGES_ET_PRIX.md` | Calculs de marges détaillés : 2 scénarios (premium bouteille 500 ml et vrac flexitank), structure de paiement 30%/70%, cash-flow, risques. |
 | `SOLUTIONS_FINANCEMENT.md` | 7 solutions concrètes pour permettre aux acheteurs chinois d'acheter sans bloquer la trésorerie (L/C, Trade Assurance, pré-financement BIAT/COTUNACE, distribution, Tmall Global). |
-| `IMPORTATEURS_CHINOIS_CIBLE.md` | Liste de 16 importateurs/distributeurs chinois réels (COFCO, Yihai Kerry, AusNZ Foods, DCH Auriga, Hema, Tmall Global, etc.) + 4 voies concrètes pour obtenir les vrais e-mails des décideurs (Alibaba RFQ, LinkedIn Sales Navigator, missions CEPEX). |
+| `IMPORTATEURS_CHINOIS_CIBLE.md` | Liste de 40 importateurs/distributeurs chinois réels en 6 tiers (géants d'État, distributeurs premium/HoReCa, agents-importateurs spécialisés huile d'olive, embouteilleurs acheteurs de vrac, retail, e-commerce) + grille de priorisation par scénario + 4 voies concrètes pour obtenir les vrais e-mails des décideurs (Alibaba RFQ, LinkedIn Sales Navigator, missions CEPEX). |
 
 ## 🚀 Plan d'action en 6 étapes
 
