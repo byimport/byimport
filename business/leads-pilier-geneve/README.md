@@ -1,8 +1,8 @@
-# Génération de leads & call center 2e / 3e pilier — Genève + Lausanne (Romandie)
+# Génération de leads & call center 2e / 3e pilier — Suisse romande
 
 > ⚠️ **Note** : Ce dossier contient des documents business sans rapport avec le plugin Toprank. Conservé en branche, ne touche ni `VERSION` ni `CHANGELOG.md`. Peut être exporté (PDF, Drive) sans impact sur le plugin.
 
-> 📍 **Périmètre** : le nom du dossier (`leads-pilier-geneve`) est historique. Le périmètre couvre désormais **Genève + Lausanne (canton de Vaud)**. Les fichiers marketing (`GOOGLE_ADS_PLAN.md`, `META_ADS_PLAN.md`, `SEO_CONTENU.md`, `PARTENARIATS.md`) restent **calibrés Genève** et devront être répliqués pour Vaud avant d'y lancer du paid — voir la note en bas de page. La **couche call center** (5 fichiers `CALL_CENTER_*` / `SCRIPTS_*` / `QUALIFICATION_*` / `CONFORMITE_APPELS` / `KPIS_CALL_CENTER`) couvre, elle, **les deux villes** dès maintenant.
+> 📍 **Périmètre** : le nom du dossier (`leads-pilier-geneve`) est historique. La cible visée est désormais **toute la Suisse romande** (GE, VD, Valais, Fribourg, Neuchâtel, Jura), via des **RDV en visio**. Les fichiers marketing (`GOOGLE_ADS_PLAN.md`, `META_ADS_PLAN.md`, `SEO_CONTENU.md`, `PARTENARIATS.md`) restent **calibrés Genève** et devront être répliqués canton par canton avant d'y lancer du paid — voir la note en bas de page. La **couche call center** (6 fichiers `CALL_CENTER_*` / `SCRIPTS_*` / `QUALIFICATION_*` / `CONFORMITE_APPELS` / `KPIS_CALL_CENTER` / `SOLUTIONS_IA_REMOTE`) couvre, elle, **toute la Romandie en visio** dès maintenant.
 
 ## Hypothèse de travail
 
@@ -54,16 +54,16 @@
 - **FINMA + LSFin** : si tu vends des produits d'assurance ou de placement liés (3a assurance, libre passage en titres), tu dois être affilié à un OAR ou avoir une licence. Ne pas confondre avec du simple conseil indépendant. Voir `CADRE_LEGAL_LPD.md`.
 - **Le démarchage téléphonique à froid B2C est interdit en Suisse** (art. 3 al. 1 let. u LCD) sauf consentement préalable. Le lead form Meta avec opt-in clair coche cette case. Acheter une liste et appeler ne la coche pas.
 
-## 🗺️ Extension Lausanne / Vaud — ce qui est fait et ce qui reste
+## 🗺️ Extension Suisse romande — ce qui est fait et ce qui reste
 
 Honnêteté de périmètre, pour ne pas créer d'illusion de couverture :
 
-- **Couvert pour les deux villes** : toute la couche call center (rappel, qualification, RDV, conformité d'appel, KPIs). Le prestataire travaille les leads GE **et** VD indistinctement ; les scripts gèrent les deux cabinets / la visio.
-- **Encore calibré Genève uniquement** : les plans d'acquisition payante (`GOOGLE_ADS_PLAN.md`, `META_ADS_PLAN.md`), le SEO local (`SEO_CONTENU.md`) et la liste de partenaires (`PARTENARIATS.md`). Avant de pousser du budget sur Vaud, il faut :
-  - dupliquer le ciblage géo (Lausanne + agglo : Renens, Pully, Morges, Nyon, Vevey),
-  - adapter les **spécificités fiscales vaudoises** (barème ICC VD ≠ GE pour la déductibilité des rachats LPP et du 3a — le mécanisme fédéral IFD est identique, l'impôt cantonal diffère),
-  - refaire la liste partenaires côté Vaud (fiduciaires, régies immobilières lausannoises, RH PME de l'arc lémanique).
-- **Pas de cas frontalier côté Vaud** : la niche frontalière (forte à GE) est marginale à Lausanne — ne pas copier-coller l'angle « frontalier » sur Vaud.
+- **Couvert pour toute la Romandie** : la couche call center (rappel, qualification, RDV **en visio**, conformité d'appel, KPIs, stack IA remote). En visio, un seul agenda suffit ; on étiquette le canton du prospect dans le CRM. Le prestataire/agent traite GE, VD, VS, FR, NE, JU indistinctement.
+- **Encore calibré Genève uniquement** : les plans d'acquisition payante (`GOOGLE_ADS_PLAN.md`, `META_ADS_PLAN.md`), le SEO local (`SEO_CONTENU.md`) et la liste de partenaires (`PARTENARIATS.md`). Avant de pousser du budget hors GE, il faut :
+  - dupliquer le ciblage géo par bassin (Lausanne + agglo, Sion/Valais, Fribourg, Neuchâtel),
+  - adapter les **spécificités fiscales cantonales** (barème de l'impôt cantonal pour la déductibilité des rachats LPP et du 3a — le mécanisme fédéral IFD est identique, l'impôt cantonal diffère selon le canton),
+  - refaire la liste partenaires par canton (fiduciaires, régies, RH PME locales).
+- **Cas frontalier surtout genevois** : la niche frontalière (forte à GE) est marginale ailleurs en Romandie — ne pas copier-coller l'angle « frontalier » sur VD/VS/FR/NE.
 
 ## 📞 Ressources clés
 

@@ -83,8 +83,8 @@ votre machine remote en parallèle. Ne signez pas d'exclusivité qui vous encha�
 ```
 ACQUISITION (opt-in)          QUALIFICATION IA            BOOKING            HANDOFF
 Meta/Google lead forms  ─►   IA conversationnelle   ─►   Agenda en ligne ─► Fiche → courtier
-Landing pages                (chat WhatsApp / web,        (créneaux GE/VD     (QUALIFICATION_
-WhatsApp / SEO               ou voix IA sur rappel)        ou visio)           ET_RDV.md)
+Landing pages                (chat WhatsApp / web,        (visio, toute     (QUALIFICATION_
+WhatsApp / SEO               ou voix IA sur rappel)        la Romandie)        ET_RDV.md)
         │                            │                          │                  │
         └──────────── CRM central (tout est loggué, opt-in conservé) ─────────────┘
                           │
@@ -98,13 +98,57 @@ WhatsApp / SEO               ou voix IA sur rappel)        ou visio)           E
 | **CRM tout-en-un** | GoHighLevel (pensé pour ce cas : CRM + funnels + IA conversation + SMS), HubSpot, Pipedrive | GHL séduit les apporteurs solo : beaucoup de briques intégrées. |
 | **IA conversationnelle (chat/WhatsApp)** | GHL Conversation AI, chatbot WhatsApp Business API, Voiceflow | Qualifie par écrit avant l'appel humain → gain de temps énorme. |
 | **Agent vocal IA (rappels/qualif)** | Vapi, Retell AI, Bland AI, Synthflow, PolyAI | ⚠️ tester la **voix française suisse** ; déclarer l'IA ; opt-in only. |
-| **Prise de RDV** | Cal.com (open-source, hébergeable UE), Calendly | Routage GE/Lausanne/visio, buffers, rappels intégrés. |
+| **Prise de RDV** | Cal.com (open-source, hébergeable UE), Calendly | Visio toute la Romandie, buffers, rappels intégrés. |
 | **SMS / rappels** | Twilio, MessageBird | Confirmations + rappel J-1 (anti-no-show). |
 | **Orchestration** | Make (Integromat), n8n (auto-hébergeable), Zapier | Colle le tout : lead → scoring → routage → relance. |
 
 > 🔌 **Note outils** : cet espace de travail a déjà des connecteurs **Calendly** et **Make**
 > branchés (entre autres). Si vous voulez, je peux les utiliser pour **prototyper** le booking
 > et une automatisation de relance — dites-le-moi (il faudra autoriser/connecter les comptes).
+
+## 4b. RDV en visio sur toute la Suisse romande (Calendly / Teams)
+
+Le modèle **100 % visio** est le bon choix pour couvrir **toute la Romandie** (GE, VD, Valais,
+Fribourg, Neuchâtel, Jura) sans cabinet physique partout : un seul agenda, l'agent IA propose
+les créneaux, le lien visio est généré automatiquement.
+
+- **Calendly** (ou **Cal.com**, hébergeable UE — meilleur côté nLPD) : page de réservation,
+  buffers, rappels SMS/email intégrés, génère le lien visio.
+- **Plateforme visio** : **Microsoft Teams** (si le courtier travaille sur Teams), **Google
+  Meet** ou la visio native Calendly. ⚠️ Pour que Calendly crée des liens **Teams**
+  automatiquement, il faut **connecter le compte Microsoft** dans les réglages Calendly
+  (intégration manuelle, pas automatisable par API).
+- **Réglages à soigner** : fuseau **Europe/Zurich** (le compte est en UTC par défaut), durée
+  20–30 min pour un diagnostic, buffer avant/après, et **un seul lien** que l'agent IA et les
+  relances réutilisent.
+- **Routage** : pas besoin de séparer par canton en visio. Une seule page suffit ; on étiquette
+  juste le canton du prospect dans le CRM (utile pour la nuance fiscale côté conseiller).
+
+## 4c. ⚠️ Honnêteté — citer « Lombard Odier » (ou toute grande banque) dans le pitch
+
+Vous évoquez d'**expliquer que les fonds sont transférés vers de gros groupes type Lombard
+Odier**. Trois mises en garde **fermes** :
+
+1. **Ne citez aucun nom d'institution sans accord écrit réel.** Utiliser « Lombard Odier » (ou
+   Pictet, Mirabaud, etc.) pour crédibiliser le pitch **sans mandat ni convention** est une
+   **fausse représentation** (risque LCD concurrence déloyale + réputation + plainte de
+   l'établissement). Si vous n'avez pas de relation contractuelle documentée, **ne prononcez
+   pas le nom**.
+2. **Le mécanisme tel que formulé est inexact.** Un avoir de **libre passage** ne « part » pas
+   chez Lombard Odier : il est transféré vers une **fondation de libre passage** (compte ou
+   solution titres) **au nom du client**. Certaines fondations proposent des options
+   d'investissement gérées par des gérants connus — c'est *cela* qu'on peut mentionner, avec
+   exactitude, **si c'est vrai pour la solution proposée**. Pas « on met votre argent chez
+   Lombard Odier ».
+3. **Seuils privés** : les banques privées (Lombard Odier, Pictet…) ont des **minimums élevés**
+   (souvent 500k–1M CHF). Le prospect type prévoyance (100–250k) n'y est **pas** éligible en
+   direct. Promettre l'inverse = déception garantie en RDV (cf. `PARTENARIATS.md` §4).
+
+> ✅ **Formulation juste pour l'agent IA / le script** : « Votre 2e pilier serait transféré sur
+> une **fondation de libre passage à votre nom**, avec une solution d'investissement adaptée à
+> votre profil — le conseiller vous présentera les options en détail. » Sans nom d'institution,
+> sans promesse de rendement (cf. `SCRIPTS_APPELS.md` §9). Le **conseiller**, en RDV, nomme les
+> solutions réelles et documentées.
 
 ## 5. Où mettre l'IA — et où garder l'humain
 
