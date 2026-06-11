@@ -32,7 +32,8 @@
 | **`QUALIFICATION_ET_RDV.md`** | **[Call center]** Définition contractuelle du « RDV qualifié », grille de scoring, critères de rejet/remplacement, fiche de handoff prestataire → conseiller. |
 | **`CONFORMITE_APPELS.md`** | **[Call center]** Conformité spécifique aux appels : interdiction du démarchage à froid, preuve d'opt-in, consentement enregistrement, devoirs LSFin, sous-traitance nLPD, formulations interdites. |
 | **`KPIS_CALL_CENTER.md`** | **[Call center]** KPIs du centre d'appels, scorecard prestataire, monitoring qualité, rémunération et garde-fous anti-RDV-poubelle, seuils d'alerte. |
-| **`SOLUTIONS_IA_REMOTE.md`** | **[Call center]** Modèle apporteur (RDV qualifiés → courtiers, commission), exécution **en remote avec agents IA** : stack concrète, où mettre l'IA vs l'humain, décodage/sécurisation de la commission (1,1 % 2e pilier), conformité IA. |
+| **`SOLUTIONS_IA_REMOTE.md`** | **[Call center]** Modèle apporteur (RDV qualifiés → courtiers, commission), exécution **en remote avec agents IA** : stack concrète, où mettre l'IA vs l'humain, décodage/sécurisation de la commission (1,1 % 2e pilier), conformité IA, RDV visio, garde-fou Lombard Odier. |
+| **`MODELE_FICHE_RDV.md`** | **[Call center]** Dossier de RDV qualifié **prêt à remplir** (1 par prospect) : modèle vierge + exemple, champs en questions de formulaire Calendly/CRM, checklist avant transmission au conseiller SwissKap. |
 
 ## 🚀 Plan d'action 90 jours
 
