@@ -34,6 +34,7 @@
 | **`KPIS_CALL_CENTER.md`** | **[Call center]** KPIs du centre d'appels, scorecard prestataire, monitoring qualité, rémunération et garde-fous anti-RDV-poubelle, seuils d'alerte. |
 | **`SOLUTIONS_IA_REMOTE.md`** | **[Call center]** Modèle apporteur (RDV qualifiés → courtiers, commission), exécution **en remote avec agents IA** : stack concrète, où mettre l'IA vs l'humain, décodage/sécurisation de la commission (1,1 % 2e pilier), conformité IA, RDV visio, garde-fou Lombard Odier. |
 | **`MODELE_FICHE_RDV.md`** | **[Call center]** Dossier de RDV qualifié **prêt à remplir** (1 par prospect) : modèle vierge + exemple, champs en questions de formulaire Calendly/CRM, checklist avant transmission au conseiller SwissKap. |
+| **`rdv/`** | **[Call center]** Dossier des **RDV pris** : `registre-rdv.csv` (1 ligne/RDV, automatisable) + fiches `*.rdv` (email, préférence 2e/3e pilier, travail, adresse, opt-in…). Exemples fictifs — les vraies données restent dans le CRM privé. |
 
 ## 🚀 Plan d'action 90 jours
 
