@@ -47,6 +47,13 @@ Un produit n'est candidat que si **prix de vente Leboncoin ≥ 3 × coût de rev
 les retours, la casse et le temps passé mangent la marge. Le détail du calcul est dans
 `MARGES_ET_COUTS.md` ; le script `marge_calc.py` applique exactement cette règle.
 
+## Passer à l'action
+
+Le plan d'exécution jour par jour (statut, commandes échantillons avec les recherches
+1688 prêtes à coller, photos, mise en ligne, budget ~200 €) est dans **`LANCEMENT.md`**.
+Les annonces des 4 produits cibles sont rédigées et prêtes à publier dans
+**`ANNONCES_PRETES.md`**.
+
 ## Contenu du dossier
 
 - `DEMANDE_FRANCE.md` — détecter les produits recherchés en France (méthode + sources de données)
@@ -57,6 +64,8 @@ les retours, la casse et le temps passé mangent la marge. Le détail du calcul 
 - `AUTOMATISATION.md` — pipeline d'automatisation : ce qui est scriptable, ce qui ne l'est pas
 - `CONNECTEURS.md` — connecteurs Zapier/IFTTT/Make vérifiés pour chaque étape (et les trous réels)
 - `PHOTOS_ANNONCES.md` — protocole photos : produit réel, zéro marqueur d'import visible, ligne rouge légale
+- `LANCEMENT.md` — plan d'exécution J1 → première vente (statut, échantillons, budget, go/no-go lot)
+- `ANNONCES_PRETES.md` — les 4 annonces rédigées prêtes à publier + réponses types acheteurs
 - `scripts/marge_calc.py` — calculateur de marge en ligne de commande (stdlib uniquement)
 - `scripts/score_produits.py` — classement automatique d'une liste de produits candidats
 - `scripts/produits_candidats.csv` — modèle de fichier d'entrée avec exemples chiffrés
