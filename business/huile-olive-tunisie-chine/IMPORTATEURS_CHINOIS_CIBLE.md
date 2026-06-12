@@ -169,7 +169,7 @@ Selon le résultat semaine 3, on enchaîne sur la création de société ou sur 
 
 ## 💬 Pourquoi pas d'e-mails à envoyer maintenant
 
-Je dois te le redire franchement : **envoyer une proposition commerciale aujourd'hui** depuis `byimport2@gmail.com`, sans société immatriculée, sans fournisseur, sans GACC, sans échantillons, ce serait :
+Je dois te le redire franchement : **envoyer une proposition commerciale aujourd'hui** depuis ton adresse Gmail personnelle, sans société immatriculée, sans fournisseur, sans GACC, sans échantillons, ce serait :
 
 - **Inefficace** : taux de réponse < 0,5 % parce que les importateurs chinois savent que tu ne peux pas livrer.
 - **Risqué** : Gmail va flag ton compte si tu envoies en masse depuis un perso à des inconnus.
