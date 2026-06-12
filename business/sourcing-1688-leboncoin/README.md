@@ -55,6 +55,7 @@ les retours, la casse et le temps passé mangent la marge. Le détail du calcul 
 - `MARGES_ET_COUTS.md` — structure de coûts complète et seuils de rentabilité
 - `CADRE_LEGAL.md` — statut, TVA, douane, conformité CE, règles Leboncoin
 - `AUTOMATISATION.md` — pipeline d'automatisation : ce qui est scriptable, ce qui ne l'est pas
+- `CONNECTEURS.md` — connecteurs Zapier/IFTTT/Make vérifiés pour chaque étape (et les trous réels)
 - `PHOTOS_ANNONCES.md` — protocole photos : produit réel, zéro marqueur d'import visible, ligne rouge légale
 - `scripts/marge_calc.py` — calculateur de marge en ligne de commande (stdlib uniquement)
 - `scripts/score_produits.py` — classement automatique d'une liste de produits candidats
