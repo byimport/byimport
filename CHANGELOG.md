@@ -11,6 +11,21 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.23.1] — 2026-06-12
+
+### Security — sensitive-data sweep and guardrails
+
+- Redacted a real-looking Google Ads account ID from the
+  `google-ads/audit` account-health-scoring reference example; examples now
+  use the standard `1234567890` placeholder everywhere.
+- `.gitignore` now also excludes `.notfair.json` and `.notfair/` (per-project
+  ad-account config with real account IDs) so they can never be committed.
+- New `test/test_repo_hygiene.py` runs with the regular suite and fails the
+  build if a tracked file contains an API-key-shaped string, a personal
+  freemail address, or a credential/config file that must stay local.
+
+---
+
 ## [0.23.0] — 2026-05-16
 
 ### Changed — full removal of legacy AdsAgent branding from active code

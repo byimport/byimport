@@ -13,6 +13,10 @@ service-account*.json
 .env
 .env.local
 
+# Per-project ad-account config (real account IDs) — never commit
+.notfair.json
+.notfair/
+
 # GSC output files
 /tmp/
 
