@@ -25,7 +25,7 @@ import csv
 import math
 import sys
 
-from marge_calc import DEFAUTS, MARGE_ABSOLUE_MIN, SEUIL_GO_PRUDENT, cout_revient
+from marge_calc import DEFAUTS, MARGE_ABSOLUE_MIN, SEUIL_GO, SEUIL_GO_PRUDENT, cout_revient
 
 COLONNES = ["produit", "volume_recherche_mensuel", "prix_1688_cny", "poids_kg",
             "prix_marche_lbc_eur", "concurrence", "risque_conformite"]
@@ -90,6 +90,8 @@ def evaluer(ligne, fret_kg):
         "cout": cout,
         "mult": mult,
         "marge_abs": marge_abs,
+        "prix_marche": prix_vente,
+        "prix_conseille": cout * SEUIL_GO,
         "verdict": "NO-GO" if disqualifie else ("GO" if mult >= 3.0 else "GO PRUDENT"),
     }
 
@@ -112,17 +114,22 @@ def main(argv=None):
 
     resultats.sort(key=lambda r: r["score"], reverse=True)
 
-    entete = f"{'#':>2}  {'Produit':<38} {'Score':>5}  {'Coût':>7}  {'Mult':>5}  {'Marge':>7}  Verdict"
+    entete = (f"{'#':>2}  {'Produit':<38} {'Score':>5}  {'Coût':>7}  {'Prix x3':>8}  "
+              f"{'Marché':>7}  {'Mult':>5}  {'Marge':>7}  Verdict")
     print(entete)
     print("-" * len(entete))
     for i, r in enumerate(resultats, 1):
         print(f"{i:>2}  {r['produit'][:38]:<38} {r['score']:5.1f}  "
-              f"{r['cout']:6.2f}€  x{r['mult']:4.2f}  {r['marge_abs']:6.2f}€  {r['verdict']}")
+              f"{r['cout']:6.2f}€  {r['prix_conseille']:7.2f}€  "
+              f"{r['prix_marche']:6.2f}€  x{r['mult']:4.2f}  "
+              f"{r['marge_abs']:6.2f}€  {r['verdict']}")
     print()
     ligne_fret = f"Scénario fret : {args.fret_kg:.0f} EUR/kg"
     if args.fret_kg > 3:
         ligne_fret += " — relancer avec --fret-kg 3 pour le scénario maritime."
     print(ligne_fret)
+    print("Coût = coût de revient complet par unité, TOUTE la livraison incluse (fret Chine + livraison France).")
+    print("Prix x3 = prix de vente conseillé pour la marge cible ; Marché = prix médian Leboncoin constaté.")
     print("Les 2-3 produits de tête sont les candidats à échantillonner (SOURCING_1688.md §3).")
     return 0
 

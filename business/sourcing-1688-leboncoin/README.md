@@ -50,6 +50,7 @@ les retours, la casse et le temps passé mangent la marge. Le détail du calcul 
 ## Contenu du dossier
 
 - `DEMANDE_FRANCE.md` — détecter les produits recherchés en France (méthode + sources de données)
+- `RECHERCHE_PRIX_ALIBABA.md` — prix d'achat réels constatés sur Alibaba pour le shortlist (juin 2026)
 - `SOURCING_1688.md` — acheter sur 1688 depuis la France (agents, MOQ, échantillons, pièges)
 - `MARGES_ET_COUTS.md` — structure de coûts complète et seuils de rentabilité
 - `CADRE_LEGAL.md` — statut, TVA, douane, conformité CE, règles Leboncoin
