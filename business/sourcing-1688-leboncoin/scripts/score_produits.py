@@ -59,7 +59,7 @@ def score_inverse_1_5(note):
     return max(0.0, min(1.0, (5.0 - note) / 4.0))
 
 
-def evaluer(ligne, fret_kg):
+def evaluer(ligne, fret_kg, tva_import_pct, tva_vente_pct):
     couts = cout_revient(
         prix_cny=float(ligne["prix_1688_cny"]),
         poids_kg=float(ligne["poids_kg"]),
@@ -67,14 +67,15 @@ def evaluer(ligne, fret_kg):
         agent_pct=DEFAUTS["agent_pct"],
         fret_kg=fret_kg,
         douane_pct=DEFAUTS["douane_pct"],
-        tva_pct=DEFAUTS["tva_pct"],
+        tva_pct=tva_import_pct,
         livraison_fr=DEFAUTS["livraison_fr"],
         provision_pct=DEFAUTS["provision_pct"],
     )
     prix_vente = float(ligne["prix_marche_lbc_eur"])
+    prix_ht = prix_vente / (1.0 + tva_vente_pct / 100.0)
     cout = couts["total"]
-    mult = prix_vente / cout if cout else 0.0
-    marge_abs = prix_vente - cout
+    mult = prix_ht / cout if cout else 0.0
+    marge_abs = prix_ht - cout
     conformite = float(ligne["risque_conformite"])
 
     disqualifie = mult < SEUIL_GO_PRUDENT or marge_abs < MARGE_ABSOLUE_MIN or conformite >= 4
@@ -95,7 +96,7 @@ def evaluer(ligne, fret_kg):
         "mult": mult,
         "marge_abs": marge_abs,
         "prix_marche": prix_vente,
-        "prix_conseille": cout * SEUIL_GO,
+        "prix_conseille": cout * SEUIL_GO * (1.0 + tva_vente_pct / 100.0),
         "verdict": "NO-GO" if disqualifie else ("GO" if mult >= 3.0 else "GO PRUDENT"),
     }
 
@@ -109,6 +110,12 @@ def main(argv=None):
                    help="bas de la bande de marge cible par vente en EUR (défaut: %(default)s)")
     p.add_argument("--marge-max", type=float, default=40.0,
                    help="haut de la bande de marge cible par vente en EUR (défaut: %(default)s)")
+    p.add_argument("--tva-pct", type=float, default=DEFAUTS["tva_pct"],
+                   help="TVA import en %% du coût : 20 en franchise (micro), 0 si société assujettie "
+                        "qui la récupère (défaut: %(default)s)")
+    p.add_argument("--tva-vente-pct", type=float, default=0.0,
+                   help="TVA collectée sur les ventes en %% : 0 en franchise, 20 si société assujettie "
+                        "(défaut: %(default)s)")
     args = p.parse_args(argv)
 
     with open(args.csv_path, newline="", encoding="utf-8") as f:
@@ -118,7 +125,8 @@ def main(argv=None):
             print(f"Colonnes manquantes dans {args.csv_path}: {', '.join(manquantes)}",
                   file=sys.stderr)
             return 1
-        resultats = [evaluer(ligne, args.fret_kg) for ligne in lecteur]
+        resultats = [evaluer(ligne, args.fret_kg, args.tva_pct, args.tva_vente_pct)
+                     for ligne in lecteur]
 
     resultats.sort(key=lambda r: r["score"], reverse=True)
 

@@ -74,6 +74,9 @@ def main(argv=None):
                    help="prix de vente Leboncoin envisagé en EUR")
     p.add_argument("--multiplicateur-cible", type=float, default=SEUIL_GO,
                    help="multiplicateur cible pour le prix plancher (défaut: %(default)s)")
+    p.add_argument("--tva-vente-pct", type=float, default=0.0,
+                   help="TVA collectée sur les ventes en %% : 0 en franchise (micro) ; 20 si société "
+                        "assujettie — mettre alors aussi --tva-pct 0 car la TVA import devient récupérable")
     for cle, val in DEFAUTS.items():
         p.add_argument("--" + cle.replace("_", "-"), type=float, default=val,
                        help="défaut: %(default)s")
@@ -94,14 +97,20 @@ def main(argv=None):
     print(f"  TOTAL                 : {d['total']:7.2f} EUR")
     print()
 
-    plancher = d["total"] * args.multiplicateur_cible
-    print(f"Prix plancher pour x{args.multiplicateur_cible:.1f} : {plancher:.2f} EUR")
+    coef_tva_vente = 1.0 + args.tva_vente_pct / 100.0
+    plancher = d["total"] * args.multiplicateur_cible * coef_tva_vente
+    suffixe = " TTC" if args.tva_vente_pct else ""
+    print(f"Prix plancher pour x{args.multiplicateur_cible:.1f} : {plancher:.2f} EUR{suffixe}")
 
     if args.prix_vente is not None:
-        mult = args.prix_vente / d["total"] if d["total"] else 0.0
-        marge = args.prix_vente - d["total"]
+        prix_ht = args.prix_vente / coef_tva_vente
+        mult = prix_ht / d["total"] if d["total"] else 0.0
+        marge = prix_ht - d["total"]
         print()
-        print(f"Prix de vente           : {args.prix_vente:.2f} EUR")
+        print(f"Prix de vente           : {args.prix_vente:.2f} EUR{suffixe}")
+        if args.tva_vente_pct:
+            print(f"  dont TVA collectée    : {args.prix_vente - prix_ht:.2f} EUR "
+                  f"(encaissé net : {prix_ht:.2f} EUR HT)")
         print(f"Marge nette par vente   : {marge:.2f} EUR")
         print(f"Multiplicateur          : x{mult:.2f}")
         print(f"Verdict                 : {verdict(mult, marge)}")
