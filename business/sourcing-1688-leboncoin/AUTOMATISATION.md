@@ -58,7 +58,7 @@ Corps :
 - Remise en main propre à [ville] ou envoi Mondial Relay 48 h
 - Mentions pro obligatoires (compte PRO) : garantie légale 2 ans, rétractation 14 j sur envoi
 Photos : 3 minimum — produit reçu RÉEL sous lumière naturelle, jamais les rendus 1688
-  (différence visible = litiges "non conforme" en série)
+  (différence visible = litiges "non conforme" en série) — protocole complet dans PHOTOS_ANNONCES.md
 ```
 
 Règles de pricing :

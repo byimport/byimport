@@ -14,8 +14,12 @@ marge_calc.py, puis attribue un score 0-100 combinant :
 Disqualification automatique (score forcé à 0, verdict NO-GO) :
   multiplicateur < 2,5, marge absolue < 15 EUR, ou risque_conformite >= 4.
 
+Une colonne "Cible" marque les produits dont la marge nette par vente tombe
+dans la bande visée sur Leboncoin (par défaut 20-40 EUR, réglable avec
+--marge-min / --marge-max).
+
 Usage :
-    python3 score_produits.py produits_candidats.csv [--fret-kg 11]
+    python3 score_produits.py produits_candidats.csv [--fret-kg 11] [--marge-min 20 --marge-max 40]
 
 Stdlib uniquement (Python 3.8+).
 """
@@ -101,6 +105,10 @@ def main(argv=None):
     p.add_argument("csv_path", help="CSV des produits candidats")
     p.add_argument("--fret-kg", type=float, default=DEFAUTS["fret_kg"],
                    help="EUR/kg de fret pour le scénario (défaut: %(default)s, air éco)")
+    p.add_argument("--marge-min", type=float, default=20.0,
+                   help="bas de la bande de marge cible par vente en EUR (défaut: %(default)s)")
+    p.add_argument("--marge-max", type=float, default=40.0,
+                   help="haut de la bande de marge cible par vente en EUR (défaut: %(default)s)")
     args = p.parse_args(argv)
 
     with open(args.csv_path, newline="", encoding="utf-8") as f:
@@ -115,14 +123,18 @@ def main(argv=None):
     resultats.sort(key=lambda r: r["score"], reverse=True)
 
     entete = (f"{'#':>2}  {'Produit':<38} {'Score':>5}  {'Coût':>7}  {'Prix x3':>8}  "
-              f"{'Marché':>7}  {'Mult':>5}  {'Marge':>7}  Verdict")
+              f"{'Marché':>7}  {'Mult':>5}  {'Marge':>7}  {'Cible':>5}  Verdict")
     print(entete)
     print("-" * len(entete))
+    dans_cible = 0
     for i, r in enumerate(resultats, 1):
+        cible = (r["verdict"] != "NO-GO"
+                 and args.marge_min <= r["marge_abs"] <= args.marge_max)
+        dans_cible += cible
         print(f"{i:>2}  {r['produit'][:38]:<38} {r['score']:5.1f}  "
               f"{r['cout']:6.2f}€  {r['prix_conseille']:7.2f}€  "
               f"{r['prix_marche']:6.2f}€  x{r['mult']:4.2f}  "
-              f"{r['marge_abs']:6.2f}€  {r['verdict']}")
+              f"{r['marge_abs']:6.2f}€  {'OUI' if cible else '—':>5}  {r['verdict']}")
     print()
     ligne_fret = f"Scénario fret : {args.fret_kg:.0f} EUR/kg"
     if args.fret_kg > 3:
@@ -130,7 +142,9 @@ def main(argv=None):
     print(ligne_fret)
     print("Coût = coût de revient complet par unité, TOUTE la livraison incluse (fret Chine + livraison France).")
     print("Prix x3 = prix de vente conseillé pour la marge cible ; Marché = prix médian Leboncoin constaté.")
-    print("Les 2-3 produits de tête sont les candidats à échantillonner (SOURCING_1688.md §3).")
+    print(f"Cible = marge nette par vente dans la bande {args.marge_min:.0f}-{args.marge_max:.0f} EUR "
+          f"({dans_cible}/{len(resultats)} produits).")
+    print("Les 2-3 produits de tête marqués OUI sont les candidats à échantillonner (SOURCING_1688.md §3).")
     return 0
 
 
