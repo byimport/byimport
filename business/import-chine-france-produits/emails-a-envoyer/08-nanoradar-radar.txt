@@ -1,0 +1,80 @@
+TO: sales@nanoradar.cn
+SUBJECT: French Municipal Tenders — Pedagogical Radar Speed Signs — RFQ 2026 — BYIMPORT-RADAR-2026-003
+
+---
+
+Dear Nanoradar Sales Team,
+
+My name is [Your Name], CEO of [VOTRE SOCIÉTÉ], a French company supplying equipment to French municipal public tenders (BOAMP / TED Europa). We have identified **44 active French government tenders** for pedagogical speed display signs.
+
+We know Nanoradar as a subsidiary of Novasky and specialists in 24GHz/77GHz multi-lane radar — your technology is exactly what French municipalities require for their school zone safety programs.
+
+IMPORTANT: We need **non-enforcement pedagogical radar signs only** — they display the driver's speed but do NOT issue fines and require no French homologation. Immediate market entry possible.
+
+---
+
+REQUEST FOR QUOTATION (FOB Shenzhen or Shanghai):
+
+**Model A — Solar Pedagogical Radar (24GHz, CE)**
+
+| Qty | 10 pcs | 25 pcs | 50 pcs | 100 pcs |
+|-----|--------|--------|--------|---------|
+| Price USD/pc | $___  | $___  | $___  | $___ |
+
+**Model B — Mains 230V AC Pedagogical Radar**
+
+| Qty | 10 pcs | 25 pcs | 50 pcs |
+|-----|--------|--------|--------|
+| Price USD/pc | $___  | $___  | $___ |
+
+REQUIRED SPECIFICATIONS:
+- Radar: 24GHz Doppler K-band, detection range ≥ 50m
+- LED display: 3+ digits, height ≥ 200mm, visible 100m (day+night)
+- Speed range: 0–199 km/h
+- Solar: panel + lithium battery, ≥ 7 days autonomy in cloudy conditions
+- IP65 minimum, operating temp: -20°C to +70°C
+- **CE certification mandatory** (EN 61000 series, EN 62368)
+- Warranty: 3 years minimum
+
+OPTIONS (quote separately):
+- French language display text ("VOTRE VITESSE" / "RALENTISSEZ")
+- Data logging (vehicle count, speed stats)
+- 4G/WiFi remote monitoring
+- OEM/white-label branding
+
+DOCUMENTS NEEDED WITH QUOTE:
+- CE Declaration of Conformity
+- CE Test Report (EN 61000-4 series)
+- IP65 test certificate
+- RoHS certificate
+- English product datasheet (PDF)
+- Photos of actual product
+
+COMMERCIAL TERMS:
+- Payment: 30% T/T + 70% before shipment
+- Currency: USD
+- Incoterms: FOB Shenzhen
+- Sample order: 2–3 units immediately
+- Annual volume target: 50–200 units/year (France/Benelux)
+- OEM possible: our branding on units
+
+---
+
+French retail price for this product: **€650–€2,042 per unit** (to municipalities).
+Our purchase target: $150–$350 FOB.
+
+France is a **growing, recurring market** with mandatory school zone safety equipment programs nationwide. We seek a long-term preferred supplier relationship.
+
+Please reply with pricing + CE documentation at your earliest convenience.
+
+Sincerely,
+
+[Your Name]
+Founder & CEO | [VOTRE SOCIÉTÉ]
+France
+Email: [votre@email.com]
+WhatsApp: +33 XXXXXXXXX
+
+---
+中文版简短问询 / Chinese summary:
+您好！我们是法国公司，专门参与政府公共采购招标（BOAMP）。目前法国有44个教学测速雷达招标项目正在进行。我们寻求CE认证24GHz教学雷达（非执法类）长期供应合作。请发送报价单及CE证书至上述邮箱。谢谢！
