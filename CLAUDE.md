@@ -2,7 +2,7 @@
 
 **This is the public, open-source repository that ships to all customers and the community.**
 
-Toprank is a host-agnostic plugin providing SEO, Google Ads, and Meta Ads skills for AI coding agents. It is distributed via the `nowork-studio` Claude Code marketplace and via direct agent install on OpenClaw, Codex, and Hermes. Every change here is user-facing.
+Toprank is a host-agnostic plugin providing SEO, Google Ads, Meta Ads, and CRM skills for AI coding agents. It is distributed via the `nowork-studio` Claude Code marketplace and via direct agent install on OpenClaw, Codex, and Hermes. Every change here is user-facing.
 
 ## Engineering Execution Standard
 
@@ -29,10 +29,10 @@ This code ships to real users. Sycophancy and rubber-stamping cost us credibilit
 ## Repository purpose
 
 - Home of the `toprank` plugin — the public artifact customers install.
-- Contains host-agnostic skills under `google-ads/`, `seo/`, `meta-ads/`, `gemini/`, and `toprank-upgrade-skill/`.
+- Contains host-agnostic skills under `google-ads/`, `seo/`, `meta-ads/`, `crm/`, `gemini/`, and `toprank-upgrade-skill/`.
 - Contains OpenClaw-specific multi-site orchestrators under `openclaw/skills/` that compose the host-agnostic skills above.
 - Registered via `.claude-plugin/plugin.json` + `.claude-plugin/marketplace.json` (Claude Code) and `AGENTS.md` (every other host).
-- Paired with the NotFair-GoogleAds and NotFair-MetaAds MCP servers (OAuth at notfair.co) for ad-platform writes, and Google Search Console for SEO reads.
+- Paired with the NotFair-GoogleAds and NotFair-MetaAds MCP servers (OAuth at notfair.co) for ad-platform writes, and Google Search Console for SEO reads. The `crm/` skills are **connector-agnostic** — there is no NotFair CRM server; they resolve `~~crm` against whatever CRM MCP is connected (HubSpot is the reference) and are read-and-segment only.
 
 ## Critical: this ships to users
 
@@ -66,6 +66,9 @@ This code ships to real users. Sycophancy and rubber-stamping cost us credibilit
 ├── meta-ads/
 │   ├── manage|audit/            Two host-agnostic Meta Ads skills
 │   └── shared/                  preamble.md, meta-math.md, policy-registry.json
+├── crm/
+│   ├── query|reports/           Two connector-agnostic CRM skills (read-and-segment only)
+│   └── shared/                  preamble.md (resolves ~~crm against the connected CRM MCP)
 ├── seo/
 │   ├── seo-analysis|seo-page|content-writer|content-planner|keyword-research|
 │   │   meta-tags-optimizer|schema-markup-generator|broken-link-checker|

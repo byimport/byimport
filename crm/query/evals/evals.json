@@ -1,0 +1,34 @@
+{
+  "skill_name": "crm-query",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "How many of my contacts are marketing-qualified leads in Geneva that I can email?",
+      "expected_output": "The skill follows the shared preamble to detect a CRM connector, then discovers schema before filtering: it confirms the lifecycle-stage property and value (e.g. lifecyclestage = marketingqualifiedlead), the region/city property, and crucially the consent/subscription property, via search_properties rather than hardcoding. It builds an AND filter group (lifecycle = MQL AND region = Geneva AND consent = opted-in) and adds a HAS_PROPERTY guard so contacts with unset consent are excluded. It reports the count from the response 'total' (not the length of one page), names the exact filter that produced it, and states how many records were excluded for missing/negative consent. It does not treat 'exists in the CRM' as 'emailable'.",
+      "files": [],
+      "expectations": [
+        "Detects the CRM connector via the shared preamble before querying",
+        "Discovers property internal names (lifecycle stage, region, consent) with search_properties instead of hardcoding portal-specific values",
+        "Resolves 'my' to an owner id with search_owners and filters the owner property by that id",
+        "Builds an AND filter group and includes consent/opt-in as an explicit filter, excluding records where the consent property is unset",
+        "Reports the count from the response 'total', not the length of a single returned page",
+        "States the exact filter definition and how many records were dropped for missing/negative consent",
+        "Does not assume CRM membership implies permission to email"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "List the open deals owned by Marie Dubois worth over 20k.",
+      "expected_output": "The skill resolves 'Marie Dubois' to an owner id with search_owners first (owner ids and user ids are distinct), confirms the deal-stage and amount property names with search_properties, and confirms which stages count as 'open' for this portal rather than assuming a label. It filters deals with an AND group: owner = <resolved id> AND amount > 20000 AND stage IN (<open stages>). Because amount is a currency value, it also requests the matching currency-code property so the figures are unambiguous. It reports the matching deals with the total count, paginating if the population exceeds one page, and formats amounts with their currency. It hands off to crm-reports if the user then asks for a sum or per-stage breakdown.",
+      "files": [],
+      "expectations": [
+        "Resolves the named owner to an owner id with search_owners before filtering",
+        "Confirms deal-stage and amount property internal names with search_properties and discovers which stages mean 'open' rather than guessing",
+        "Constructs an AND filter (owner AND amount > 20000 AND open stages) using the correct operators",
+        "Requests the currency-code property alongside the currency amount and formats money with its currency",
+        "Reports the total count and paginates when the result exceeds a single page rather than presenting one page as the whole list",
+        "Offers crm-reports for any follow-up that needs a sum, average, or per-stage rollup"
+      ]
+    }
+  ]
+}
