@@ -1,0 +1,37 @@
+# Fiche RDV (exemple fictif) — voir ../MODELE_FICHE_RDV.md pour le détail complet
+ref                 : 2026-0042
+date_creation       : 2026-06-11
+statut              : pris
+
+# Client — informations importantes
+nom                 : Marc D.
+email               : marc.d@exemple.ch
+telephone           : +41 7X XXX XX XX
+adresse             : Rue Exemple 10, 1201 Genève
+canton              : GE
+travail             : Cadre PME tech (salarié)
+preference_pilier   : 2e+3e
+
+# Prévoyance
+avoirs_2e_pilier    : 180000
+avoirs_libre_passage: 85000
+avoirs_3a           : 35000
+avoirs_total_estime : 300000
+cas_usage           : libre passage dormant à consolider ; rachat LPP
+declencheur         : "changement d'employeur il y a 3 ans, ancien 2e pilier qui dort"
+
+# Rendez-vous
+date_rdv            : 2026-06-13
+heure_rdv           : 17:30 (Europe/Zurich)
+format              : visio Google Meet
+conseiller_swisskap :
+lien_visio          : (généré par Calendly)
+
+# Conformité
+opt_in              : 2026-06-10 14:22 — source Meta lead form
+consent_enregistr   : annoncé en début d'appel
+doc_envoyee         : oui
+
+# Notes pour le conseiller
+notes               : "Réceptif, veut comprendre le libre passage dormant. Ne pas survendre le
+                       rachat au 1er RDV. Disponible le soir uniquement."
