@@ -1,0 +1,80 @@
+TO: sales@luxsky-light.com
+SUBJECT: French Government LED Street Light Tenders — Annual Supply Agreement — RFQ 2026
+
+---
+
+Dear LUXSKY Export Sales Team,
+
+My name is [Your Name], CEO of [VOTRE SOCIÉTÉ], a French company specializing in public infrastructure equipment supply for French municipal public tenders (BOAMP / TED Europa — **755 active tenders for public lighting** currently open in France).
+
+We found your company through your website and are impressed by your European export focus. We are building a preferred supplier network for the French LED street lighting market and would like to include LUXSKY.
+
+---
+
+REQUEST FOR QUOTATION — LED Street Lights for French Public Tenders
+
+**Product A — LED Street Light 80W**
+**Product B — LED Street Light 100W**
+**Product C — LED Street Light 150W**
+
+| Product | Qty 50 | Qty 100 | Qty 200 | Qty 500 |
+|---------|--------|---------|---------|---------|
+| LED 80W | $___/pc | $___/pc | $___/pc | $___/pc |
+| LED 100W | $___/pc | $___/pc | $___/pc | $___/pc |
+| LED 150W | $___/pc | $___/pc | $___/pc | $___/pc |
+
+All prices FOB Shanghai or Shenzhen. Please also quote CIF Le Havre if available.
+
+REQUIRED SPECIFICATIONS:
+
+| Spec | Requirement |
+|------|------------|
+| Luminous efficacy | ≥ 140 lm/W |
+| CCT | 4000K neutral white |
+| CRI | ≥ 80 |
+| IP Rating | **IP66 mandatory** |
+| IK Rating | IK08 |
+| Lifespan (L70) | ≥ 50,000 hours |
+| Driver | Programmable DALI / 0-10V |
+| Certification | **CE mandatory** + RoHS + LM79/LM80 |
+| Warranty | 5 years minimum |
+
+DOCUMENTS NEEDED:
+- CE Declaration of Conformity (DoC)
+- CE Test Report (EN 60598-1, EN 60598-2-3)
+- LM79 photometric test report
+- LM80 LED chip lifespan test
+- RoHS certificate
+- ISO 9001 certificate
+- Product datasheet (English PDF)
+- IES photometric file
+
+COMMERCIAL TERMS:
+- Payment: 30% T/T deposit + 70% before shipment (first order)
+- Incoterms: FOB Shanghai preferred
+- Currency: USD
+- MOQ: 50 units per model
+- Sample: 2 units of each model (sample + freight at buyer expense)
+- Annual volume target: **500–2,000 units/year**
+- Objective: 3–5 year exclusive France/Benelux supply agreement
+
+---
+
+WHY PARTNER WITH US:
+- We supply French government contracts — **payment guaranteed within 30 days by law**
+- Recurring annual tenders — not one-time purchases
+- Growing market: France converting 100% of public street lights to LED by 2030 (€5B+ demand)
+- We provide French market specification feedback — helps you stay compliant
+
+French market price for this product: **€180–€420 per unit** to municipalities.
+Our purchase target: $65–$120 FOB.
+
+We are ready to place a sample order immediately upon receipt of your quotation and CE documentation.
+
+Best regards,
+
+[Your Name]
+Founder & CEO | [VOTRE SOCIÉTÉ]
+France
+Email: [votre@email.com]
+WhatsApp: +33 XXXXXXXXX

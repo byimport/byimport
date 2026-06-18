@@ -1,0 +1,41 @@
+[
+  {
+    "platform": "Alibaba",
+    "company_name": "Hangzhou ZGSM Technology Co., Ltd.",
+    "product_name": "LED Street Light 30W-240W CE IP66",
+    "price_range_usd": "$62-185/pc",
+    "moq": "10 pcs",
+    "certifications": "CE, RoHS, LM79, LM80, ISO9001",
+    "location": "Hangzhou, Zhejiang",
+    "contact_url": "https://www.zgsmled.com/contact-us/ | zgsmled@zgsm-china.com",
+    "response_rate": ">90%",
+    "years_on_platform": "17+",
+    "scraped_at": "2026-06-15T19:27:35.604692"
+  },
+  {
+    "platform": "Alibaba",
+    "company_name": "Shanghai CHZ Lighting Co., Ltd.",
+    "product_name": "LED Street Light Solar Street Light",
+    "price_range_usd": "$45-120/pc",
+    "moq": "5 pcs",
+    "certifications": "CE, RoHS, IP65",
+    "location": "Shanghai",
+    "contact_url": "https://chzlighting.en.made-in-china.com | sales10@chz-lighting.com",
+    "response_rate": ">85%",
+    "years_on_platform": "10+",
+    "scraped_at": "2026-06-15T19:27:35.604727"
+  },
+  {
+    "platform": "Alibaba",
+    "company_name": "HPWINNER Lighting Co., Ltd.",
+    "product_name": "Smart LED Street Light IP66 DALI",
+    "price_range_usd": "$80-200/pc",
+    "moq": "1 pc",
+    "certifications": "CE, RoHS, IK08, IP66, DALI",
+    "location": "Shenzhen, Guangdong",
+    "contact_url": "https://www.hpwinner.com",
+    "response_rate": ">92%",
+    "years_on_platform": "8+",
+    "scraped_at": "2026-06-15T19:27:35.604729"
+  }
+]

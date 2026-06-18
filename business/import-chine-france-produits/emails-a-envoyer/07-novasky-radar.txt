@@ -1,0 +1,74 @@
+TO: sales@novasky.cn
+CC: [via novasky.en.made-in-china.com inquiry form as backup]
+SUBJECT: European Market Radar Speed Signs — French Government Tenders — RFQ 2026
+
+---
+
+Dear Novasky Export Sales Team,
+
+My name is [Your Name], CEO of [VOTRE SOCIÉTÉ], a French infrastructure equipment company. I source products specifically for French municipal public tenders (BOAMP / TED Europa — 44 active tenders for our target product currently open).
+
+I am writing to inquire about your **pedagogical radar speed display signs** (driver feedback signs / speed awareness signs — NON enforcement). Nanoradar is your subsidiary and I have seen your 24GHz product range — it aligns perfectly with French CE requirements.
+
+KEY POINT: We need non-enforcement pedagogical radar signs only — NOT enforcement cameras. No French homologation required for this category. Immediate market access.
+
+---
+
+REQUEST FOR QUOTATION:
+
+| Model | Qty 10 | Qty 25 | Qty 50 | Qty 100 |
+|-------|--------|--------|--------|---------|
+| Solar Pedagogical Radar (24GHz, IP65, CE) | $___/pc | $___/pc | $___/pc | $___/pc |
+| Fixed Mains 230V AC Pedagogical Radar | $___/pc | $___/pc | $___/pc | $___/pc |
+
+MINIMUM SPECIFICATIONS:
+- Radar technology: 24GHz Doppler (K-band) — your specialty
+- Detection range: ≥ 50 meters
+- LED display: minimum 3 digits, height ≥ 200mm, visible 100m
+- Speed range: 0-199 km/h
+- Solar: panel + lithium battery, ≥ 7 days autonomy cloudy conditions
+- IP rating: IP65 minimum
+- Temperature: -20°C to +70°C
+- Certification: **CE mandatory** (EN 61000-4 series, EN 62368)
+- Warranty: 3 years
+
+OPTIONAL (quote separately):
+- French language display ("VOTRE VITESSE" / "RALENTISSEZ")
+- Data logging (vehicle count + speed recording)
+- 4G/WiFi remote monitoring
+- OEM/white-label with our branding
+
+DOCUMENTS NEEDED:
+- CE Declaration of Conformity
+- CE Test Report
+- IP65 test certificate
+- RoHS certificate
+- Datasheet (English PDF)
+
+COMMERCIAL TERMS:
+- Payment: 30% T/T + 70% before shipment (sample: 100% advance)
+- Currency: USD
+- Incoterms: FOB Shenzhen or Shanghai
+- Sample order: 2-3 units immediately
+- Annual volume: 50-200 units/year
+
+---
+
+French market retail price: €650-€2,042 per unit.
+Our target purchase price: $150-$300 FOB.
+
+France is a growing market — 100% of school zones and municipalities are potential customers. We seek a long-term exclusive preferred supplier relationship for France/Benelux.
+
+Please reply with your best pricing and CE documentation.
+
+Sincerely,
+
+[Your Name]
+Founder & CEO | [VOTRE SOCIÉTÉ]
+France
+Email: [votre@email.com]
+WhatsApp: +33 XXXXXXXXX
+
+---
+备用中文联系 / Backup Chinese inquiry:
+您好，我们是法国一家专为政府招标采购设备的公司。我们需要CE认证的教学测速雷达（非执法类），用于法国市政招标项目。请发送24GHz型号报价及CE证书。谢谢！
