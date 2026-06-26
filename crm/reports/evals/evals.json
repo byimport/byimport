@@ -1,0 +1,33 @@
+{
+  "skill_name": "crm-reports",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Show me total pipeline value by deal stage for deals created this quarter.",
+      "expected_output": "The skill follows the shared preamble, makes the connector's required pre-query guidance call if needed, and confirms the stage and amount property internal names with search_properties before composing SQL. It writes a single grouped query — SELECT dealstage, SUM(amount_in_home_currency) FROM DEAL ... GROUP BY dealstage — preferring the _in_home_currency amount so the sum is single-currency, and scopes 'this quarter' with a date filter or a period helper (CURRENT_PERIOD on createdate). It returns a compact table of stage vs. summed value, states the object type, the exact window, and the grouping dimension, and formats money with its currency. It does not attempt JOINs, HAVING, or COUNT(DISTINCT).",
+      "files": [],
+      "expectations": [
+        "Confirms stage and amount property internal names with search_properties before issuing SQL",
+        "Composes one grouped query (GROUP BY dealstage with SUM) rather than listing records and summing manually",
+        "Prefers the _in_home_currency amount property so the sum is not mixing currencies",
+        "Scopes 'this quarter' explicitly via a date filter or period helper and states the exact window in the output",
+        "Returns a compact stage-by-value table and formats money with its currency",
+        "Stays within the dialect — no JOIN, HAVING, or COUNT(DISTINCT)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Which owners have more than 10 deals each, broken down by month created over the last 6 months?",
+      "expected_output": "The skill recognizes that 'more than 10 each' is a HAVING-style filter, which the dialect does not support, and that the request also needs a per-owner per-month grouping. It composes GROUP BY hubspot_owner_id, DATE_TRUNC(createdate, 'MONTH') with COUNT(*) over a 6-month window (period helper or BETWEEN on date strings), then filters the grouped result client-side to owners exceeding 10 — rather than emitting an unsupported HAVING clause. It resolves owner ids to names with search_owners for the final table. It explains the decomposition (why HAVING was applied client-side) and states the window. It does not use COUNT(DISTINCT) or JOIN.",
+      "files": [],
+      "expectations": [
+        "Recognizes 'more than 10 each' as HAVING, which is unsupported, and applies that threshold client-side instead of emitting HAVING",
+        "Groups by owner and DATE_TRUNC(createdate,'MONTH') with COUNT(*) over an explicit 6-month window",
+        "Resolves owner ids to names via search_owners for the final output",
+        "Explains the client-side decomposition and states the exact window computed over",
+        "Avoids unsupported constructs (HAVING, COUNT(DISTINCT), JOIN)",
+        "Offers crm-query if the user then wants the underlying deal records rather than the rollup"
+      ]
+    }
+  ]
+}

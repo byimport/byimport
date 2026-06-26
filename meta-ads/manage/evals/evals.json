@@ -1,0 +1,32 @@
+{
+  "skill_name": "meta-ads",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Can you help me manage my Meta ads?",
+      "expected_output": "The skill follows the shared preamble to detect the NotFair Meta MCP server, handle OAuth, and resolve the ad account from config before pulling any data. If business context is missing or stale (>90 days), it should recommend running /meta-ads-audit first rather than producing generic output. It should not attempt to mutate anything or pull insights before setup is complete.",
+      "files": [],
+      "expectations": [
+        "Follows the shared preamble to verify Meta MCP connectivity and resolve the ad account before pulling data",
+        "Checks for business context and recommends /meta-ads-audit when it is missing or older than 90 days",
+        "Does not mutate the account (pause/budget changes) without first showing current value, proposed value, and expected impact",
+        "If any setup step is missing, guides the user through resolution before proceeding"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "How are my Meta campaigns doing and what should I change? Here's the data:\n\n```json\n{\"account\": {\"name\": \"Northwind Apparel\", \"currency\": \"USD\", \"attribution\": \"7d_click_1d_view\"},\n\"campaigns\": [{\"name\": \"Prospecting - Broad\", \"objective\": \"OUTCOME_SALES\", \"spend_30d\": 9000, \"purchases\": 150, \"purchase_value\": 27000, \"roas\": 3.0, \"cpm\": 18.5, \"link_ctr\": 1.4, \"frequency_7d\": 3.8, \"cpm_trend_wow\": \"+34%\", \"link_ctr_trend_wow\": \"-32%\"}, {\"name\": \"Retargeting - 30d Viewers\", \"objective\": \"OUTCOME_SALES\", \"spend_30d\": 2000, \"purchases\": 90, \"purchase_value\": 18000, \"roas\": 9.0, \"cpm\": 22.0, \"link_ctr\": 2.1, \"frequency_7d\": 2.2}],\n\"adsets\": [{\"campaign\": \"Prospecting - Broad\", \"name\": \"LAL 1% Purchasers\", \"status\": \"Learning\", \"learning_stage\": \"LEARNING\", \"events_7d\": 28, \"daily_budget\": 200, \"spend_30d\": 6000, \"share_of_campaign_spend\": 0.67}, {\"campaign\": \"Prospecting - Broad\", \"name\": \"Interests - Activewear\", \"status\": \"ACTIVE\", \"events_7d\": 70, \"daily_budget\": 100, \"spend_30d\": 3000}]}\n```",
+      "expected_output": "An analysis that always cites the 7DC1DV attribution window when reporting ROAS, and footnotes that Meta-reported ROAS typically overstates ground-truth ROAS by 20-40%. It should diagnose Prospecting - Broad as creative fatigue (frequency 3.8 with CPM +34% and link CTR -32% w/w) and recommend a creative refresh rather than a budget increase. It should NOT recommend stacking edits on the 'LAL 1% Purchasers' ad set because it is in Learning with only 28 of the 50 events needed in 7 days; if anything, the recommendation is to consolidate to exit Learning faster. It should note the 'LAL 1% Purchasers' ad set carries 67% of campaign spend (fragility). It should not recommend operations outside the Meta MCP mutation surface (e.g. creative upload, audience editing) without routing the user to Ads Manager.",
+      "files": [],
+      "expectations": [
+        "Reports ROAS with the attribution window (7DC1DV) and footnotes the modeled-conversion premium (Meta-reported ROAS overstates true ROAS, typically 20-40%)",
+        "Diagnoses Prospecting - Broad as creative fatigue from frequency > 3.0 with rising CPM and falling link CTR, and recommends creative refresh rather than adding budget",
+        "Uses link CTR (not all-clicks CTR) when discussing click performance",
+        "Respects the Learning Phase: does not recommend stacking edits on the 'LAL 1% Purchasers' ad set (28/50 events), and frames any change as helping it exit Learning faster",
+        "Flags that 'LAL 1% Purchasers' carries 67% of campaign spend as concentration/fragility risk",
+        "Confirms before any mutation by showing current value, proposed value, and expected dollar/ROAS impact",
+        "Routes out-of-surface requests (creative upload, audience editing, attribution change) to Ads Manager instead of improvising with runScript writes"
+      ]
+    }
+  ]
+}

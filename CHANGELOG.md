@@ -11,6 +11,37 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.24.0] — 2026-06-15
+
+### Added — CRM category (connector-agnostic, read-and-segment)
+
+- New **`crm-query`** skill — filter, list, count, and segment CRM records
+  (contacts, companies, deals, tickets), discover the portal schema, and
+  resolve owners. Counts come from the connector's real `total`, never a
+  single page. When a result feeds outreach, consent/opt-in is treated as a
+  hard filter and records with unset consent are excluded — CRM membership is
+  never assumed to mean permission to contact.
+- New **`crm-reports`** skill — server-side SQL aggregations, `GROUP BY`,
+  time-series (`DATE_TRUNC`), and cross-object rollups through the connector's
+  query endpoint, with a dialect reference and a decomposition cheatsheet for
+  unsupported constructs (`HAVING`, `COUNT(DISTINCT)`, JOIN, etc.).
+- New **`crm/shared/preamble.md`** — resolves the `~~crm` placeholder against
+  whichever CRM MCP is connected (HubSpot is the reference). There is **no**
+  NotFair-hosted CRM server; the category is connector-agnostic by design and
+  never shells out to a vendor CLI. Writes are out of scope — these skills read
+  and segment only.
+- Registered both skills in `AGENTS.md` and `.claude-plugin/plugin.json`, and
+  extended the install structure test to cover the new category.
+
+### Test coverage
+
+- The install structure test now includes the Meta Ads category (previously
+  omitted from `SKILL_ENTRIES` and the SKILL.md count guard), and added
+  `evals/evals.json` for `meta-ads` and `meta-ads-audit` at parity with the
+  Google Ads evals.
+
+---
+
 ## [0.23.0] — 2026-05-16
 
 ### Changed — full removal of legacy AdsAgent branding from active code

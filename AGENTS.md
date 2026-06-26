@@ -47,6 +47,15 @@ Skills under `seo/`, `google-ads/`, `meta-ads/`, `gemini/`, and `toprank-upgrade
 | First-time Meta setup or account health check | `meta-ads-audit` | `meta-ads/audit/SKILL.md` |
 | Facebook/Instagram performance, ROAS, CPM, creative fatigue, audience overlap | `meta-ads` | `meta-ads/manage/SKILL.md` |
 
+## CRM
+
+Connector-agnostic — these skills read from whichever CRM MCP is connected to the host (HubSpot is the reference). Read-and-segment only; they never create or edit records.
+
+| Intent | Skill | Path |
+|---|---|---|
+| Filter, list, count, or segment CRM records; discover schema; resolve owners | `crm-query` | `crm/query/SKILL.md` |
+| Aggregations, GROUP BY, time-series, cross-object rollups (server-side SQL) | `crm-reports` | `crm/reports/SKILL.md` |
+
 ## Cross-model review
 
 | Intent | Skill | Path |
@@ -83,6 +92,7 @@ If the user mentions multi-site work, portfolio, scheduled follow-ups, or "the n
 - **Google Ads (NotFair MCP)** — `https://notfair.co/api/mcp/google_ads`, OAuth. Required for Google Ads skills.
 - **Meta Marketing API (NotFair MCP)** — required for Meta Ads skills.
 - **Google Gemini API key** — required for `gemini`.
+- **A CRM MCP connector** — required for `crm-query` / `crm-reports`. There is no NotFair-hosted CRM server; connect your own CRM's MCP (HubSpot is the reference surface). The skills resolve `~~crm` against whatever connector exposes `search_crm_objects` / `query_crm_data`.
 
 Skills check for missing credentials at startup and walk the user through setup. Do not invent credentials or skip skills silently — surface the gap.
 

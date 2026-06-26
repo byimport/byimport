@@ -1,7 +1,7 @@
 {
   "name": "toprank",
-  "version": "0.23.0",
-  "description": "The official Google Ads + Meta Ads + SEO + GEO plugin from NotFair. SEO analysis, Google Ads management, Meta (Facebook + Instagram) Ads management, keyword research, content optimization, schema markup tools, broken link checker, single-page deep audit, and Generative Engine Optimization (GEO) for AI search engines — powered by Google Search Console, Google Ads, and Meta Marketing APIs.",
+  "version": "0.24.0",
+  "description": "The official Google Ads + Meta Ads + SEO + GEO + CRM plugin from NotFair. SEO analysis, Google Ads management, Meta (Facebook + Instagram) Ads management, CRM querying and reporting, keyword research, content optimization, schema markup tools, broken link checker, single-page deep audit, and Generative Engine Optimization (GEO) for AI search engines — powered by Google Search Console, Google Ads, and Meta Marketing APIs plus a connector-agnostic CRM surface.",
   "author": {
     "name": "NotFair",
     "url": "https://notfair.co"
@@ -13,6 +13,8 @@
     "./google-ads/landing",
     "./meta-ads/manage",
     "./meta-ads/audit",
+    "./crm/query",
+    "./crm/reports",
     "./seo/seo-analysis",
     "./seo/content-writer",
     "./seo/content-planner",
