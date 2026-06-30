@@ -1,0 +1,32 @@
+{
+  "skill_name": "meta-ads-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "audit my Meta ads account",
+      "expected_output": "A structured health report covering account structure, pixel setup, audience strategy, creative quality, budget distribution, and top 3 prioritised fixes",
+      "files": [],
+      "expectations": [
+        "Reads account-level data via runScript before writing any diagnosis",
+        "Checks pixel events and attribution window settings",
+        "Evaluates campaign structure (CBO vs ABO, funnel coverage)",
+        "Identifies Learning Phase issues and audience overlap",
+        "Saves business context to meta business-context.json",
+        "Outputs a prioritised fix list with expected impact"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I just connected my Meta ads account for the first time — what should I check?",
+      "expected_output": "An onboarding audit that gathers business context (industry, target CPA, attribution window preference), then runs account health checks and produces a prioritised setup checklist",
+      "files": [],
+      "expectations": [
+        "Asks for business context before analysing",
+        "Persists context to meta business-context.json",
+        "Checks pixel, attribution, campaign structure, and creative health",
+        "Does not mutate the account — read-only audit",
+        "Ends with a numbered action list for /meta-ads to execute"
+      ]
+    }
+  ]
+}

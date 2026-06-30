@@ -1,0 +1,59 @@
+{
+  "skill_name": "social-media",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "post on all my social media: 'We just crossed 10,000 customers. Thank you for your trust!'",
+      "expected_output": "Platform-adapted variants for each connected platform (Instagram, Facebook, Twitter/X, LinkedIn) shown before publishing, then posted after approval",
+      "files": [],
+      "expectations": [
+        "Reads preamble to detect connected platforms and connectors",
+        "Produces a distinct adapted variant per platform respecting character limits and tone",
+        "Twitter/X variant is ≤ 280 characters",
+        "LinkedIn variant avoids external links in body",
+        "Instagram variant includes a hashtag block",
+        "Shows all variants before any posting action",
+        "Posts via correct connector (~~meta-social for FB/IG, ~~ifttt for Twitter/LinkedIn)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "schedule a LinkedIn post for next Tuesday at 8am: 'Just published our Q2 report — link in the comments'",
+      "expected_output": "The post adapted for LinkedIn (professional tone, no external link in body) scheduled for Tuesday 08:00 in the user's timezone via IFTTT or Zapier, with confirmation of the scheduled time and a cancel/edit option",
+      "files": [],
+      "expectations": [
+        "Adapts content to LinkedIn style (professional, no link in body)",
+        "Converts next Tuesday 8am to the correct UTC datetime",
+        "Schedules via ~~ifttt create_applet or ~~zapier",
+        "Confirms scheduled time in user's local timezone",
+        "Does not post immediately"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "show me my social media analytics for the last 7 days",
+      "expected_output": "A per-platform table showing reach, engagement rate, follower delta, and top post for each connected platform, plus a 2-sentence cross-platform summary and 2 recommendations",
+      "files": [],
+      "expectations": [
+        "Pulls insights from each connected platform via its resolved connector",
+        "Engagement rate always cites the denominator (likes+comments+shares / reach)",
+        "Does not fabricate metrics — marks unavailable data as N/A",
+        "Top post is ranked by engagement rate not raw likes",
+        "Closes with exactly 2 actionable recommendations"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "write me an instagram caption and hashtags for a photo of my handmade olive oil soap",
+      "expected_output": "An Instagram caption with a hook in the first 125 characters, a story/description body, and a hashtag block mixing broad, mid-range, and niche tags within the 30-hashtag limit",
+      "files": [],
+      "expectations": [
+        "Caption hook appears in the first 125 characters",
+        "Hashtag block is separated from the caption body",
+        "Hashtag count is between 8 and 30",
+        "Mix includes at least 2 broad, 4 mid-range, and 3 niche tags",
+        "Does not post — delivers caption ready to copy"
+      ]
+    }
+  ]
+}
