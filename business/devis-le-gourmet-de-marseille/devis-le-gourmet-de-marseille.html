@@ -236,20 +236,30 @@ table.items td {
 }
 .conditions strong { color: #16324f; }
 
-.sign-row { display: flex; gap: 6mm; margin-top: 4mm; align-items: stretch; }
+.payment {
+  margin-top: 2.5mm;
+  font-size: 8pt; color: #1c2637; line-height: 1.6;
+  background: #fdf7ec;
+  border: 0.4mm solid #e8960c;
+  border-radius: 2mm;
+  padding: 2.8mm 4.5mm;
+}
+.payment strong { color: #16324f; }
+
+.sign-row { display: flex; gap: 6mm; margin-top: 3mm; align-items: stretch; }
 .sign-box {
   flex: 1;
   border: 0.4mm dashed #b9c3cf;
   border-radius: 2mm;
   background: rgba(255,255,255,0.88);
   padding: 3mm 4mm;
-  height: 26mm;
+  height: 18mm;
 }
 .sign-label { font-family: 'Archivo Narrow', Arial, sans-serif; font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #16324f; }
 .sign-hint { font-size: 7pt; color: #8a94a3; margin-top: 1mm; font-style: italic; }
 
 .legal {
-  margin-top: 3.5mm;
+  margin-top: 2.5mm;
   font-size: 6.5pt; color: #4d5866; text-align: center; line-height: 1.6;
   background: rgba(255,255,255,0.9);
   border-radius: 1.5mm;
@@ -406,7 +416,7 @@ table.items td {
           </g>
         </svg>
         <div>
-          <div class="brand-name">[Votre société]</div>
+          <div class="brand-name">By Solar</div>
           <div class="brand-sub">Installateur photovoltaïque — Certifié RGE QualiPV</div>
           <div class="brand-coords">
             [Adresse] — [Code postal, Ville]<br/>
@@ -501,6 +511,9 @@ table.items td {
     <div class="footer-zone">
       <div class="conditions">
         <strong>Conditions :</strong> acompte de 30 % à la signature (5 400,00 € TTC), solde à la mise en service. Délai indicatif d'exécution : 8 à 12 semaines après acceptation et obtention des autorisations. Installation certifiée RGE : éligible à la prime à l'autoconsommation et à l'obligation d'achat du surplus (EDF OA), sous réserve des conditions en vigueur. Assurance responsabilité civile et décennale : [Assureur, n° de police]. Devis gratuit, valable 30 jours à compter de sa date d'émission.
+      </div>
+      <div class="payment">
+        <strong>Règlement</strong> par virement bancaire — Titulaire du compte : <strong>By Import</strong> · IBAN : [IBAN à compléter] · BIC : [BIC à compléter]
       </div>
       <div class="sign-row">
         <div class="sign-box">
