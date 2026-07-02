@@ -38,7 +38,7 @@ Critères : délai jusqu'au premier encaissement, capital requis, dépendance à
 | **1** | Leads Genève | 3–6 sem. | 7–10 kCHF (budget test, pas les 46 kCHF du plan complet) | Conformité LSFin/OAR **ou** modèle revente de leads (sans licence) | Meilleur ratio cash/délai. La demande existe, les plans média sont prêts, il ne manque que les landing pages et le budget. |
 | **2** | Yachts (version allégée) | 4–8 sem. | < 2 kEUR | Mandats propriétaires | **Nous sommes en pleine saison** (juillet = ~25 % du CA annuel méditerranéen). Trop tard pour un site complet, pas trop tard pour encaisser des commissions via les plateformes existantes. Version complète → saison 2027. |
 | **3** | Huile d'olive | 3–6 mois | 65–120 k$ par conteneur (ou 0 si modèle commissionnaire) | **GACC obligatoire** — cause n°1 de blocage douane | Marge par affaire la plus grosse (26–47 k$/conteneur) mais cycle long. On lance les démarches administratives **maintenant, en parallèle**, précisément parce qu'elles durent des mois. |
-| **4** | MonQR | 2–3 sem. | ~10 €/mois (hébergement) + compte Stripe | Aucun | Revenu vite encaissable mais **plafond bas** (marché saturé par Linktree). À traiter comme un produit d'appoint : 2 jours de travail pour le mettre en ligne avec un paiement, puis on n'y touche plus. |
+| **4** | MonQR | 2–3 sem. | ~10 €/mois (hébergement) — encaissement via PayPal existant | Aucun | Revenu vite encaissable mais **plafond bas** (marché saturé par Linktree). À traiter comme un produit d'appoint : 2 jours de travail pour le mettre en ligne avec un paiement, puis on n'y touche plus. |
 | **5** | Toprank/NotFair | continu | 0 (déjà construit) | — | C'est l'actif le plus abouti. Le levier revenu n'est pas du développement mais de la **distribution** (registres MCP, contenu, upgrade des installés). Effort marketing récurrent, pas un sprint. |
 
 **Décision recommandée** : concentrer 80 % de l'énergie sur **Genève (rang 1)** et **Yachts allégé
@@ -87,8 +87,9 @@ avis, likes). **Ce qui manque pour un revenu** : hébergement public + un paieme
 1. **Jour 1 — mise en ligne** : déployer sur un VPS ou service Node (l'app est sans dépendance,
    `node server.js` suffit) + nom de domaine + sauvegarde du dossier `data/`.
 2. **Jour 2 — monétisation minimale** : un seul palier payant « Carte Pro » à **9 € une fois**
-   (Stripe Payment Link — zéro code de checkout) : carte sans marque MonQR + QR haute résolution
-   pour imprimeur + statistiques de scans. La version gratuite reste telle quelle et sert d'acquisition.
+   (bouton/lien de paiement **PayPal** — zéro code de checkout, le compte PayPal existe déjà) :
+   carte sans marque MonQR + QR haute résolution pour imprimeur + statistiques de scans.
+   La version gratuite reste telle quelle et sert d'acquisition.
 3. **Distribution passive** : page destinée aux indépendants/commerçants (coiffeurs, restaurants,
    artisans) — « vos avis et réseaux sur le comptoir » ; c'est le seul angle où un QR imprimé bat Linktree.
 
@@ -111,7 +112,9 @@ des frais fixes 8 mois avant les premiers clients sérieux.
    tarif net avec skippers/bases locales pour le day-charter d'août (leur creux = nos créneaux).
 2. **Semaines 2–3** : publier ces bateaux sur Click&Boat / SamBoat / GetMyBoat (elles apportent
    la demande, on prend l'écart entre tarif net et prix public) + 10 vidéos carrées Canva sur
-   Instagram/TikTok local pour capter la demande directe (WhatsApp + acompte 30 % Stripe).
+   Instagram/TikTok local pour capter la demande directe (WhatsApp + acompte 30 % encaissé
+   par **facture PayPal** — envoyable directement depuis ces sessions une fois le connecteur
+   ré-autorisé, sans site ni intégration).
 3. **Août** : opérer, encaisser, collecter les avis 5 étoiles — ils sont le capital de départ de 2027.
 4. **Sept–oct (bilan)** : si ≥ 5 réservations rentables → lancer le plan 90 jours complet en
    janvier 2027 pour être en ligne en avril. Sinon → tuer ou pivoter, on n'aura perdu que 2 kEUR.
@@ -155,8 +158,11 @@ Sans ces éléments, aucun plan ci-dessus ne peut s'exécuter — c'est la vraie
 
 1. **Budget Genève** : valider 7–10 kCHF de budget test (ou décider de réduire/attendre).
 2. **Modèle Genève A ou B** : conseiller licencié (OAR/LSFin) ou revendeur de leads ?
-3. **Comptes** : Stripe (MonQR + acomptes yachts), Google Ads + Meta Business (Genève),
-   Alibaba fournisseur (huile d'olive).
+3. **Comptes** : **PayPal = solution d'encaissement retenue** (MonQR + acomptes yachts +
+   facturation leads). Le compte est connecté à Claude mais l'autorisation a expiré —
+   la ré-autoriser dans les paramètres de connecteurs claude.ai pour permettre l'envoi de
+   factures et le suivi des paiements directement depuis les sessions. Restent à ouvrir :
+   Google Ads + Meta Business (Genève), Alibaba fournisseur (huile d'olive).
 4. **Structure légale et facturation** : quelle entité encaisse quoi (CH pour Genève,
    EUR pour yachts/MonQR, USD pour l'huile) — à valider avec ta fiduciaire.
 5. **Yachts** : choix du port unique pour l'été 2026.
