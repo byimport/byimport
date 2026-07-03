@@ -1,0 +1,12 @@
+{
+  "_note": "Catalogue d'extras facturés en sus (par jour sauf mention). prix_net_eur = coût fournisseur estimé haute saison ; le prix public applique la marge via pricing.price_extra(). Les extras se margent à 40–60 % — c'est le cœur du packaging d'expérience.",
+  "extras": [
+    {"id": "chef", "nom": "Chef cuisinier à bord", "unite": "jour", "prix_net_eur": 380, "marge": 0.5, "description": "Menu du marché préparé et servi à bord, courses incluses (jusqu'à 8 convives). Déjeuner + apéritif dînatoire."},
+    {"id": "batelier", "nom": "Batelier / skipper supplémentaire", "unite": "jour", "prix_net_eur": 250, "marge": 0.45, "description": "Second équipier professionnel : manœuvres, annexe, sécurité baignade — indispensable au-delà de 8 passagers."},
+    {"id": "hotesse", "nom": "Hôtesse de bord", "unite": "jour", "prix_net_eur": 200, "marge": 0.5, "description": "Service à bord, préparation des repas simples, intendance."},
+    {"id": "photographe", "nom": "Photographe / vidéaste (2 h)", "unite": "sortie", "prix_net_eur": 300, "marge": 0.6, "description": "Reportage photo + 1 vidéo verticale montée (souvenir client — et contenu réutilisable pour nos pages avec accord écrit)."},
+    {"id": "aperitif", "nom": "Apéritif traiteur & champagne", "unite": "sortie", "prix_net_eur": 180, "marge": 0.6, "description": "Plateau traiteur local + 2 bouteilles de champagne, dressé avant l'embarquement."},
+    {"id": "paddle", "nom": "Pack paddle + snorkeling", "unite": "jour", "prix_net_eur": 40, "marge": 0.6, "description": "2 paddles + masques/tubas pour tous les passagers."},
+    {"id": "transfert", "nom": "Transfert hôtel ↔ port", "unite": "sortie", "prix_net_eur": 90, "marge": 0.45, "description": "Van privé aller-retour depuis l'hôtel (jusqu'à 7 passagers)."}
+  ]
+}

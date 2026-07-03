@@ -78,3 +78,16 @@ def price_berths(
         couchettes_seuil_rentabilite=seuil_rentabilite,
         couchettes_min_depart=min_depart,
     )
+
+
+def price_extra(prix_net_eur: int, *, marge: float = 0.5) -> int:
+    """Prix public d'un extra (chef, batelier, photographe, traiteur…).
+
+    Les à-côtés se margent à 40–60 % (contre 25 % sur la coque) — c'est là que
+    se joue le « packaging d'expérience ». Défaut 50 %, arrondi aux 5 € sup.
+    """
+    if prix_net_eur <= 0:
+        raise ValueError("prix_net_eur doit être > 0")
+    if marge < 0:
+        raise ValueError("marge doit être ≥ 0")
+    return _ceil_to(prix_net_eur * (1 + marge), 5)

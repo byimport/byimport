@@ -68,13 +68,70 @@ Règles de calibration encodées dans le moteur :
    D'où le seuil de départ encodé + politique claire annoncée à la réservation
    (report ou remboursement intégral si seuil non atteint à J-7).
 
+## Stratégie d'acquisition clients — mise en place
+
+Quatre briques, toutes exécutables dans `cabin-charter/` :
+
+### 1. Donner envie — les photos
+
+Règle d'or : **la fiche montre LE bateau que le client réserve**, jamais une photo
+d'ambiance d'un autre bateau (source n°1 d'avis 1 étoile et de litiges). Le
+générateur gère ça honnêtement : galerie réelle si `photos: [...]` est renseigné
+sur le bateau, sinon cadre « photos en cours de shooting » — jamais de fausse image.
+
+Process photo par mandat (coût quasi nul, à caler le jour de la signature) :
+- **Shot list** (10 clichés) : proue au mouillage eau turquoise, cockpit dressé
+  pour l'apéritif, cabine faite, pont depuis le mât, skipper au poste, baignade
+  arrière, coucher de soleil, drone 3/4 avant, détail teck/accastillage, groupe qui rit.
+- **Golden hour obligatoire** (1 h avant le coucher) — c'est ce qui « donne envie ».
+- Le **photographe vendu en extra** aux clients produit du contenu réutilisable
+  (clause de cession dans le mandat + accord écrit des clients) : chaque sortie
+  vendue enrichit les pages et les réseaux. La machine s'auto-alimente.
+- Déclinaison Reels/TikTok : voir `CONTENU_VIDEO_CANVA.md` (l'usine existe déjà).
+
+### 2. Vendre plus par client — les extras (chef, batelier…)
+
+`data/extras.json` + `pricing.price_extra()` : chef cuisinier (570 €/j),
+batelier/second équipier (365 €/j), hôtesse, photographe, apéritif traiteur,
+paddle, transfert hôtel. Margés à **45–60 %** contre 25 % sur la coque — sur une
+journée type à 4 avec chef + apéritif, les extras ajoutent ~860 € de CA dont
+~330 € de marge. Affichés sur chaque page port, intégrés à chaque devis.
+
+### 3. Trouver des clients — leads B2B `leads/collect_partners.py`
+
+On ne « scrape » pas des particuliers (prospection B2C à froid sur données
+collectées = illégal, RGPD/ePrivacy). On collecte les **apporteurs d'affaires**
+qui parlent chaque jour à nos clients : hôtels, maisons d'hôtes, agences de
+voyage, marinas autour de chaque port (source OpenStreetMap/Overpass, licence
+ouverte ODbL, coordonnées professionnelles, zéro PII).
+
+Vérifié en réel : **49 partenaires collectés autour du port de Nice** (rayon
+1,5 km), dont 42 hôtels avec téléphone/site web. Offre à leur faire : **10 % de
+commission d'apporteur** par réservation (trackée par code partenaire), plus la
+sortie offerte au concierge après 5 ventes. Séquence : e-mail court + PDF d'une
+page → relance J+4 → passage physique pour les 10 plus proches du port.
+Règles d'envoi B2B : `LUXE_MODULE_2_LEADGEN.md`.
+
+### 4. Convertir — propositions sur-mesure `propose.py`
+
+Chaque demande (WhatsApp, téléphone, partenaire) est convertie en **devis
+personnalisé en < 2 minutes** : `--port --personnes --jours --extras --client`
+→ Markdown prêt à envoyer avec systématiquement **deux options chiffrées**
+(à la couchette / privatisation — le devis montre laquelle est la plus
+avantageuse selon la taille du groupe), les extras choisis, le seuil de départ,
+et l'appel à l'action : **acompte 30 % par facture PayPal, offre valable 72 h**.
+Vitesse de réponse = premier facteur de conversion sur ce marché.
+
 ## Quickstart
 
 ```bash
 cd cabin-charter
-python3 -m unittest discover -s tests -p 'test_*.py'   # 7 tests
-python3 generate.py --out ./dist                        # 49 ports, pages + sitemap
+python3 -m unittest discover -s tests -p 'test_*.py'   # 14 tests
+python3 generate.py --out ./dist                        # 49 ports : pages + extras + sitemap
+python3 leads/collect_partners.py --port nice --rayon 3000 --output leads_nice.csv
+python3 propose.py --port nice --personnes 4 --jours 1 --extras chef,aperitif --client "M. Martin"
 ```
 
 Remplacer `data/flotte_fixture.json` par les bateaux réellement sous mandat
-(mêmes champs, `tarif_net_jour_eur` = tarif net signé) — le site se régénère.
+(mêmes champs, `tarif_net_jour_eur` = tarif net signé, `photos` = vraies photos
+du shooting) — le site et les devis se régénèrent.

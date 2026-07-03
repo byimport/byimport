@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from pricing import price_berths  # noqa: E402
+from pricing import price_berths, price_extra  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 
@@ -33,6 +33,11 @@ h1,h2{font-weight:600} a{color:#0b5394} table{border-collapse:collapse;width:100
 th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;font-size:15px}
 th{background:#eef2f7} .prix{font-weight:700;white-space:nowrap} .muted{color:#64748b;font-size:14px}
 .badge{background:#eef2f7;border-radius:4px;padding:2px 8px;font-size:13px}
+.galerie{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.galerie img{width:220px;height:150px;object-fit:cover;border-radius:6px}
+.galerie .attente{width:220px;height:150px;border-radius:6px;display:flex;align-items:center;
+justify-content:center;background:linear-gradient(160deg,#0b3954,#1d6fa5);color:#e8f1f8;
+font-size:13px;text-align:center;padding:8px;box-sizing:border-box}
 footer{margin-top:32px;border-top:1px solid #cbd5e1;padding-top:12px;color:#64748b;font-size:13px}
 """
 
@@ -75,7 +80,49 @@ def _boat_rows(boats: list[dict], marge: float, uplift: float) -> str:
     )
 
 
-def build(out: Path, ports: list[dict], boats: list[dict], marge: float, uplift: float, base_url: str) -> dict:
+def _galerie(boat: dict) -> str:
+    """Galerie photo d'un bateau. Sans photos réelles : cadre « photos à venir »
+    (jamais de photo d'un autre bateau — la fiche doit montrer LE bateau réservé)."""
+    photos = boat.get("photos") or []
+    if photos:
+        imgs = "".join(
+            f"<img src='{html.escape(p['src'])}' alt='{html.escape(p.get('alt', boat['nom']))}' loading='lazy'>"
+            for p in photos
+        )
+    else:
+        imgs = (
+            f"<div class='attente'>📷 Photos de « {html.escape(boat['nom'])} » en cours de shooting "
+            "— reportage réalisé à la signature du mandat</div>"
+        )
+    return f"<h3>{html.escape(boat['nom'])} — {html.escape(boat['modele'])}</h3><div class='galerie'>{imgs}</div>"
+
+
+def _extras_table(extras: list[dict]) -> str:
+    rows = "".join(
+        "<tr>"
+        f"<td><strong>{html.escape(e['nom'])}</strong><br><span class='muted'>{html.escape(e['description'])}</span></td>"
+        f"<td class='prix'>{price_extra(e['prix_net_eur'], marge=e.get('marge', 0.5))} € "
+        f"<span class='muted'>/ {html.escape(e['unite'])}</span></td>"
+        "</tr>"
+        for e in extras
+    )
+    return (
+        "<h2>Composez votre journée — options à bord</h2>"
+        "<p>Chef cuisinier, batelier supplémentaire, photographe… ajoutez-les à la réservation, "
+        "à la couchette comme au bateau entier.</p>"
+        f"<table><tr><th>Option</th><th>Prix</th></tr>{rows}</table>"
+    )
+
+
+def build(
+    out: Path,
+    ports: list[dict],
+    boats: list[dict],
+    marge: float,
+    uplift: float,
+    base_url: str,
+    extras: list[dict] | None = None,
+) -> dict:
     by_port: dict[str, list[dict]] = {}
     for b in boats:
         by_port.setdefault(b["port_id"], []).append(b)
@@ -104,6 +151,8 @@ def build(out: Path, ports: list[dict], boats: list[dict], marge: float, uplift:
             "<p>Réservez <strong>une couchette</strong> (cabine partagée par groupe de 2) au lieu du bateau entier : "
             "embarquement à bord avec skipper, prix par personne, départ confirmé dès le seuil minimal atteint.</p>"
             + _boat_rows(port_boats, marge, uplift)
+            + "".join(_galerie(b) for b in sorted(port_boats, key=lambda x: x["nom"]))
+            + (_extras_table(extras) if extras else "")
         )
         (out / "port" / f"{port['id']}.html").write_text(
             _page(f"Location bateau à la couchette — {port['nom']}", body), encoding="utf-8"
@@ -151,6 +200,7 @@ def main() -> None:
     ap.add_argument("--out", default="./dist")
     ap.add_argument("--ports", default=str(HERE / "data" / "ports_europe.json"))
     ap.add_argument("--flotte", default=str(HERE / "data" / "flotte_fixture.json"))
+    ap.add_argument("--extras", default=str(HERE / "data" / "extras.json"))
     ap.add_argument("--marge", type=float, default=0.25)
     ap.add_argument("--uplift", type=float, default=1.30)
     ap.add_argument("--base-url", default="https://example.com")
@@ -158,7 +208,8 @@ def main() -> None:
 
     ports = json.loads(Path(args.ports).read_text(encoding="utf-8"))["ports"]
     boats = json.loads(Path(args.flotte).read_text(encoding="utf-8"))["bateaux"]
-    report = build(Path(args.out), ports, boats, args.marge, args.uplift, args.base_url.rstrip("/"))
+    extras = json.loads(Path(args.extras).read_text(encoding="utf-8"))["extras"]
+    report = build(Path(args.out), ports, boats, args.marge, args.uplift, args.base_url.rstrip("/"), extras=extras)
 
     print(
         f"[cabin-charter] {len(report['generated'])} pages port générées, "

@@ -16,6 +16,10 @@ def _load():
     return ports, boats
 
 
+def _extras():
+    return json.loads((HERE / "data" / "extras.json").read_text(encoding="utf-8"))["extras"]
+
+
 class TestGenerate(unittest.TestCase):
     def test_build_complet(self):
         ports, boats = _load()
@@ -49,6 +53,22 @@ class TestGenerate(unittest.TestCase):
             self.assertEqual(sitemap.count("<loc>"), 1 + len(report["generated"]))
             for pid in report["skipped"]:
                 self.assertNotIn(f"/port/{pid}.html", sitemap)
+
+    def test_extras_et_photos(self):
+        ports, boats = _load()
+        boats = [dict(b) for b in boats]
+        # Un bateau avec photos, les autres sans → galerie vs « photos à venir »
+        boats[0]["photos"] = [{"src": "photos/cap-ferrat-1.jpg", "alt": "Cap Ferrat au mouillage"}]
+        port_du_bateau = boats[0]["port_id"]
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)
+            build(out, ports, boats, marge=0.25, uplift=1.30,
+                  base_url="https://example.com", extras=_extras())
+            page = (out / "port" / f"{port_du_bateau}.html").read_text(encoding="utf-8")
+            self.assertIn("photos/cap-ferrat-1.jpg", page)          # galerie réelle
+            self.assertIn("en cours de shooting", page)             # placeholder honnête
+            self.assertIn("Chef cuisinier à bord", page)            # upsell extras
+            self.assertIn("570 €", page)                            # 380 × 1.5 arrondi 5
 
     def test_flotte_incoherente_rejetee(self):
         ports, boats = _load()
