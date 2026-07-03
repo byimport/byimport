@@ -119,6 +119,13 @@ des frais fixes 8 mois avant les premiers clients sérieux.
 4. **Sept–oct (bilan)** : si ≥ 5 réservations rentables → lancer le plan 90 jours complet en
    janvier 2027 pour être en ligne en avril. Sinon → tuer ou pivoter, on n'aura perdu que 2 kEUR.
 
+**Levier chiffre d'affaires — vente à la couchette** : chaque bateau est aussi vendu
+**couchette par couchette** (prix par personne, sur-prix unitaire ~30 %) : un bateau complet
+rapporte +25–35 % vs la location entière, et capte le segment solos/couples. Modèle, math et
+garde-fous légaux : `yacht-location-marketplace/CABIN_CHARTER_COUCHETTES.md` ; outillage
+exécutable (49 ports d'Europe, moteur de prix, générateur de pages port avec localisation
+et tarifs) : `yacht-location-marketplace/cabin-charter/`.
+
 Les modules luxe (scraping, leadgen HNWI, pSEO) restent au congélateur jusqu'à validation du
 modèle de base — c'est de l'outillage de scale, pas de démarrage.
 
