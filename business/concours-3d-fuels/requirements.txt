@@ -1,0 +1,16 @@
+# Concours 3D Fuels — dépendances (Python 3.10+)
+# Installer dans un venv:  python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+fastfuels-sdk>=2.0        # SDK officiel de la plateforme imposée par le concours
+fastfuels-core>=0.4       # moteur de voxelisation local
+laspy[laz]>=2.5           # lecture des nuages de points lidar NEON (.laz)
+numpy>=1.26
+scipy>=1.11
+pandas>=2.1
+geopandas>=0.14           # polygones GeoJSON / geopackage
+rasterio>=1.3             # export GeoTIFF
+xarray>=2024.1            # cubes de voxels + export NetCDF
+netCDF4>=1.6
+pdal>=3.4                 # filtrage sol / classification du nuage (optionnel mais recommandé)
+pyvista>=0.43             # visualisation 3D des voxels
+matplotlib>=3.8
+requests>=2.31            # API NEON
