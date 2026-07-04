@@ -1,0 +1,10 @@
+# Données et sorties volumineuses — jamais versionnées
+data/
+outputs/
+*.laz
+*.las
+*.nc
+*.tif
+*.tiff
+.venv/
+__pycache__/
