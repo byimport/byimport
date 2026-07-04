@@ -1,0 +1,3 @@
+# CallSense — dépendances (Python 3.9+)
+# python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+assemblyai>=0.35        # SDK officiel : transcription + LeMUR (LLM sur transcription)
