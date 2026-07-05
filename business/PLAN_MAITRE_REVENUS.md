@@ -202,11 +202,12 @@ nouveau projet tant que le jalon « premier encaissement Genève » n'est pas at
   14 tests verts) : moteur de prix à la couchette, pages des 49 ports (extras chef/batelier,
   galeries photos), collecteur de leads B2B **testé en réel** (49 partenaires autour du port de
   Nice, dont 42 hôtels avec contact), générateur de devis sur-mesure, e-mails types partenaires
-  (`cabin-charter/templates/email_partenaire.md`). Le site statique est généré et **prêt à
-  déployer sur Netlify** (compte opérationnel, 20 sites actifs) — déploiement en attente d'une
-  autorisation explicite dans la session.
-- **Seul projet déjà en ligne** : le plugin Toprank/NotFair (GitHub public + notfair.co, vérifiés
-  HTTP 200). Aucun des 4 autres projets n'est hébergé à ce jour.
+  (`cabin-charter/templates/email_partenaire.md`). **Site déployé et en ligne le 5 juillet** :
+  https://location-couchettes.netlify.app (13 pages ports vérifiées HTTP 200 — flotte de
+  démonstration, à remplacer par les bateaux sous mandat puis régénérer/redéployer).
+- **Projets en ligne** : le plugin Toprank/NotFair (GitHub public + notfair.co) et le site
+  couchettes ci-dessus. MonQR, les landing pages Genève et le dossier huile d'olive ne sont
+  pas hébergés à ce jour.
 
 ### Connecteurs — état vérifié
 
