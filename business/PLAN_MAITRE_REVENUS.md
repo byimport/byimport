@@ -191,3 +191,37 @@ Sans ces éléments, aucun plan ci-dessus ne peut s'exécuter — c'est la vraie
 **Règle de pilotage** : chaque vendredi, 30 minutes — mettre à jour ce tableau, couper ce qui
 dépasse ses seuils (définis dans les `BUDGET_*` de chaque dossier), et ne **jamais** démarrer un
 nouveau projet tant que le jalon « premier encaissement Genève » n'est pas atteint.
+
+---
+
+## 6. État d'exécution — 5 juillet 2026
+
+### Construit et vérifié depuis la rédaction du plan
+
+- **Yachts / couchettes — outillage complet livré** (`yacht-location-marketplace/cabin-charter/`,
+  14 tests verts) : moteur de prix à la couchette, pages des 49 ports (extras chef/batelier,
+  galeries photos), collecteur de leads B2B **testé en réel** (49 partenaires autour du port de
+  Nice, dont 42 hôtels avec contact), générateur de devis sur-mesure, e-mails types partenaires
+  (`cabin-charter/templates/email_partenaire.md`). Le site statique est généré et **prêt à
+  déployer sur Netlify** (compte opérationnel, 20 sites actifs) — déploiement en attente d'une
+  autorisation explicite dans la session.
+- **Seul projet déjà en ligne** : le plugin Toprank/NotFair (GitHub public + notfair.co, vérifiés
+  HTTP 200). Aucun des 4 autres projets n'est hébergé à ce jour.
+
+### Connecteurs — état vérifié
+
+| Connecteur | État | Action pour débloquer |
+|---|---|---|
+| PayPal — lecture | ✅ opérationnel (transactions lues en direct) | — |
+| PayPal — **facturation** | ❌ refusé (« insufficient permissions ») : le compte connecté est le compte **personnel**, pas By import Business | Passer By import en compte Business, puis reconnecter le connecteur **en navigation privée** (sinon l'ancienne session PayPal est ré-autorisée silencieusement) |
+| Netlify | ✅ opérationnel | Déploiement couchettes : donner l'instruction explicite en session |
+| NotFair Google Ads / Meta Ads | ❌ non autorisés (OAuth) | À autoriser avant tout lancement Genève |
+| Shopify | ❌ jeton expiré | Reconnecter si besoin |
+| WordPress.com | ⚠️ accès « user-sites » désactivé | Activer sur wordpress.com/me/mcp si besoin |
+
+### Les 3 actions qui déclenchent le premier euro (rappel, par ordre d'impact)
+
+1. **PayPal Business** (15 min) — sans facturation, aucun acompte encaissable en ligne.
+2. **Décisions Genève** : budget test 7–10 kCHF + modèle A (conseiller) ou B (revente de leads).
+3. **Yachts** : choix du port unique + signature des 3–5 premiers mandats ; le site, les leads
+   partenaires et les devis sont prêts et attendent des bateaux réels.
