@@ -21,6 +21,7 @@ Le CA exact d'une TPE est rarement public (dépôts confidentiels en France, jam
 | **Essentiel** | Solo, 0–2 salariés, < 20 avis | 890–1 200 € | 59 € | One-page : présentation, services, avis Google intégrés, formulaire, carte, mobile, SEO local de base |
 | **Artisan Pro** | 3–9 salariés, activité visible | 1 800–2 500 € | 89 € | 5–7 pages, page par service, galerie chantiers/réalisations, demande de devis, GBP optimisé |
 | **PME Locale** | 10–49 salariés, multi-services ou multi-sites | 3 500–6 000 € | 149–249 € | Multi-pages, rédaction complète, photos pro (partenaire), SEO local avancé, suivi mensuel, éventuel multilingue |
+| **Signature 3D** | Niches visuelles (architectes, agenceurs, horlogerie, luxe) | 6 000–12 000 € | 249–399 € | Site Signature avec scènes 3D interactives, direction artistique, animations GSAP — détail, cibles et grille CH dans `STACK_TECHNIQUE.md` |
 
 ## Grille Suisse (CHF HT) — mêmes paliers, ×1,6–1,8
 

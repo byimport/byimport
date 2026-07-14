@@ -35,6 +35,7 @@
 | `TARIFICATION.md` | Grille de prix indexée sur la taille/CA de l'entreprise, offre récurrente, positionnement face à Wix/agences. |
 | `EMAILS.md` | Séquence de 3 emails (FR + variante CH), personnalisation obligatoire, urgence honnête, règles de délivrabilité. |
 | `PROCESSUS_VENTE.md` | Le workflow démo-avant-contact de bout en bout, de la liste au contrat signé, avec temps et outils par étape. |
+| `STACK_TECHNIQUE.md` | Stack « nouvelle génération » : micro-animations, GSAP, 3D (Spline, Three.js, model-viewer), budget de performance, palier Signature 3D, et où la 3D vend vs dessert. |
 
 ## 🚀 Plan d'action 30 jours (pilote)
 
