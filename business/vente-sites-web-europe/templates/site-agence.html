@@ -1,0 +1,286 @@
+<title>By Import — Votre site web, construit avant que vous payiez</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --paper:#FAFBF9; --ink:#1C2530; --ink-2:#4A5560; --line:#E2E6E1;
+  --pine:#2E5C46; --pine-soft:#EAF1EC; --copper:#B07D4F;
+  --card:#FFFFFF; --shadow:0 1px 2px rgba(28,37,48,.06),0 8px 24px rgba(28,37,48,.07);
+  --radius:10px;
+  --display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#141A19; --ink:#E8ECE8; --ink-2:#9DA8A0; --line:#26302C;
+  --pine:#6FAE8F; --pine-soft:#1C2823; --copper:#CD9A6B;
+  --card:#1A2220; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+}}
+:root[data-theme="dark"]{
+  --paper:#141A19; --ink:#E8ECE8; --ink-2:#9DA8A0; --line:#26302C;
+  --pine:#6FAE8F; --pine-soft:#1C2823; --copper:#CD9A6B;
+  --card:#1A2220; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+}
+:root[data-theme="light"]{
+  --paper:#FAFBF9; --ink:#1C2530; --ink-2:#4A5560; --line:#E2E6E1;
+  --pine:#2E5C46; --pine-soft:#EAF1EC; --copper:#B07D4F;
+  --card:#FFFFFF; --shadow:0 1px 2px rgba(28,37,48,.06),0 8px 24px rgba(28,37,48,.07);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.65;font-size:17px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+a{color:var(--pine)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;text-wrap:balance}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);font-weight:600}
+
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:var(--display);font-size:20px;font-weight:700;color:var(--ink);text-decoration:none}
+.brand em{font-style:normal;color:var(--pine)}
+nav ul{display:flex;gap:26px;list-style:none;padding:0}
+nav ul a{color:var(--ink-2);text-decoration:none;font-size:14.5px}
+nav ul a:hover,nav ul a:focus-visible{color:var(--pine)}
+@media(max-width:720px){nav ul{display:none}}
+.btn{display:inline-block;background:var(--pine);color:var(--paper);padding:11px 22px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--pine)}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--pine)}
+:where(a,button,summary):focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+
+header.hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(32px,4.6vw,46px);margin:14px 0 18px}
+.hero p.lede{font-size:19px;color:var(--ink-2);max-width:34ch}
+.hero .cta-row{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.hero .zones{margin-top:26px;font-size:13.5px;color:var(--ink-2);letter-spacing:.04em}
+
+/* Before/after toggle — the thesis */
+.demo-toggle{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.demo-toggle .bar{display:flex;border-bottom:1px solid var(--line)}
+.demo-toggle .bar button{flex:1;padding:12px;background:none;border:none;font:600 14px var(--body);color:var(--ink-2);cursor:pointer;border-bottom:2px solid transparent}
+.demo-toggle .bar button[aria-pressed="true"]{color:var(--pine);border-bottom-color:var(--pine);background:var(--pine-soft)}
+.pane{padding:26px;min-height:300px}
+.pane[hidden]{display:none}
+.annuaire{font-size:14.5px;color:var(--ink-2)}
+.annuaire .listing{border:1px dashed var(--line);border-radius:6px;padding:16px;margin-top:12px}
+.annuaire .listing strong{color:var(--ink)}
+.annuaire .muted{opacity:.55}
+.mini-site .mhero{background:linear-gradient(135deg,var(--pine) 0%,color-mix(in srgb,var(--pine) 55%,var(--ink)) 100%);color:#fff;border-radius:6px;padding:22px;margin-bottom:12px}
+.mini-site .mhero h3{font-size:20px;color:#fff}
+.mini-site .mhero p{font-size:13px;opacity:.85}
+.mini-site .mrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.mini-site .mrow div{background:var(--pine-soft);border-radius:6px;padding:10px;font-size:12px;color:var(--ink)}
+.mini-site .mcall{margin-top:12px;display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px 14px;font-size:13px}
+.mini-site .mcall span:last-child{color:var(--pine);font-weight:700}
+.pane .verdict{margin-top:16px;font-size:13.5px;color:var(--ink-2)}
+.pane .verdict b{color:var(--copper)}
+
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+section h2{font-size:clamp(26px,3.4vw,34px);margin:12px 0 8px}
+section .sub{color:var(--ink-2);max-width:60ch;margin-bottom:36px}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.step .n{font-family:var(--display);font-size:15px;color:var(--copper);font-weight:700;letter-spacing:.06em}
+.step h3{font-size:20px;margin:10px 0 8px}
+.step p{font-size:15px;color:var(--ink-2)}
+.step p b{color:var(--ink)}
+
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.pricing{grid-template-columns:1fr}}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.tier.featured{border-color:var(--pine);position:relative}
+.tier.featured::before{content:"Le plus choisi";position:absolute;top:-11px;left:22px;background:var(--pine);color:var(--paper);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:99px}
+.tier h3{font-size:19px}
+.tier .for{font-size:13.5px;color:var(--ink-2);margin:4px 0 14px}
+.tier .price{font-family:var(--display);font-size:30px;font-variant-numeric:tabular-nums}
+.tier .price small{font-size:14px;color:var(--ink-2);font-family:var(--body)}
+.tier ul{list-style:none;padding:0;margin:16px 0 20px;font-size:14.5px;color:var(--ink-2);display:grid;gap:8px}
+.tier ul li::before{content:"— ";color:var(--pine);font-weight:700}
+.tier .btn{margin-top:auto;text-align:center}
+.pricing-note{margin-top:22px;font-size:14px;color:var(--ink-2);max-width:70ch}
+
+.pledges{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+@media(max-width:720px){.pledges{grid-template-columns:1fr}}
+.pledge{background:var(--card);padding:24px 26px}
+.pledge h3{font-size:17px;margin-bottom:6px}
+.pledge h3::before{content:"◆ ";color:var(--copper);font-size:12px;vertical-align:2px}
+.pledge p{font-size:14.5px;color:var(--ink-2)}
+
+.faq details{border-bottom:1px solid var(--line);padding:4px 0}
+.faq summary{cursor:pointer;font-weight:600;font-size:16.5px;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";color:var(--copper);font-size:20px;font-family:var(--display)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 18px;color:var(--ink-2);font-size:15px;max-width:68ch}
+
+.contact{padding:72px 0;text-align:center}
+.contact h2{font-size:clamp(28px,3.8vw,38px)}
+.contact p{color:var(--ink-2);max-width:46ch;margin:14px auto 28px}
+footer{padding:28px 0 40px;font-size:13px;color:var(--ink-2)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">By&nbsp;Import<em>.</em></a>
+    <ul>
+      <li><a href="#methode">La méthode</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#engagements">Engagements</a></li>
+      <li><a href="#faq">Questions</a></li>
+    </ul>
+    <a class="btn" href="#contact">Demander ma maquette</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Sites web pour artisans &amp; PME</span>
+      <h1>Vous voyez votre site fini. <br>Ensuite, vous décidez.</h1>
+      <p class="lede">Nous construisons la maquette de votre site <b>avant</b> le premier rendez-vous — à partir de votre métier, vos réalisations, vos avis. Elle vous plaît&nbsp;? On la met en ligne en 14&nbsp;jours. Sinon, vous n'avez rien dépensé.</p>
+      <div class="cta-row">
+        <a class="btn" href="#contact">Demander ma maquette gratuite</a>
+        <a class="btn ghost" href="#methode">Comment c'est possible&nbsp;?</a>
+      </div>
+      <p class="zones">HAUTE-SAVOIE&nbsp;·&nbsp;SUISSE ROMANDE&nbsp;·&nbsp;WALLONIE</p>
+    </div>
+    <div class="demo-toggle reveal" aria-label="Comparaison avant / après">
+      <div class="bar" role="group" aria-label="Basculer la comparaison">
+        <button type="button" id="tab-before" aria-pressed="true">Vous, aujourd'hui</button>
+        <button type="button" id="tab-after" aria-pressed="false">Vous, avec un site</button>
+      </div>
+      <div class="pane annuaire" id="pane-before">
+        <p>Ce que trouve un client qui vous cherche sur Google&nbsp;:</p>
+        <div class="listing">
+          <strong>Menuiserie Dupont</strong> — Annuaire ProArtisans<br>
+          <span class="muted">Adresse&nbsp;· Téléphone&nbsp;· «&nbsp;Voir 12 entreprises similaires&nbsp;»</span>
+        </div>
+        <div class="listing">
+          <strong>Vos concurrents</strong> — leurs sites, photos, devis en ligne<br>
+          <span class="muted">C'est eux qu'on appelle en premier.</span>
+        </div>
+        <p class="verdict">Votre réputation existe — <b>mais elle vit sur des pages qui ne vous appartiennent pas.</b></p>
+      </div>
+      <div class="pane mini-site" id="pane-after" hidden>
+        <div class="mhero">
+          <h3>Menuiserie Dupont</h3>
+          <p>Agencement sur mesure depuis 1992 — Annecy et vallées</p>
+        </div>
+        <div class="mrow">
+          <div>Vos services, expliqués</div>
+          <div>Vos réalisations, en photos</div>
+          <div>Vos avis Google, visibles</div>
+        </div>
+        <div class="mcall"><span>Demande de devis, même le dimanche soir</span><span>→ Votre téléphone</span></div>
+        <p class="verdict">Un site qui <b>vous appartient</b>, rapide sur mobile, trouvé sur Google.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="methode">
+  <div class="wrap">
+    <span class="eyebrow">La méthode</span>
+    <h2>La démo d'abord. C'est notre seule façon de vendre.</h2>
+    <p class="sub">Pas de PowerPoint, pas de promesses. L'ordre des étapes est notre engagement&nbsp;: vous ne payez qu'après avoir vu.</p>
+    <div class="steps">
+      <div class="step reveal"><div class="n">ÉTAPE 1</div><h3>Nous construisons votre maquette</h3><p>À partir de vos informations publiques — métier, ville, spécialités, avis clients — nous montons <b>une vraie maquette de votre futur site</b>, consultable en ligne. Gratuitement, sans que vous ayez levé le petit doigt.</p></div>
+      <div class="step reveal"><div class="n">ÉTAPE 2</div><h3>Vous jugez sur pièce</h3><p>15 minutes au téléphone&nbsp;: ce qui vous plaît, ce qu'on change. La maquette reste en ligne <b>14 jours</b>, ensuite nous la retirons pour faire de la place aux suivantes — quand nous annonçons une date, nous la tenons.</p></div>
+      <div class="step reveal"><div class="n">ÉTAPE 3</div><h3>En ligne en 14 jours</h3><p>Domaine à votre nom, textes finalisés, photos intégrées, fiche Google reliée. <b>Le site vous appartient</b> — contrairement à une page Facebook ou une fiche d'annuaire.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="tarifs">
+  <div class="wrap">
+    <span class="eyebrow">Tarifs</span>
+    <h2>Un prix adapté à la taille de votre entreprise.</h2>
+    <p class="sub">Annoncé après la maquette, jamais de surprise. Le mensuel couvre tout&nbsp;: hébergement, domaine, maintenance, deux modifications par mois et un point trimestriel sur votre visibilité Google.</p>
+    <div class="pricing">
+      <div class="tier reveal">
+        <h3>Essentiel</h3><p class="for">Artisan seul ou petite équipe</p>
+        <p class="price">dès 890&nbsp;€ <small>puis 59&nbsp;€/mois</small></p>
+        <ul><li>Site une page, mobile d'abord</li><li>Vos avis Google intégrés</li><li>Formulaire + téléphone cliquable</li><li>Référencement local de base</li></ul>
+        <a class="btn ghost" href="#contact">Voir ma maquette</a>
+      </div>
+      <div class="tier featured reveal">
+        <h3>Artisan Pro</h3><p class="for">Équipe établie, plusieurs métiers</p>
+        <p class="price">dès 1&nbsp;800&nbsp;€ <small>puis 89&nbsp;€/mois</small></p>
+        <ul><li>5 à 7 pages, une par service</li><li>Galerie de réalisations</li><li>Demande de devis structurée</li><li>Fiche Google optimisée</li></ul>
+        <a class="btn" href="#contact">Voir ma maquette</a>
+      </div>
+      <div class="tier reveal">
+        <h3>Signature</h3><p class="for">Métiers d'image&nbsp;: agenceurs, ébénistes, architectes</p>
+        <p class="price">sur devis <small>· direction artistique incluse</small></p>
+        <ul><li>Vos réalisations en 3D interactive</li><li>Animations sur mesure</li><li>Bilingue si votre clientèle l'est</li><li>Reportage photo coordonné</li></ul>
+        <a class="btn ghost" href="#contact">Parler de mon projet</a>
+      </div>
+    </div>
+    <p class="pricing-note">En Suisse, les tarifs sont établis en CHF sur devis — la maquette gratuite d'abord, comme partout. TVA en sus selon votre pays.</p>
+  </div>
+</section>
+
+<section id="engagements">
+  <div class="wrap">
+    <span class="eyebrow">Engagements</span>
+    <h2>Écrits ici. Opposables au premier appel.</h2>
+    <p class="sub">Nous sommes un studio récent — notre crédibilité, c'est ce que vous pouvez vérifier vous-même, pas des logos de clients inventés.</p>
+    <div class="pledges reveal">
+      <div class="pledge"><h3>Le site vous appartient</h3><p>Domaine et contenu à votre nom dès le premier jour. Si nous nous quittons, vous partez avec tout — c'est dans le contrat.</p></div>
+      <div class="pledge"><h3>Rapide, ou refait</h3><p>Votre site charge en moins de 2,5&nbsp;secondes sur un téléphone en 4G. Testez le nôtre&nbsp;: nous appliquons ce que nous vendons.</p></div>
+      <div class="pledge"><h3>Zéro paiement avant la maquette</h3><p>Vous jugez sur un site visible, pas sur une promesse. Acompte uniquement à la commande, solde à la mise en ligne.</p></div>
+      <div class="pledge"><h3>Des dates tenues</h3><p>Maquette retirée à la date annoncée. Site livré sous 14&nbsp;jours après commande. Si nous annoncions des délais que nous ne tenons pas, tout le reste serait suspect.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <span class="eyebrow">Questions directes</span>
+    <h2>Ce qu'on nous demande vraiment.</h2>
+    <div style="margin-top:26px">
+      <details><summary>Wix coûte 15&nbsp;€ par mois. Pourquoi vous&nbsp;?</summary><p>Avec Wix, les 15&nbsp;€ n'incluent ni le design, ni les textes, ni le référencement, ni la maintenance — c'est vous qui faites tout, le soir, après les chantiers. Nous livrons un site fini qui génère des appels, et vous n'y touchez jamais. Combien vaut une journée de votre temps&nbsp;?</p></details>
+      <details><summary>Le bouche-à-oreille me suffit.</summary><p>Vos clients satisfaits parlent de vous — et la première chose que fait la personne qui reçoit la recommandation, c'est taper votre nom sur Google. Aujourd'hui, elle y trouve vos concurrents. Le site ne remplace pas le bouche-à-oreille&nbsp;: il l'empêche de fuir.</p></details>
+      <details><summary>Qu'est-ce qui est inclus dans le mensuel&nbsp;?</summary><p>Hébergement, nom de domaine, sauvegardes, mises à jour de sécurité, deux modifications de contenu par mois et un point trimestriel sur votre visibilité Google. Pas de frais cachés&nbsp;; résiliable après la première année.</p></details>
+      <details><summary>Vous êtes un studio récent. Pourquoi vous faire confiance&nbsp;?</summary><p>Parce que vous ne nous faites pas confiance — vous jugez une maquette visible avant de payer un centime. C'est précisément parce que nous sommes récents que nous avons inversé l'ordre&nbsp;: la preuve d'abord, l'argent ensuite.</p></details>
+      <details><summary>Et si je veux arrêter&nbsp;?</summary><p>Le domaine est à votre nom, le contenu vous appartient&nbsp;: vous partez avec votre site. Nous vous remettons une archive complète. Aucun otage.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" style="border-bottom:none">
+  <div class="wrap">
+    <span class="eyebrow">Première étape — gratuite</span>
+    <h2>Votre maquette, sous 7&nbsp;jours.</h2>
+    <p>Dites-nous votre métier et votre ville. Nous construisons la maquette&nbsp;; vous jugez sur pièce.</p>
+    <a class="btn" href="mailto:byimport2@gmail.com?subject=Ma%20maquette%20gratuite&body=M%C3%A9tier%20%3A%0AVille%20%3A%0AT%C3%A9l%C3%A9phone%20%3A">Demander ma maquette gratuite</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><strong>By&nbsp;Import</strong> — sites web pour artisans &amp; PME · France · Suisse · Belgique</span>
+    <span>Mentions légales &amp; identité de l'entreprise&nbsp;: à compléter avant mise en ligne</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('tab-before'),a=document.getElementById('tab-after'),
+      pb=document.getElementById('pane-before'),pa=document.getElementById('pane-after');
+  function show(after){
+    b.setAttribute('aria-pressed',String(!after));a.setAttribute('aria-pressed',String(after));
+    pb.hidden=after;pa.hidden=!after;
+  }
+  b.addEventListener('click',function(){show(false)});
+  a.addEventListener('click',function(){show(true)});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
