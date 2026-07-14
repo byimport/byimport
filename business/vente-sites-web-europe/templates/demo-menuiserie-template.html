@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Menuiserie {{NOM_ARTISAN}} — Aménagement de combles à {{VILLE}}, {{VILLE_PRINCIPALE}} | MAQUETTE</title>
+<style>
+:root{
+  --bois:#8A5A33; --bois-fonce:#5C3A1E; --creme:#FBF7F1; --encre:#2B2118;
+  --sous:#6E5D4B; --ligne:#E9DFD2; --vert-rge:#3E7A4E; --carte:#FFFFFF;
+  --display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--creme);color:var(--encre);font-family:var(--body);line-height:1.65;font-size:17px}
+.wrap{max-width:1020px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance}
+a{color:var(--bois-fonce)}
+
+.maquette-banner{background:var(--encre);color:#F5EEE4;text-align:center;font-size:13px;padding:8px 16px}
+.maquette-banner b{color:#E8B36A}
+
+nav{position:sticky;top:0;z-index:40;background:rgba(251,247,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ligne)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
+.logo{font-family:var(--display);font-weight:700;font-size:19px;text-decoration:none;color:var(--encre)}
+.logo span{color:var(--bois)}
+.tel-btn{background:var(--bois);color:#fff;text-decoration:none;padding:10px 18px;border-radius:6px;font-weight:700;font-size:15px}
+.tel-btn:hover{background:var(--bois-fonce)}
+:where(a,button):focus-visible{outline:2px solid var(--bois);outline-offset:2px}
+
+.hero{padding:64px 0 52px;background:
+  linear-gradient(rgba(43,33,24,.55),rgba(43,33,24,.65)),
+  repeating-linear-gradient(92deg,#7A4E2A 0 14px,#8A5A33 14px 32px,#6E4525 32px 47px,#93643C 47px 66px);
+  color:#FBF7F1}
+.hero .photo-note{display:inline-block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.35);padding:4px 10px;border-radius:99px;margin-bottom:18px}
+.hero h1{font-size:clamp(30px,4.6vw,44px);max-width:18ch}
+.hero p.sous-titre{font-size:19px;margin:16px 0 6px;max-width:44ch;color:#F0E6D8}
+.hero .depuis{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#E8B36A;font-weight:600}
+.hero .cta{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.hero .cta a{padding:13px 24px;border-radius:6px;font-weight:700;text-decoration:none;font-size:16px}
+.hero .cta .primaire{background:#E8B36A;color:var(--encre)}
+.hero .cta .secondaire{border:1.5px solid rgba(251,247,241,.6);color:#FBF7F1}
+.badges{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.badge{font-size:12.5px;font-weight:600;background:rgba(251,247,241,.14);border:1px solid rgba(251,247,241,.25);padding:5px 12px;border-radius:99px}
+.badge.rge{background:var(--vert-rge);border-color:var(--vert-rge)}
+
+section{padding:58px 0}
+section+section{border-top:1px solid var(--ligne)}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--bois);font-weight:700}
+section h2{font-size:clamp(24px,3.2vw,32px);margin:10px 0 26px}
+
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.service{background:var(--carte);border:1px solid var(--ligne);border-radius:10px;padding:22px}
+.service h3{font-size:18px;margin-bottom:6px}
+.service p{font-size:14.5px;color:var(--sous)}
+.service .tag{font-size:11px;font-weight:700;color:var(--vert-rge);letter-spacing:.06em;text-transform:uppercase}
+
+.galerie{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.photo{aspect-ratio:4/3;border-radius:8px;display:flex;align-items:flex-end;padding:12px;color:#FBF7F1;font-size:12.5px;font-weight:600;
+  background:linear-gradient(rgba(43,33,24,.15),rgba(43,33,24,.55)),repeating-linear-gradient(88deg,#8A5A33 0 18px,#7A4E2A 18px 40px,#93643C 40px 61px)}
+.photo:nth-child(2){background:linear-gradient(rgba(43,33,24,.15),rgba(43,33,24,.55)),repeating-linear-gradient(94deg,#6E4525 0 22px,#8A5A33 22px 45px,#5C3A1E 45px 70px)}
+.photo:nth-child(3){background:linear-gradient(rgba(43,33,24,.15),rgba(43,33,24,.55)),repeating-linear-gradient(90deg,#93643C 0 16px,#6E4525 16px 38px,#8A5A33 38px 60px)}
+.galerie-note{margin-top:14px;font-size:13.5px;color:var(--sous);font-style:italic}
+
+.avis-grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.avis{background:var(--carte);border:1px solid var(--ligne);border-radius:10px;padding:20px}
+.avis .etoiles{color:#E8A33D;font-size:15px;letter-spacing:2px}
+.avis p{font-size:14.5px;color:var(--sous);margin:10px 0 8px}
+.avis .qui{font-size:13px;font-weight:600}
+.avis-note{margin-top:14px;font-size:13.5px;color:var(--sous);font-style:italic}
+
+.zone .communes{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.zone .communes span{background:var(--carte);border:1px solid var(--ligne);border-radius:99px;padding:6px 14px;font-size:13.5px}
+.zone p.zdesc{color:var(--sous);font-size:15px;max-width:60ch;margin-top:16px}
+
+.contact-bloc{background:var(--encre);color:#F5EEE4;border-radius:14px;padding:40px 34px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+@media(max-width:760px){.contact-bloc{grid-template-columns:1fr}}
+.contact-bloc h2{color:#FBF7F1;margin:8px 0 10px}
+.contact-bloc p{font-size:15px;color:#D8CCBC}
+.contact-bloc .gros-tel{display:inline-block;font-family:var(--display);font-size:clamp(24px,3.4vw,32px);color:#E8B36A;text-decoration:none;margin-top:14px;font-variant-numeric:tabular-nums}
+.formulaire{background:var(--carte);border-radius:10px;padding:22px;color:var(--encre)}
+.formulaire label{font-size:13px;font-weight:600;display:block;margin:10px 0 4px}
+.formulaire input,.formulaire textarea{width:100%;border:1px solid var(--ligne);border-radius:6px;padding:10px;font:15px var(--body);background:var(--creme);color:var(--encre)}
+.formulaire button{margin-top:14px;width:100%;background:var(--bois);border:none;color:#fff;font:700 15px var(--body);padding:12px;border-radius:6px;cursor:pointer}
+.formulaire button:hover{background:var(--bois-fonce)}
+.formulaire .demo-note{font-size:12px;color:var(--sous);margin-top:8px;text-align:center}
+
+footer{padding:26px 0 60px;font-size:13px;color:var(--sous);text-align:center}
+</style>
+</head>
+<body>
+
+<div class="maquette-banner">MAQUETTE — proposée à <b>Menuiserie {{NOM_ARTISAN}}</b> par By Import · en ligne jusqu'au <b>{{DATE_RETRAIT}}</b>, puis retirée · rien n'est publié sans votre accord</div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">Menuiserie <span>{{NOM_ARTISAN}}</span></a>
+    <a class="tel-btn" href="tel:{{TEL_LIEN}}">{{TELEPHONE}}</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="photo-note">Photo d'illustration — remplacée par vos réalisations</span>
+    <p class="depuis">Artisan menuisier à {{VILLE}} depuis {{ANNEE}} · Certifié RGE ECO-Artisan</p>
+    <h1>Vos combles ont de la place. Nous, le savoir-faire.</h1>
+    <p class="sous-titre">Aménagement de combles, menuiserie sur mesure bois·PVC·alu, cuisines et isolation — dans le bassin annécien, depuis 38 ans.</p>
+    <div class="cta">
+      <a class="primaire" href="tel:{{TEL_LIEN}}">Appeler l'atelier</a>
+      <a class="secondaire" href="#devis">Demander un devis</a>
+    </div>
+    <div class="badges">
+      <span class="badge rge">✓ RGE ECO-Artisan</span>
+      <span class="badge">38 ans d'expérience</span>
+      <span class="badge">Devis gratuit</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Savoir-faire</span>
+    <h2>Ce que nous faisons de nos mains</h2>
+    <div class="services">
+      <div class="service"><span class="tag">Spécialité · éligible aides RGE</span><h3>Aménagement de combles</h3><p>Transformation de vos combles perdus en pièces à vivre : structure, isolation, escalier, rangements sous pente.</p></div>
+      <div class="service"><h3>Menuiserie sur mesure</h3><p>Placards, bibliothèques, dressings, escaliers et mains courantes — bois, PVC ou aluminium, fabriqués pour votre intérieur.</p></div>
+      <div class="service"><span class="tag">Éligible aides RGE</span><h3>Isolation</h3><p>Isolation de combles et isolation extérieure : confort été comme hiver, factures allégées, aides de l'État mobilisables.</p></div>
+      <div class="service"><h3>Cuisines &amp; parquets</h3><p>Vente et pose de cuisines, pose et entretien de parquets. Extension de maison étudiée au cas par cas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Réalisations</span>
+    <h2>Vos chantiers parleront ici</h2>
+    <div class="galerie">
+      <div class="photo">Combles aménagés — vos photos ici</div>
+      <div class="photo">Dressing sous pente — vos photos ici</div>
+      <div class="photo">Escalier sur mesure — vos photos ici</div>
+    </div>
+    <p class="galerie-note">Dans la version finale : vos vraies réalisations, avant/après. Trois photos de téléphone suffisent pour démarrer — nous nous chargeons du reste.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Confiance</span>
+    <h2>Ce que vos clients diront ici</h2>
+    <div class="avis-grille">
+      <div class="avis"><div class="etoiles">★★★★★</div><p>« [Exemple de mise en page] Vos avis Google authentiques seront affichés ici, automatiquement synchronisés. »</p><div class="qui">Un client — {{VILLE_PRINCIPALE}}</div></div>
+      <div class="avis"><div class="etoiles">★★★★★</div><p>« [Exemple de mise en page] Chaque avis renvoie vers votre fiche Google — rien d'inventé, tout vérifiable. »</p><div class="qui">Un client — {{VILLE}}</div></div>
+      <div class="avis"><div class="etoiles">★★★★★</div><p>« [Exemple de mise en page] {{NB_ANNEES}} ans de bouche-à-oreille, enfin visibles par ceux qui vous cherchent. »</p><div class="qui">Un client — {{COMMUNE_3}}</div></div>
+    </div>
+    <p class="avis-note">Maquette : ces trois blocs sont des exemples de présentation. Seuls vos avis Google réels figureront sur le site publié.</p>
+  </div>
+</section>
+
+<section class="zone">
+  <div class="wrap">
+    <span class="eyebrow">Zone d'intervention</span>
+    <h2>Le bassin annécien, notre atelier à ciel ouvert</h2>
+    <div class="communes">
+      <span>{{COMMUNE_1}}</span><span>{{COMMUNE_2}}</span><span>{{COMMUNE_3}}</span><span>{{COMMUNE_4}}</span><span>{{COMMUNE_5}}</span><span>{{COMMUNE_6}}</span>
+    </div>
+    <p class="zdesc">Atelier : {{ADRESSE}}. Déplacement et devis gratuits dans un rayon de 25 km.</p>
+  </div>
+</section>
+
+<section id="devis">
+  <div class="wrap">
+    <div class="contact-bloc">
+      <div>
+        <span class="eyebrow" style="color:#E8B36A">Devis gratuit</span>
+        <h2>Un projet de combles ou de sur-mesure&nbsp;?</h2>
+        <p>Décrivez votre projet — {{NOM_ARTISAN}} vous rappelle sous 48&nbsp;h ouvrées. Ou plus simple&nbsp;:</p>
+        <a class="gros-tel" href="tel:{{TEL_LIEN}}">{{TELEPHONE}}</a>
+      </div>
+      <form class="formulaire" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Formulaire actif sur le site final';">
+        <label for="f-nom">Votre nom</label><input id="f-nom" name="nom" autocomplete="name">
+        <label for="f-tel">Votre téléphone</label><input id="f-tel" name="tel" type="tel" autocomplete="tel">
+        <label for="f-msg">Votre projet</label><textarea id="f-msg" name="message" rows="3" placeholder="Ex : aménager 40 m² de combles à {{COMMUNE_3}}"></textarea>
+        <button type="submit">Être rappelé</button>
+        <p class="demo-note">Maquette de démonstration — le formulaire sera actif sur le site final.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Menuiserie {{NOM_ARTISAN}} — {{ADRESSE}} · {{SIREN}}<br>
+    Maquette réalisée par By Import · aucune donnée collectée par cette page
+  </div>
+</footer>
+
+</body>
+</html>
