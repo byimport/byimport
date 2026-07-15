@@ -1,0 +1,19 @@
+{
+  "_note": "FIXTURE — flotte d'EXEMPLE avec des tarifs nets réalistes (haute saison Méditerranée 2026) pour exercer le moteur de tarification et le générateur. À remplacer par les bateaux réellement sous mandat (tarif net signé avec le propriétaire). Aucun de ces bateaux n'est sous contrat.",
+  "bateaux": [
+    {"id": "oceanis-46-nice", "nom": "Cap Ferrat", "modele": "Beneteau Oceanis 46.1", "type": "voilier", "port_id": "nice", "couchettes": 8, "cabines": 4, "tarif_net_jour_eur": 850, "skipper_inclus": true},
+    {"id": "lagoon-42-nice", "nom": "Azur Bleu", "modele": "Lagoon 42", "type": "catamaran", "port_id": "nice", "couchettes": 10, "cabines": 4, "tarif_net_jour_eur": 1400, "skipper_inclus": true},
+    {"id": "cap-camarat-cannes", "nom": "Croisette One", "modele": "Jeanneau Cap Camarat 10.5", "type": "moteur", "port_id": "cannes", "couchettes": 6, "cabines": 2, "tarif_net_jour_eur": 1100, "skipper_inclus": true},
+    {"id": "sunodyssey-449-st-tropez", "nom": "Pampelonne", "modele": "Jeanneau Sun Odyssey 449", "type": "voilier", "port_id": "saint-tropez", "couchettes": 8, "cabines": 4, "tarif_net_jour_eur": 950, "skipper_inclus": true},
+    {"id": "bali-46-palma", "nom": "Tramuntana", "modele": "Bali 4.6", "type": "catamaran", "port_id": "palma-de-majorque", "couchettes": 10, "cabines": 5, "tarif_net_jour_eur": 1500, "skipper_inclus": true},
+    {"id": "oceanis-40-ibiza", "nom": "Es Vedrà", "modele": "Beneteau Oceanis 40.1", "type": "voilier", "port_id": "ibiza", "couchettes": 8, "cabines": 4, "tarif_net_jour_eur": 900, "skipper_inclus": true},
+    {"id": "lagoon-46-split", "nom": "Adriatic Pearl", "modele": "Lagoon 46", "type": "catamaran", "port_id": "split", "couchettes": 12, "cabines": 6, "tarif_net_jour_eur": 1600, "skipper_inclus": true},
+    {"id": "dufour-430-hvar", "nom": "Lavanda", "modele": "Dufour 430", "type": "voilier", "port_id": "hvar", "couchettes": 8, "cabines": 4, "tarif_net_jour_eur": 800, "skipper_inclus": true},
+    {"id": "elan-45-dubrovnik", "nom": "Stradun", "modele": "Elan Impression 45.1", "type": "voilier", "port_id": "dubrovnik", "couchettes": 8, "cabines": 4, "tarif_net_jour_eur": 780, "skipper_inclus": true},
+    {"id": "lagoon-450-athenes", "nom": "Meltemi", "modele": "Lagoon 450 F", "type": "catamaran", "port_id": "athenes-alimos", "couchettes": 12, "cabines": 6, "tarif_net_jour_eur": 1350, "skipper_inclus": true},
+    {"id": "oceanis-51-mykonos", "nom": "Cyclades Wind", "modele": "Beneteau Oceanis 51.1", "type": "voilier", "port_id": "mykonos", "couchettes": 10, "cabines": 5, "tarif_net_jour_eur": 1250, "skipper_inclus": true},
+    {"id": "bavaria-46-corfou", "nom": "Ionian Breeze", "modele": "Bavaria Cruiser 46", "type": "voilier", "port_id": "corfou", "couchettes": 8, "cabines": 4, "tarif_net_jour_eur": 750, "skipper_inclus": true},
+    {"id": "swift-trawler-ajaccio", "nom": "Sanguinaires", "modele": "Beneteau Swift Trawler 41", "type": "moteur", "port_id": "ajaccio", "couchettes": 6, "cabines": 3, "tarif_net_jour_eur": 1200, "skipper_inclus": true},
+    {"id": "sunfast-la-rochelle", "nom": "Pertuis", "modele": "Jeanneau Sun Odyssey 410", "type": "voilier", "port_id": "la-rochelle", "couchettes": 6, "cabines": 3, "tarif_net_jour_eur": 650, "skipper_inclus": true}
+  ]
+}

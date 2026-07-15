@@ -32,6 +32,7 @@ C'est le cœur de la demande, et c'est là qu'il faut être honnête, sinon tout
 | `CADRE_LEGAL.md` | **À lire avant de lancer.** Mandat de courtage, assurance RC, dépôt de garantie, responsabilité skipper, TVA, juridiction, statut d'intermédiaire. |
 | `BUDGET_KPIS.md` | Budget de lancement 90 jours, CAC cible, taux de conversion, P&L par réservation et mensuel, seuils d'alerte. |
 | `PLAN_90_JOURS.md` | Le plan A→Z, semaine par semaine, du choix de la niche jusqu'au scale. |
+| `CABIN_CHARTER_COUCHETTES.md` | **Vente à la couchette** (cabin charter) : diviser le bateau par couchette (+25–35 % de CA à bateau complet), couverture 49 ports d'Europe, garde-fous légaux, et la **stratégie d'acquisition mise en place** (photos, extras chef/batelier margés 45–60 %, leads B2B apporteurs, devis sur-mesure). Module exécutable : `cabin-charter/` — moteur de prix, générateur de pages, collecteur de leads OSM, générateur de propositions (14 tests). |
 
 ### 🛥️ Extension « Luxe » — Yachts & Jets privés, ciblage HNWI (couche ultra-technique)
 

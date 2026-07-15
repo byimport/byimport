@@ -1,0 +1,11 @@
+{
+  "_note": "FIXTURE — réponse Overpass simulée autour de Nice Port Lympia (43.6952, 7.2857) pour tester parse_elements hors-ligne.",
+  "elements": [
+    {"type": "node", "id": 1, "lat": 43.6960, "lon": 7.2850, "tags": {"tourism": "hotel", "name": "Hôtel du Port", "website": "https://hotel-du-port.example", "phone": "+33 4 93 00 00 01", "addr:housenumber": "2", "addr:street": "Quai Lunel", "addr:city": "Nice"}},
+    {"type": "way", "id": 2, "center": {"lat": 43.6980, "lon": 7.2790}, "tags": {"tourism": "guest_house", "name": "Villa Riviera", "contact:website": "https://villa-riviera.example"}},
+    {"type": "node", "id": 3, "lat": 43.7000, "lon": 7.2700, "tags": {"office": "travel_agent", "name": "Riviera Excursions", "contact:phone": "+33 4 93 00 00 03"}},
+    {"type": "way", "id": 4, "center": {"lat": 43.6949, "lon": 7.2862}, "tags": {"leisure": "marina", "name": "Port Lympia"}},
+    {"type": "node", "id": 5, "lat": 43.6970, "lon": 7.2820, "tags": {"tourism": "hotel"}},
+    {"type": "node", "id": 6, "lat": 43.6975, "lon": 7.2825, "tags": {"amenity": "restaurant", "name": "Chez Pipo"}}
+  ]
+}
