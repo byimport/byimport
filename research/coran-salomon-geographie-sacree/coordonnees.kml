@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Coran, Salomon et geographie sacree</name>
+    <description><![CDATA[
+      Atlas de prospection. Niveaux de preuve :
+      FAIT = etabli par fouille / epigraphie / releve publie.
+      TRADITION = atteste par un texte, localisation non prouvee.
+      SPECULATION = hypothese moderne non testee.
+      Voir README.md du meme dossier. Les points marques (+/- N) sont approximatifs.
+    ]]></description>
+
+    <Style id="fait">
+      <IconStyle>
+        <color>ff00b050</color>
+        <scale>1.1</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href></Icon>
+      </IconStyle>
+    </Style>
+    <Style id="tradition">
+      <IconStyle>
+        <color>ff00d7ff</color>
+        <scale>1.1</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href></Icon>
+      </IconStyle>
+    </Style>
+    <Style id="speculation">
+      <IconStyle>
+        <color>ff0000ff</color>
+        <scale>1.1</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href></Icon>
+      </IconStyle>
+    </Style>
+
+    <Folder>
+      <name>A. Jerusalem et domaine salomonien levantin</name>
+      <Placemark>
+        <name>Dome du Rocher (Haram al-Sharif)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : monument de 691 ap. J.-C. TRADITION : emplacement du Temple de Salomon. Precision +/- 10 m.</description>
+        <Point><coordinates>35.23543,31.77802,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Mosquee al-Aqsa</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT. Precision +/- 20 m.</description>
+        <Point><coordinates>35.23583,31.77617,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Mur occidental</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : maconnerie herodienne. Aucune maconnerie salomonienne identifiee in situ. Precision +/- 20 m.</description>
+        <Point><coordinates>35.23444,31.77675,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Grotte de Sedecias / Carrieres de Salomon</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>FAIT : carriere antique. TRADITION : attribution a Salomon. Precision +/- 100 m.</description>
+        <Point><coordinates>35.23085,31.78262,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Bassins de Salomon (Birak Sulayman)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>FAIT : reservoirs hellenistiques-romains alimentant Jerusalem. TRADITION : nom salomonien. Precision +/- 50 m.</description>
+        <Point><coordinates>35.16982,31.68900,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Megiddo (dites ecuries de Salomon)</name>
+        <styleUrl>#speculation</styleUrl>
+        <description>FAIT : site majeur. SPECULATION : attribution salomonienne abandonnee ; structures datees du regne d'Achab (IXe s. av. J.-C.). Precision +/- 150 m.</description>
+        <Point><coordinates>35.18361,32.58444,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Timna, mines de cuivre (Neguev)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>FAIT : exploitation intense au Xe s. av. J.-C. (radiocarbone). TRADITION : mines du roi Salomon. Precision +/- 1 km.</description>
+        <Point><coordinates>34.95000,29.78300,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Khirbat en-Nahas (cuivre edomite, Jordanie)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : plus grand complexe de fonte de l'age du Fer au Levant sud. Precision +/- 500 m.</description>
+        <Point><coordinates>35.43500,30.67500,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Tell el-Kheleifeh (Ezion-Geber ?)</name>
+        <styleUrl>#speculation</styleUrl>
+        <description>FAIT : site. SPECULATION : identification au port salomonien (Glueck), rejetee depuis. Precision +/- 300 m.</description>
+        <Point><coordinates>35.00220,29.54970,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>B. Saba et Bilqis (Yemen, Ethiopie)</name>
+      <Placemark>
+        <name>Temple d'Awwam / Mahram Bilqis (Marib)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : plus grand sanctuaire d'Arabie du Sud, dedie a Almaqah. Enceinte ovale tres lisible en imagerie. Precision +/- 30 m.</description>
+        <Point><coordinates>45.35570,15.40420,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Temple de Baran / Trone de Bilqis (Marib)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : temple sabeen, cinq piliers monolithiques debout. TRADITION : nom de trone de Bilqis. Precision +/- 30 m.</description>
+        <Point><coordinates>45.34318,15.40315,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Grand barrage de Marib (ouvrage moderne)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : barrage des annees 1980. Repere de navigation pour trouver l'ouvrage antique. Precision +/- 50 m.</description>
+        <Point><coordinates>45.24361,15.39639,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Ecluses de l'ancien barrage sabeen (approx.)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : ouvrage hydraulique du Ier millenaire av. J.-C. POSITION APPROXIMATIVE +/- 400 m : structures nord et sud a environ 1 km en aval du barrage moderne, de part et d'autre du wadi Dhana. A resserrer visuellement.</description>
+        <Point><coordinates>45.23800,15.40100,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Ancienne ville de Marib (tell)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT. Precision +/- 300 m.</description>
+        <Point><coordinates>45.33250,15.42250,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Sirwah (2e capitale sabeenne)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : grande inscription de Karib'il Watar. Precision +/- 500 m.</description>
+        <Point><coordinates>45.01700,15.45000,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Timna (capitale de Qataban)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT. Precision +/- 200 m.</description>
+        <Point><coordinates>45.81583,15.00167,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Shabwa (capitale du Hadramawt)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : fouilles francaises (Breton). Precision +/- 200 m.</description>
+        <Point><coordinates>47.02361,15.36889,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Qaryat al-Faw (Arabie saoudite)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : capitale du royaume de Kinda, sur la route caravaniere vers le nord. Precision +/- 200 m.</description>
+        <Point><coordinates>45.16340,19.76490,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Dungur, dit palais de la reine de Saba (Aksum)</name>
+        <styleUrl>#speculation</styleUrl>
+        <description>FAIT : palais aksoumite. SPECULATION : attribution a la reine de Saba - date des VIe-VIIe s. APRES J.-C., soit environ 1600 ans trop tard. Precision +/- 30 m.</description>
+        <Point><coordinates>38.70651,14.12684,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Mai Shum, dit bain de la reine de Saba (Aksum)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>FAIT : reservoir antique. TRADITION : nom. Precision +/- 200 m.</description>
+        <Point><coordinates>38.72500,14.13000,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Steles d'Aksum</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : UNESCO. Precision +/- 50 m.</description>
+        <Point><coordinates>38.71890,14.13110,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>C. Ad, Iram aux colonnes, Atlantide des sables</name>
+      <Placemark>
+        <name>Shisr / dit Ubar (Dhofar, Oman)</name>
+        <styleUrl>#speculation</styleUrl>
+        <description>FAIT : comptoir caravanier fortifie autour d'un puits karstique effondre, UNESCO Terre de l'encens. SPECULATION : identification a Ubar puis a Iram aux colonnes (Nicholas Clapp), non admise par la recherche. Precision +/- 30 m.</description>
+        <Point><coordinates>53.64889,18.25500,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Sumhuram / Khor Rori</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : port de l'encens. Precision +/- 50 m.</description>
+        <Point><coordinates>54.43560,17.04170,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Al-Balid (Zafar)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT. Precision +/- 100 m.</description>
+        <Point><coordinates>54.14170,17.00060,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Wadi Dawkah (bosquets d'encens)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : UNESCO. Precision +/- 200 m.</description>
+        <Point><coordinates>54.06110,17.24670,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Wadi Rum (toponyme Iram / Ramm)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>TRADITION : rapprochement linguistique Ramm / Iram. Piste, non identification. Precision +/- 2 km.</description>
+        <Point><coordinates>35.41670,29.58330,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Temple nabateen d'Allat, Ayn Shalaleh (Wadi Rum)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : temple et inscriptions nabateennes et thamoudeennes. Precision +/- 300 m.</description>
+        <Point><coordinates>35.41900,29.59000,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>D. Thamud, Salih, nord du Hijaz</name>
+      <Placemark>
+        <name>Hegra / Madain Salih (al-Ula)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : 111 tombes monumentales nabateennes, UNESCO 2008. TRADITION : assimilation aux demeures des Thamud du Coran, qui sont anterieurs aux Nabateens. Precision +/- 100 m.</description>
+        <Point><coordinates>37.95278,26.79167,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Qasr al-Farid</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : tombe isolee inachevee. Precision +/- 150 m.</description>
+        <Point><coordinates>37.95400,26.80000,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Dadan (al-Khuraybah, al-Ula)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : capitale de Dadan puis Lihyan. Precision +/- 100 m.</description>
+        <Point><coordinates>37.92094,26.62581,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Jabal Ikmah (approx.)</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : centaines d'inscriptions dadanites. POSITION APPROXIMATIVE +/- 800 m, a resserrer visuellement.</description>
+        <Point><coordinates>37.89000,26.65000,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Tayma</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : oasis, muraille et puits antiques, sejour de Nabonide. Precision +/- 500 m.</description>
+        <Point><coordinates>38.54389,27.62972,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Petra</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : UNESCO. Alignements solsticiels mesures sur plusieurs monuments. Precision +/- 100 m.</description>
+        <Point><coordinates>35.44424,30.32859,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Maghair Shuayb / al-Bad (Madyan ?)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>FAIT : tombes rupestres. TRADITION : identification a Madyan. Precision +/- 500 m.</description>
+        <Point><coordinates>35.02610,28.47400,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>E. Vallee des Fourmis (aucune localisation etablie)</name>
+      <description>Le Coran ne situe pas ce lieu ; les tafsirs divergent. Ces reperes sont des candidats de tradition, pas des sites.</description>
+      <Placemark>
+        <name>Region de Taif (candidat le plus cite)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>TRADITION : hypothese des tafsirs. Aucun ancrage archeologique. Repere de ville.</description>
+        <Point><coordinates>40.41580,21.27030,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Corridor Sham / sud de la Palestine (variante Asqalan)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>TRADITION : variante des tafsirs. Aucun ancrage archeologique. Repere de ville.</description>
+        <Point><coordinates>34.56670,31.66670,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>F. Salomon hors Levant (toponymie et traditions)</name>
+      <Placemark>
+        <name>Takht-e Soleyman (Iran)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>FAIT : sanctuaire zoroastrien sassanide (Adur Gusnasp) autour d'un lac de cratere, UNESCO. TRADITION : nom de trone de Salomon, rien de salomonien sur le site. Precision +/- 50 m.</description>
+        <Point><coordinates>47.23595,36.60317,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Zendan-e Soleyman (prison de Salomon)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>FAIT : cone volcanique creux a 3 km de Takht-e Soleyman. TRADITION : nom. Precision +/- 300 m.</description>
+        <Point><coordinates>47.22400,36.59300,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Sulaiman-Too (Och, Kirghizistan)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>FAIT : montagne sacree, UNESCO 2009. TRADITION : trone et empreinte de Salomon. Meilleur candidat si l'expression "saut de Salomon" renvoie a une empreinte sur roche. Precision +/- 100 m.</description>
+        <Point><coordinates>72.78278,40.53111,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Sanctuaire de Takht-i-Sulayman, pic est (Och)</name>
+        <styleUrl>#tradition</styleUrl>
+        <description>FAIT : sanctuaire. TRADITION : trone. Precision +/- 150 m.</description>
+        <Point><coordinates>72.78400,40.52960,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>G. Reperes de methode</name>
+      <Placemark>
+        <name>Kaaba (La Mecque) - alignements documentes</name>
+        <styleUrl>#fait</styleUrl>
+        <description>FAIT : grand axe vers le lever de Canopus, petit axe vers le lever du soleil au solstice d'ete (Hawkins et King). Exemple d'alignement mesurable et falsifiable. Precision +/- 30 m.</description>
+        <Point><coordinates>39.82620,21.42251,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
