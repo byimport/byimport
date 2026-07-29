@@ -9,10 +9,12 @@
 | `PLAQUETTE_COMMERCIALE.md` | La plaquette à envoyer aux prospects (description produit, marché, logistique, conditions). |
 | `PLATEFORMES_B2B.md` | Liste des sites B2B (Alibaba, Made-in-China, 21food, etc.), salons et organismes officiels pour trouver des importateurs chinois. |
 | `PROPOSITION_COMMERCIALE.md` | Trois modèles de proposition (e-mail formel, WeChat/WhatsApp court, lettre PDF officielle) avec la structure 30 % d'acompte / 70 % avant embarquement. |
+| `PREMIER_CLIENT_PLAN.md` | Plan d'exécution « premier client » : mandat fournisseur non engageant (48 h), shortlist des 6 premières cibles avec voie de contact, e-mails teaser EN/中文, cadence de relance, définition de l'acceptation client, puis verrouillage fournisseur. |
+| `DOSSIER_CLIENT_EN.md` | LE document à envoyer au prospect (après le teaser) : pack commercial externe en anglais — offre bouteille/vrac, qualité SGS, conditions 30/70, étapes suivantes. Jamais les fichiers internes. |
 | `FOURNISSEURS_TUNISIENS.md` | Liste des grands exportateurs tunisiens (CHO/Terra Delyssa, Mahjoub, Olivko, etc.) + sources officielles (CEPEX, ONH) pour identifier 3-5 fournisseurs solides. |
 | `MARGES_ET_PRIX.md` | Calculs de marges détaillés : 2 scénarios (premium bouteille 500 ml et vrac flexitank), structure de paiement 30%/70%, cash-flow, risques. |
 | `SOLUTIONS_FINANCEMENT.md` | 7 solutions concrètes pour permettre aux acheteurs chinois d'acheter sans bloquer la trésorerie (L/C, Trade Assurance, pré-financement BIAT/COTUNACE, distribution, Tmall Global). |
-| `IMPORTATEURS_CHINOIS_CIBLE.md` | Liste de 16 importateurs/distributeurs chinois réels (COFCO, Yihai Kerry, AusNZ Foods, DCH Auriga, Hema, Tmall Global, etc.) + 4 voies concrètes pour obtenir les vrais e-mails des décideurs (Alibaba RFQ, LinkedIn Sales Navigator, missions CEPEX). |
+| `IMPORTATEURS_CHINOIS_CIBLE.md` | Liste de 40 importateurs/distributeurs chinois réels en 6 tiers (géants d'État, distributeurs premium/HoReCa, agents-importateurs spécialisés huile d'olive, embouteilleurs acheteurs de vrac, retail, e-commerce) + grille de priorisation par scénario + 4 voies concrètes pour obtenir les vrais e-mails des décideurs (Alibaba RFQ, LinkedIn Sales Navigator, missions CEPEX). |
 
 ## 🚀 Plan d'action en 6 étapes
 
