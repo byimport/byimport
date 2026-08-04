@@ -1,0 +1,153 @@
+{
+  "_note": "Source de vérité de la grille tarifaire. Le tableau markdown de GRILLE_TARIFAIRE.md est GÉNÉRÉ depuis ce fichier via `python3 scripts/chiffrage.py --table`. Ne modifie jamais le tableau markdown à la main : modifie ce JSON puis régénère.",
+  "parametres": {
+    "fx_eur_chf_planification": 0.98,
+    "fx_eur_chf_marche_reference": 0.935,
+    "fx_commentaire": "Le taux de planification est volontairement au-dessus du marché (~+5%) : il gonfle le coût d'achat dans tous les calculs. Une variation défavorable de l'euro mange le coussin, pas la marge.",
+    "uplift_achat": 1.20,
+    "uplift_commentaire": "Prix d'achat = TJM marché FR du profil x 1.20. Le freelance gagne plus qu'en mission française : c'est ce qui le fait venir et rester.",
+    "marge_brute_cible_pct": 38,
+    "marge_brute_plancher_pct": 28,
+    "jours_factures_par_slot_an": 205,
+    "derniere_calibration": "2026-08",
+    "devise_achat": "EUR",
+    "devise_vente": "CHF"
+  },
+  "profils": [
+    {
+      "id": "dev-junior",
+      "libelle": "Dev fullstack junior (0–3 ans)",
+      "marche_fr_eur": [300, 400],
+      "achat_eur": 420,
+      "vente_chf": 750,
+      "plancher_chf": 575,
+      "ref_esn_chf": [950, 1150]
+    },
+    {
+      "id": "qa",
+      "libelle": "QA / automatisation de tests",
+      "marche_fr_eur": [400, 550],
+      "achat_eur": 570,
+      "vente_chf": 950,
+      "plancher_chf": 800,
+      "ref_esn_chf": [1050, 1250]
+    },
+    {
+      "id": "ux-ui",
+      "libelle": "UX / UI designer",
+      "marche_fr_eur": [400, 550],
+      "achat_eur": 570,
+      "vente_chf": 975,
+      "plancher_chf": 800,
+      "ref_esn_chf": [1100, 1300]
+    },
+    {
+      "id": "frontend",
+      "libelle": "Dev frontend confirmé (React / Vue)",
+      "marche_fr_eur": [420, 560],
+      "achat_eur": 590,
+      "vente_chf": 1000,
+      "plancher_chf": 825,
+      "ref_esn_chf": [1200, 1400]
+    },
+    {
+      "id": "fullstack-confirme",
+      "libelle": "Dev fullstack confirmé (3–7 ans)",
+      "marche_fr_eur": [450, 600],
+      "achat_eur": 630,
+      "vente_chf": 1050,
+      "plancher_chf": 875,
+      "ref_esn_chf": [1300, 1550]
+    },
+    {
+      "id": "mobile",
+      "libelle": "Dev mobile (iOS / Android / RN)",
+      "marche_fr_eur": [450, 650],
+      "achat_eur": 660,
+      "vente_chf": 1100,
+      "plancher_chf": 925,
+      "ref_esn_chf": [1350, 1600]
+    },
+    {
+      "id": "backend-specialise",
+      "libelle": "Dev backend spécialisé (Java / .NET / Go)",
+      "marche_fr_eur": [500, 700],
+      "achat_eur": 720,
+      "vente_chf": 1150,
+      "plancher_chf": 1000,
+      "ref_esn_chf": [1400, 1650]
+    },
+    {
+      "id": "data-engineer",
+      "libelle": "Data engineer",
+      "marche_fr_eur": [500, 700],
+      "achat_eur": 720,
+      "vente_chf": 1175,
+      "plancher_chf": 1000,
+      "ref_esn_chf": [1450, 1700]
+    },
+    {
+      "id": "product-manager",
+      "libelle": "Product Manager / Product Owner",
+      "marche_fr_eur": [500, 700],
+      "achat_eur": 720,
+      "vente_chf": 1175,
+      "plancher_chf": 1000,
+      "ref_esn_chf": [1400, 1650]
+    },
+    {
+      "id": "devops",
+      "libelle": "DevOps / SRE / Cloud (K8s, AWS, Azure)",
+      "marche_fr_eur": [550, 750],
+      "achat_eur": 780,
+      "vente_chf": 1275,
+      "plancher_chf": 1075,
+      "ref_esn_chf": [1550, 1850]
+    },
+    {
+      "id": "fullstack-senior",
+      "libelle": "Dev fullstack senior / tech lead (7+ ans)",
+      "marche_fr_eur": [600, 750],
+      "achat_eur": 810,
+      "vente_chf": 1275,
+      "plancher_chf": 1125,
+      "ref_esn_chf": [1550, 1850]
+    },
+    {
+      "id": "data-scientist",
+      "libelle": "Data scientist / ML engineer",
+      "marche_fr_eur": [550, 780],
+      "achat_eur": 800,
+      "vente_chf": 1300,
+      "plancher_chf": 1100,
+      "ref_esn_chf": [1600, 1900]
+    },
+    {
+      "id": "cybersecurite",
+      "libelle": "Cybersécurité (pentest / GRC)",
+      "marche_fr_eur": [600, 850],
+      "achat_eur": 870,
+      "vente_chf": 1450,
+      "plancher_chf": 1200,
+      "ref_esn_chf": [1700, 2100]
+    },
+    {
+      "id": "architecte",
+      "libelle": "Architecte solution / cloud",
+      "marche_fr_eur": [700, 900],
+      "achat_eur": 960,
+      "vente_chf": 1550,
+      "plancher_chf": 1325,
+      "ref_esn_chf": [1800, 2200]
+    },
+    {
+      "id": "sap-erp",
+      "libelle": "Consultant SAP / ERP",
+      "marche_fr_eur": [700, 1000],
+      "achat_eur": 1020,
+      "vente_chf": 1700,
+      "plancher_chf": 1400,
+      "ref_esn_chf": [1900, 2400]
+    }
+  ]
+}
