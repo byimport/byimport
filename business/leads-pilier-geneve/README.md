@@ -24,6 +24,7 @@
 | `SEO_CONTENU.md` | Plan SEO local 12 mois : pages piliers, articles, schémas, GMB. |
 | `PARTENARIATS.md` | Apporteurs d'affaires : fiduciaires, courtiers immobiliers, RH PME, banques privées. Commissions, mode de rétribution. |
 | `CADRE_LEGAL_LPD.md` | Conformité nLPD, FINMA, LSFin, démarchage téléphonique. Ce qu'on peut faire, ce qui est interdit. À lire avant de lancer quoi que ce soit. |
+| `CONCURRENCE_COURTIERS_GENEVE.md` | Cartographie concurrentielle publique des courtiers frontaliers du Grand Genève : acteurs, positionnements, cadre réglementaire 2026 (AFA, FINMA, accord sectoriel), failles exploitables et limites de la recherche. |
 | `BUDGET_ET_KPIS.md` | Allocation budget 90 jours par canal, CPL/CPA cibles, taux de conversion attendus, payback period, modèle de P&L lead → client. |
 
 ## 🚀 Plan d'action 90 jours
