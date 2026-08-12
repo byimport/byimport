@@ -11,6 +11,43 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.24.0] — 2026-06-30
+
+### Added — Social Media Robot Agent
+
+New skill category: `social-media/`. One skill, seven operating modes, full cross-platform coverage.
+
+- **`social-media/manage`** — The social media robot agent (`/toprank:social-media`). Manages all
+  major platforms: Instagram, Facebook, Twitter/X, LinkedIn, TikTok, Pinterest, Threads, and
+  YouTube community posts.
+  - **Post now** — adapts content per platform (character limits, tone, hashtags, link placement)
+    and publishes via the best available connector; shows variants for approval before posting.
+  - **Schedule** — schedules posts via IFTTT date/time triggers or Zapier; falls back to a
+    `content-calendar.json` entry with a manual reminder.
+  - **Monitor** — pulls mentions, comments, and DMs from all connected platforms; triages by
+    urgency (complaint → urgent, question → actionable, praise → batch).
+  - **Respond** — drafts platform-native replies (warm for Instagram, professional for LinkedIn,
+    punchy for Twitter/X) and posts after approval; supports auto-respond in "robot mode."
+  - **Analytics** — engagement rate, reach, follower delta, top post, best posting time per
+    platform; always cites the metric denominator; ends with 2 concrete recommendations.
+  - **Caption & hashtags** — generates adapted captions and a broad/mid/niche hashtag set for
+    each target platform.
+  - **Content calendar** — builds a dated posting plan and can schedule all approved slots in one pass.
+- **`social-media/shared/preamble.md`** — connector detection (NotFair Meta, IFTTT, Zapier),
+  account state loading from `.notfair.json`, onboarding flow, and rate-limit table.
+- **`social-media/shared/platform-profiles.md`** — per-platform character limits, hashtag counts,
+  image specs, best posting times, tone, and engagement tactics for 8 platforms.
+- **`social-media/shared/content-adaptation.md`** — 5-step adaptation process, tone translation
+  matrix, character budget allocation, link placement rules, emoji density guide, and hashtag
+  generation protocol.
+
+Connectors used:
+- NotFair Meta MCP (`mcp__NotFair-MetaAds__runScript`) for organic Facebook/Instagram via Graph API
+- IFTTT MCP (`mcp__IFTTT__*`) for Twitter/X, LinkedIn, Pinterest, Threads
+- Zapier MCP (`mcp__Zapier__*`) for TikTok and enterprise fallback
+
+---
+
 ## [0.23.0] — 2026-05-16
 
 ### Changed — full removal of legacy AdsAgent branding from active code

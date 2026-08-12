@@ -47,6 +47,13 @@ Skills under `seo/`, `google-ads/`, `meta-ads/`, `gemini/`, and `toprank-upgrade
 | First-time Meta setup or account health check | `meta-ads-audit` | `meta-ads/audit/SKILL.md` |
 | Facebook/Instagram performance, ROAS, CPM, creative fatigue, audience overlap | `meta-ads` | `meta-ads/manage/SKILL.md` |
 
+## Social Media
+
+| Intent | Skill | Path |
+|---|---|---|
+| Post, schedule, monitor, respond, analytics — any platform (Instagram, Facebook, Twitter/X, LinkedIn, TikTok, Pinterest, Threads, YouTube) | `social-media` | `social-media/manage/SKILL.md` |
+| Caption writing, hashtag research, content calendar for social media | `social-media` | `social-media/manage/SKILL.md` |
+
 ## Cross-model review
 
 | Intent | Skill | Path |
@@ -81,7 +88,9 @@ If the user mentions multi-site work, portfolio, scheduled follow-ups, or "the n
 
 - **Google Search Console** — required for all SEO skills that read live data.
 - **Google Ads (NotFair MCP)** — `https://notfair.co/api/mcp/google_ads`, OAuth. Required for Google Ads skills.
-- **Meta Marketing API (NotFair MCP)** — required for Meta Ads skills.
+- **Meta Marketing API (NotFair MCP)** — required for Meta Ads skills and organic Facebook/Instagram posting.
+- **IFTTT** — required for Twitter/X, LinkedIn, Pinterest, Threads posting via `social-media`. Connect services at https://ifttt.com.
+- **Zapier** — alternative/fallback connector for `social-media`; required for TikTok posting.
 - **Google Gemini API key** — required for `gemini`.
 
 Skills check for missing credentials at startup and walk the user through setup. Do not invent credentials or skip skills silently — surface the gap.

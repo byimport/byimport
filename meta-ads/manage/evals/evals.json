@@ -1,0 +1,43 @@
+{
+  "skill_name": "meta-ads",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "my Meta ads ROAS dropped from 4.2 to 2.8 this week — what happened?",
+      "expected_output": "A structured diagnosis covering frequency trend, CPM change, creative fatigue signals, audience overlap, and Learning Phase status across affected ad sets",
+      "files": [],
+      "expectations": [
+        "Pulls campaign and ad set insights via runScript + graphParallel",
+        "Checks frequency and CPM trend before recommending budget changes",
+        "Identifies whether ad sets are in Learning Phase",
+        "Cites attribution window when reporting ROAS",
+        "Delivers a ranked list of likely causes with evidence"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "pause all ad sets with frequency above 3 and ROAS below 1.5 on my Facebook campaigns",
+      "expected_output": "A confirmation showing current frequency and ROAS for each candidate ad set, proposed pauses listed for approval, then execution after user confirms",
+      "files": [],
+      "expectations": [
+        "Reads current frequency and ROAS before writing",
+        "Shows the before-state and proposed change for each ad set",
+        "Waits for user approval before calling pauseAdSet",
+        "Reports success/failure per ad set after executing"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "how is my top Instagram campaign performing compared to last month?",
+      "expected_output": "Period-over-period comparison table showing reach, impressions, link CTR, ROAS (with attribution window), CPM, and spend for the top campaign",
+      "files": [],
+      "expectations": [
+        "Identifies the top campaign by spend or ROAS",
+        "Pulls two date ranges for comparison",
+        "Cites attribution window (e.g. 7DC1DV) with every ROAS figure",
+        "Formats as a comparison table",
+        "Recommends one action based on the delta"
+      ]
+    }
+  ]
+}
