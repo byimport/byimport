@@ -47,6 +47,12 @@ Skills under `seo/`, `google-ads/`, `meta-ads/`, `gemini/`, and `toprank-upgrade
 | First-time Meta setup or account health check | `meta-ads-audit` | `meta-ads/audit/SKILL.md` |
 | Facebook/Instagram performance, ROAS, CPM, creative fatigue, audience overlap | `meta-ads` | `meta-ads/manage/SKILL.md` |
 
+## Browser automation
+
+| Intent | Skill | Path |
+|---|---|---|
+| Naviguer sur une page, remplir un formulaire, cliquer, prendre un screenshot, scraper, tester une web app, automatiser des actions navigateur, tester des apps Electron (VS Code, Slack, Figma…), QA / bug hunt | `agent-browser` | `agent-browser/SKILL.md` |
+
 ## Cross-model review
 
 | Intent | Skill | Path |

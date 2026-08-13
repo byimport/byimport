@@ -11,6 +11,14 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.23.1] — 2026-06-26
+
+### Added
+
+- **`agent-browser` skill** — browser automation CLI for AI agents ([vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)). Fast Rust CLI pilotant Chrome/Chromium via CDP avec snapshots d'arbre d'accessibilité et références `@eN`. Skill caché (`hidden: true`) : s'active automatiquement sur toute demande d'interaction navigateur (navigation, formulaires, screenshots, scraping, QA, apps Electron, Slack, microVMs Vercel Sandbox, AWS Bedrock AgentCore). Nécessite `npm i -g agent-browser && agent-browser install`.
+
+---
+
 ## [0.23.0] — 2026-05-16
 
 ### Changed — full removal of legacy AdsAgent branding from active code
