@@ -64,4 +64,10 @@ print("non-owner:", r2.get("error",{}).get("message","NO REVERT (unexpected!)"))
 print("\n--- gas estimate for the real transaction ---")
 g = rpc("eth_estimateGas",[{"from":OWNER,"to":NFT,"data":data}])
 print("gas:", int(g["result"],16) if "result" in g else g.get("error",{}).get("message"))
-open("setClaimConditions.calldata.txt","w").write(data+"\n")
+
+if "--out" in sys.argv:                      # only write when explicitly asked
+    dest = sys.argv[sys.argv.index("--out")+1]
+    open(dest,"w").write(data+"\n")
+    print("\ncalldata written to", dest)
+else:
+    print("\ncalldata:", data)
