@@ -90,7 +90,7 @@ Les tiers vendus comme les plus désirables ont la plus courte autonomie, et 1 2
 | # | Action | Où | Urgence |
 |---|---|---|---|
 | 1 | **Couper la publicité Facebook** tant que le prix affiché ≠ prix facturé | Meta Ads | immédiat |
-| 2 | **Reconfigurer les claim conditions** : une seule phase active, prix d'entrée réel, `maxClaimableSupply` = offre restante. Avancer la marche *manuellement* quand elle est vendue, jamais par date | dashboard thirdweb (`setClaimConditions`, `onlyOwner`) | immédiat |
+| 2 | **Reconfigurer les claim conditions** : une seule phase active, prix d'entrée réel, `maxClaimableSupply` = offre restante. Avancer la marche *manuellement* quand elle est vendue, jamais par date. Configuration exacte et vérifiée : `patches/00-fix-claim-conditions.md` | dashboard thirdweb (`setClaimConditions`, `onlyOwner`) | immédiat |
 | 3 | **Brancher la copie sur le contrat** pour que la divergence ne puisse plus réapparaître | `patches/01-live-mint-price.html` | immédiat |
 | 4 | Retirer le mot « allowlist » ou implémenter un vrai merkle root | copie + contrat | 24 h |
 | 5 | SRI sur ethers.js + logos de wallet inlinés | `patches/02-security.md` | 24 h |

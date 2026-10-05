@@ -9,11 +9,13 @@ et ni `VERSION` ni `CHANGELOG.md` ne sont touchés.
 | Fichier | Rôle |
 |---|---|
 | [`AUDIT.md`](AUDIT.md) | L'audit : constats vérifiés on-chain, conséquences, plan d'action priorisé |
+| [`patches/00-fix-claim-conditions.md`](patches/00-fix-claim-conditions.md) | **Le correctif bloquant** : configuration exacte des claim conditions, vérifiée par simulation |
 | [`patches/01-live-mint-price.html`](patches/01-live-mint-price.html) | Branche la copie du mint sur le contrat — **le correctif le plus important** |
 | [`patches/02-security.md`](patches/02-security.md) | SRI sur ethers.js, logos de wallet inlinés, CSP |
 | [`patches/03-phase-capture.html`](patches/03-phase-capture.html) | Compteur piloté par le contrat + capture d'intérêt |
 | [`patches/04-seo-legal.md`](patches/04-seo-legal.md) | Footer, `meta keywords`, polices, pages légales |
 | [`scripts/read-claim-conditions.py`](scripts/read-claim-conditions.py) | Rejoue les mesures de l'audit depuis Ethereum mainnet |
+| [`scripts/simulate-claim-fix.py`](scripts/simulate-claim-fix.py) | Encode et simule le correctif sans envoyer de transaction |
 
 ## Le constat en une ligne
 
@@ -34,6 +36,7 @@ public et réimprime le tableau des phases de `AUDIT.md` section 2.
 
 1. Couper la publicité Facebook (prix affiché ≠ prix facturé).
 2. Rejouer `setClaimConditions()` depuis le dashboard thirdweb — c'est la cause racine,
-   et aucun correctif web ne la contourne.
+   et aucun correctif web ne la contourne. La configuration exacte, vérifiée par
+   simulation on-chain, est dans [`patches/00-fix-claim-conditions.md`](patches/00-fix-claim-conditions.md).
 3. Poser le patch 01 pour que la divergence copie/contrat ne puisse plus réapparaître.
 4. Patches 02 à 04 dans la semaine.
