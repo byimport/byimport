@@ -185,6 +185,64 @@ def tirer_semis_aleatoire(n, bornes, rng):
     return points
 
 
+# --------------------------------------------------------------------------
+# Modèle nul « grappes » — celui qui vaut vraiment pour un atlas archéologique
+# --------------------------------------------------------------------------
+
+def grouper_en_grappes(points, seuil_km):
+    """Regroupement par lien simple : deux points à moins de `seuil_km` sont
+    dans la même grappe. Un site archéologique compte souvent plusieurs
+    monuments voisins ; ils forment une grappe, pas des points indépendants.
+    """
+    n = len(points)
+    parent = list(range(n))
+
+    def racine(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            if distance_angulaire(points[i], points[j]) * R_TERRE_KM <= seuil_km:
+                ri, rj = racine(i), racine(j)
+                if ri != rj:
+                    parent[ri] = rj
+
+    grappes = {}
+    for i in range(n):
+        grappes.setdefault(racine(i), []).append(points[i])
+    return list(grappes.values())
+
+
+def tirer_semis_grappes(grappes, bornes, rng):
+    """Replace chaque grappe au hasard, en conservant sa géométrie interne.
+
+    C'est le modèle nul honnête : il demande « l'arrangement *des grappes* est-il
+    particulier ? » au lieu de « ces points sont-ils répartis uniformément ? »,
+    question à laquelle la réponse est non d'avance pour tout atlas de sites.
+    """
+    lat_min, lat_max, lon_min, lon_max = bornes
+    s_min, s_max = math.sin(_rad(lat_min)), math.sin(_rad(lat_max))
+    points = []
+    for grappe in grappes:
+        lat_c = sum(p[0] for p in grappe) / len(grappe)
+        lon_c = sum(p[1] for p in grappe) / len(grappe)
+        # décalages internes, en km, dans le plan tangent local
+        decalages = [((p[0] - lat_c) * 110.574,
+                      (p[1] - lon_c) * 111.320 * math.cos(_rad(lat_c)))
+                     for p in grappe]
+        lat_n = math.degrees(math.asin(rng.uniform(s_min, s_max)))
+        lon_n = rng.uniform(lon_min, lon_max)
+        cos_lat = math.cos(_rad(lat_n))
+        for dy_km, dx_km in decalages:
+            lat = lat_n + dy_km / 110.574
+            lon = lon_n + dx_km / (111.320 * max(1e-9, cos_lat))
+            points.append((lat, lon))
+    return points
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -202,6 +260,13 @@ def main(argv=None):
                     help="nombre de meilleurs triplets à afficher (défaut : 10)")
     ap.add_argument("--graine", type=int, default=20260729,
                     help="graine aléatoire, pour un résultat reproductible")
+    ap.add_argument("--modele-nul", choices=("uniforme", "grappes", "les-deux"),
+                    default="les-deux",
+                    help="semis de reference : uniforme, grappes conservees, ou les deux "
+                         "(defaut : les-deux)")
+    ap.add_argument("--seuil-grappe-km", type=float, default=25.0,
+                    help="deux points a moins de cette distance sont dans la meme grappe "
+                         "(defaut 25)")
     args = ap.parse_args(argv)
 
     sites = lire_kml(args.kml, args.dossier)
@@ -237,29 +302,60 @@ def main(argv=None):
     print(f"\nEnveloppe des tirages : lat {bornes[0]:.3f}..{bornes[1]:.3f}, "
           f"lon {bornes[2]:.3f}..{bornes[3]:.3f}")
 
-    rng = random.Random(args.graine)
-    au_moins_autant = 0
-    somme = 0
-    for _ in range(args.simulations):
-        semis = tirer_semis_aleatoire(len(points), bornes, rng)
-        compte, _ = compter_alignements(semis, args.tolerance_km, args.separation_min_km)
-        somme += compte
-        if compte >= observes:
-            au_moins_autant += 1
+    grappes = grouper_en_grappes(points, args.seuil_grappe_km)
+    tailles = sorted((len(g) for g in grappes), reverse=True)
+    print(f"Grappes               : {len(grappes)} (regroupement a "
+          f"{args.seuil_grappe_km} km), tailles {tailles[:8]}"
+          f"{' ...' if len(tailles) > 8 else ''}")
+    print()
 
-    moyenne_hasard = somme / args.simulations
-    p = (au_moins_autant + 1) / (args.simulations + 1)  # estimateur conservateur
+    modeles = []
+    if args.modele_nul in ("uniforme", "les-deux"):
+        modeles.append(("uniforme", lambda rng: tirer_semis_aleatoire(len(points), bornes, rng)))
+    if args.modele_nul in ("grappes", "les-deux"):
+        modeles.append(("grappes", lambda rng: tirer_semis_grappes(grappes, bornes, rng)))
 
-    print(f"Simulations           : {args.simulations}")
-    print(f"Moyenne au hasard     : {moyenne_hasard:.1f} triplets")
-    print(f"p-value empirique     : {p:.4f}")
+    resultats = {}
+    for nom_modele, tirage in modeles:
+        rng = random.Random(args.graine)
+        au_moins_autant = 0
+        somme = 0
+        for _ in range(args.simulations):
+            semis = tirage(rng)
+            compte, _ = compter_alignements(semis, args.tolerance_km, args.separation_min_km)
+            somme += compte
+            if compte >= observes:
+                au_moins_autant += 1
+        moyenne = somme / args.simulations
+        p = (au_moins_autant + 1) / (args.simulations + 1)  # estimateur conservateur
+        resultats[nom_modele] = (moyenne, p)
+        libelle = ("points tires uniformement" if nom_modele == "uniforme"
+                   else "grappes replacees au hasard, geometrie interne conservee")
+        print(f"Modele nul « {nom_modele} » ({libelle})")
+        print(f"  Simulations         : {args.simulations}")
+        print(f"  Moyenne au hasard   : {moyenne:.1f} triplets")
+        print(f"  p-value empirique   : {p:.4f}")
+        print()
+
+    # Le modèle « grappes » tranche quand il a été calculé : il est le seul à
+    # reproduire le regroupement réel des sites, qui fabrique à lui seul des
+    # alignements.
+    decisif = "grappes" if "grappes" in resultats else "uniforme"
+    p = resultats[decisif][1]
+    print(f"Modele retenu         : {decisif}")
+    if len(resultats) == 2 and resultats["uniforme"][1] <= 0.05 < resultats["grappes"][1]:
+        print()
+        print("Les deux modeles divergent, et c'est le resultat le plus instructif :")
+        print("le « signal » du modele uniforme ne vient pas d'une geometrie ancienne,")
+        print("il vient de ce que les sites sont groupes. Deux monuments voisins")
+        print("paraissent alignes avec n'importe quel troisieme point lointain.")
     print()
     if p > 0.05:
         print("VERDICT : p > 0,05. Les alignements observés sont compatibles avec le hasard.")
         print("          Aucun dessin intentionnel n'est démontré par ces points.")
     else:
         print("VERDICT : p <= 0,05. Il y a plus d'alignements que le hasard n'en produit")
-        print("          dans cette enveloppe. Attention : ce n'est PAS une preuve d'intention.")
+        print("          sous ce modele. Attention : ce n'est PAS une preuve d'intention.")
         print("          Vérifiez d'abord les causes banales — sites échelonnés le long d'une")
         print("          même route caravanière, d'un même wadi, d'une même côte ou d'un même")
         print("          piémont — qui alignent les points sans aucune géométrie sacrée.")

@@ -270,11 +270,44 @@ p-value empirique         : 0.5262   →  p > 0,05  : bruit
 ```
 
 **Interprétation, et c'est le cœur du sujet.** Le « signal » de la passe 1 ne vient pas d'une
-géométrie ancienne : il vient du fait que l'atlas contient des **grappes** — quatre points à Marib,
-trois à Aksum, quatre à al-ʿUlā, quatre à Jérusalem. Deux points très proches sont vus « alignés »
-avec n'importe quel troisième point lointain. Le modèle nul, qui tire des points **uniformément**,
-ne reproduit pas ce regroupement et sous-estime donc le hasard. Dès qu'on impose une séparation
-réelle (passe 2), le prétendu signal disparaît.
+géométrie ancienne : il vient du fait que l'atlas contient des **grappes** — six points à Marib,
+cinq à al-ʿUlā, quatre à Jérusalem, trois à Aksum ; 41 points pour seulement 24 grappes. Deux points
+très proches sont vus « alignés » avec n'importe quel troisième point lointain. Le modèle nul, qui
+tire des points **uniformément**, ne reproduit pas ce regroupement et sous-estime donc le hasard.
+Dès qu'on impose une séparation réelle (passe 2), le prétendu signal disparaît.
+
+**Passe 3 — le modèle nul correct.** Plutôt que de contourner le problème par la séparation, le
+script sait maintenant construire un semis de référence qui **conserve les grappes** : il regroupe
+les points par lien simple, puis replace chaque grappe au hasard en gardant sa géométrie interne
+intacte. La question devient « l'arrangement *des grappes* est-il particulier ? », au lieu de
+« ces points sont-ils répartis uniformément ? », à laquelle la réponse est non d'avance pour tout
+atlas de sites.
+
+```bash
+python3 outils/test_alignements.py coordonnees.kml --modele-nul les-deux --simulations 500
+```
+
+| Séparation min. | Graine | p — modèle **uniforme** | p — modèle **grappes** |
+|---|---|---|---|
+| 25 km | 20260729 | 0,0033 | **0,0432** |
+| 25 km | 7 | 0,0020 | **0,0539** |
+| 150 km | 20260729 | 0,5389 | **0,3433** |
+
+**Et c'est là que ce dossier devient honnête.** À 25 km de séparation, le modèle correct donne
+p = 0,043 avec une graine aléatoire et p = 0,054 avec une autre : **la p-value traverse le seuil de
+0,05 selon le tirage.** Elle ne tranche donc rien du tout. Un résultat qui change de camp quand on
+change de graine n'est pas un résultat — c'est du bruit de simulation présenté avec trois décimales.
+
+Conclusion en trois temps, qu'il faut tenir dans cet ordre :
+
+1. le modèle uniforme criait au signal (p = 0,003) — il était simplement mal spécifié ;
+2. le modèle à grappes ramène tout sur la ligne de décision et **n'y résout rien** ;
+3. à 150 km de séparation, où les grappes ne peuvent plus rien fabriquer, c'est franchement du
+   bruit (p = 0,34).
+
+Le reliquat d'alignement à 25 km, s'il existe, a de toute façon une explication banale et déjà
+connue : **ces sites s'échelonnent le long de la route de l'encens, des côtes de la mer Rouge et
+des piémonts.** Une géographie linéaire aligne des points sans aucune intention.
 
 Regardez ce que produit la passe 2, en tête de classement :
 
@@ -309,11 +342,66 @@ La bonne manière d'exploiter les ombres est donc :
 1. ouvrir **Imagerie historique** (icône horloge, `Ctrl+H`) et **parcourir toutes les dates
    disponibles** — chacune a son propre angle solaire ;
 2. relever la date affichée en bas de l'écran pour chaque image retenue ;
-3. calculer l'élévation solaire de cette date/heure avec **SunCalc** ou l'éphéméride de votre choix,
-   et privilégier les images à **élévation solaire faible (< 30°)**, typiquement hiver ou début de
-   matinée : c'est là que les micro-reliefs enterrés projettent des ombres exploitables ;
+3. calculer l'élévation solaire de cette date/heure et privilégier les images à **élévation faible
+   (< 30°)** — avec l'outil fourni, qui évite d'aller la chercher ailleurs :
+   ```bash
+   python3 outils/soleil.py position --site "Hegra" --kml coordonnees.kml --date 2026-01-15 --heure 07:30
+   ```
 4. utiliser le curseur de lumière du soleil **uniquement** pour tester des visibilités de relief
    (lignes de crête, cols, bassins visuels), pas pour « révéler » des ruines.
+
+### 4.1 bis — La mauvaise nouvelle : aux latitudes arabiques, les marques d'ombre ne marchent pas
+
+Cette correction-ci est plus lourde de conséquences que la précédente, et elle n'apparaît que
+lorsqu'on fait le calcul. La doctrine des *shadow marks* vient de l'archéologie aérienne
+britannique, pratiquée **à 52° de latitude**, où le soleil d'hiver rase l'horizon toute la journée.
+Transposée en Arabie, elle s'effondre.
+
+Élévation du soleil **à l'heure de passage des satellites héliosynchrones** (≈10 h 30 solaire
+locale : Sentinel-2, Landsat, et la plupart des prises de vue à très haute résolution) —
+`python3 outils/soleil.py profil --lat … --lon …` :
+
+| Zone | Latitude | Minimum annuel | Ombre d'un talus de 50 cm | Verdict |
+|---|---|---|---|---|
+| Marib | 15,4° N | **46,2°** (déc./janv.) | 48 cm | inutilisable |
+| Dhofar (Shiṣr) | 18,3° N | **43,5°** (décembre) | 53 cm | inutilisable |
+| al-ʿUlā | 26,8° N | **35,9°** (décembre) | 69 cm | médiocre |
+| Bethléem | 31,7° N | **31,4°** (décembre) | 82 cm | médiocre |
+
+À Marib, le soleil n'est **jamais** sous 46° au moment où les satellites photographient. Aucune
+date d'imagerie historique n'y donnera de marque d'ombre exploitable : ce n'est pas une question de
+chance ou de patience, c'est de la géométrie.
+
+**Les trois parades, par ordre d'efficacité :**
+
+1. **Détecter par la géométrie en plan, pas par le relief.** Un mustatil, un *desert kite*, une
+   enceinte, un chapelet de puits se reconnaissent à leur **forme vue de dessus**, qui ne doit rien
+   au soleil. C'est précisément pour cela que la prospection satellite a si bien marché en Arabie du
+   Nord-Ouest malgré un soleil haut. Visez les objets qui ont une forme, pas ceux qui n'ont qu'un
+   relief.
+2. **Éclairer soi-même le terrain.** On prend un MNT gratuit et on l'illumine sous l'angle qu'on
+   veut, sous plusieurs azimuts — c'est le seul « curseur de soleil » qui agisse réellement sur la
+   donnée :
+   ```bash
+   python3 outils/relief.py --hgt N15E045.hgt --bbox 15.30 45.15 15.50 45.45 \
+       --elevation 10 --azimuts 0,45,90,135 --sortie marib.png --kml marib.kml
+   ```
+   Limite à tenir : un MNT à 30 m voit les talus, canaux, terrasses et enceintes — pas une banquette
+   de 50 cm. Il déplace le problème vers l'échelle décamétrique, il ne le supprime pas.
+3. **Jouer sur le contraste de sol, pas sur l'ombre** — marques de sol, marques de végétation,
+   déflation, croûtes salines. Toutes indifférentes à la hauteur du soleil.
+
+Pour voir ces trois modes à l'œuvre sur un terrain dont on connaît la réponse :
+
+```bash
+python3 outils/relief.py --demo --elevation 15 --sortie demo.png   # 5 structures connues
+python3 outils/relief.py --demo --elevation 15 --azimuts 0 --sortie demo-az0.png
+```
+
+Le canal nord-sud du MNT de démonstration est net sur la première image et s'efface sur la seconde :
+**un relief parallèle à l'azimut d'éclairage ne produit presque rien.** C'est la raison pour
+laquelle un seul azimut ne suffit jamais, et celle pour laquelle une seule image satellite ne
+suffit jamais non plus.
 
 ### 4.2 Réglages Google Earth Pro (gratuit, desktop)
 
@@ -373,7 +461,7 @@ Signatures spécifiquement arabiques, toutes découvertes ou cartographiées **p
 | **OpenTopography / SRTM 30 m / ALOS World 3D** | MNT pour hillshade et détection de micro-relief. |
 | **Esri Wayback / Bing Maps** | autres dates, autres angles solaires que Google. |
 | **QGIS** | géoréférencer une carte du XIXᵉ s., produire un hillshade multi-azimut, exporter en KML. |
-| **SunCalc** | élévation et azimut solaires pour une date/heure/lieu donnés. |
+| **SunCalc** | alternative en ligne à `outils/soleil.py`, pratique pour une vérification ponctuelle. |
 | **EAMENA** (*Endangered Archaeology in the Middle East and North Africa*, Oxford) | base de dizaines de milliers de sites déjà enregistrés — **à consulter avant** de crier à la découverte. |
 | **Pleiades, DAAHL, MEGA-Jordan, Atlas du patrimoine saoudien** | gazetteers pour dédoublonner. |
 
@@ -383,11 +471,20 @@ Signatures spécifiquement arabiques, toutes découvertes ou cartographiées **p
    20 × 20 km, des enceintes rectangulaires non répertoriées ? ».
 2. **Délimiter une boîte** en polygone KML, la nommer, la dater.
 3. **Balayer systématiquement** à altitude d'œil constante (p. ex. 2 km), en bandes se chevauchant
-   de 20 %. Le balayage discipliné bat l'intuition.
+   de 20 %. Le balayage discipliné bat l'intuition — d'où la grille numérotée, qui transforme
+   « j'ai regardé la zone » en « 35 tuiles sur 35 à `fait` » :
+   ```bash
+   python3 outils/prospection.py grille --bbox 15.30 45.15 15.50 45.45 \
+       --tuile-km 5 --nom MARIB-01 --kml zones/g.kml --csv zones/g.csv
+   ```
 4. **Marquer sans filtrer** : tout candidat devient un repère, avec capture d'écran.
 5. **Multi-source obligatoire** : confirmer sur ≥ 2 capteurs ou dates indépendants (Google + Sentinel,
    ou Google + CORONA). Une anomalie visible sur une seule image est une anomalie d'image.
-6. **Passer la liste des faux positifs** (§4.4) et **interroger EAMENA** + gazetteers.
+6. **Passer la liste des faux positifs** (§4.4), **contrôler le doublon** contre l'atlas, puis
+   **interroger EAMENA** + gazetteers :
+   ```bash
+   python3 outils/prospection.py proximite --journal journal-de-prospection.csv --kml coordonnees.kml
+   ```
 7. **Consigner** dans `journal-de-prospection.csv`, avec le niveau de confiance et
    **l'explication alternative la plus solide**. Un candidat sans hypothèse concurrente écrite n'est
    pas documenté.
@@ -433,6 +530,10 @@ Signatures spécifiquement arabiques, toutes découvertes ou cartographiées **p
 | Les mosquées médiévales étaient orientées par astronomie populaire, d'où des azimuts variables | 🟢 | Travaux de D. A. King. |
 | Des villes antiques du Proche-Orient reproduisent l'hexagramme au sol | 🔴 | Aucun plan relevé ; les plans étoilés sont des fortifications modernes. |
 | Trois sites « alignés » sur Google Earth démontrent une intention ancienne | 🔴 | Effet combinatoire ; à tester par Monte-Carlo (§3.3). |
+| Le modèle nul uniforme suffit à tester un alignement | 🔴 | Il ignore le regroupement des sites et fabrique du signal (§3.4). |
+| Les marques d'ombre sont exploitables sur l'imagerie satellite en Arabie | 🔴 | Le soleil n'y descend jamais assez bas à l'heure de passage : 46° à Marib (§4.1 bis). |
+| La prospection satellite fonctionne en Arabie malgré un soleil haut | 🟢 | Parce que les cibles s'y détectent par leur géométrie en plan — mustatils, kites (§4.1 bis). |
+| Un MNT gratuit à 30 m révèle une structure de 50 cm | 🔴 | Il voit l'échelle décamétrique : talus, canaux, terrasses, enceintes. |
 | Le Coran contient un code numérique caché révélant des lieux | 🔴 | Méthodologie non falsifiable ; unités de comptage choisies après coup. |
 | « Le saut de Salomon » est une tradition attestée | 🔴 | Introuvable dans le corpus ; voir §0. |
 
@@ -440,12 +541,39 @@ Signatures spécifiquement arabiques, toutes découvertes ou cartographiées **p
 
 ## 7. Fichiers de ce dossier
 
+Tous les scripts sont en **Python 3.8+ sans aucune dépendance** et portent un `autotest` qui vérifie
+leurs calculs sur des cas dont la réponse est connue d'avance. Lancez-les avant de faire confiance
+à un chiffre :
+
+```bash
+cd outils
+python3 soleil.py autotest && python3 relief.py --autotest && python3 prospection.py autotest
+```
+
 | Fichier | Rôle |
 |---|---|
 | `README.md` | ce document |
-| `coordonnees.kml` | tous les points ci-dessus, classés par dossier, à ouvrir dans Google Earth Pro |
+| `coordonnees.kml` | les 41 points de l'atlas, classés par dossier et colorés par niveau de preuve |
 | `journal-de-prospection.csv` | gabarit de consignation des candidats (une ligne = un candidat) |
-| `outils/test_alignements.py` | test statistique d'alignement (Monte-Carlo), stdlib Python uniquement |
+| `zones/` | **cinq paquets de travail prêts à l'emploi** : emprise, grille, cibles, faux positifs, critère d'arrêt |
+| `zones/marib-grille.kml` / `.csv` | exemple de grille produite : 35 tuiles numérotées + tableau de suivi |
+| `outils/soleil.py` | géométrie solaire : quand une image est exploitable, et ce qu'elle ne montrera jamais |
+| `outils/relief.py` | ombrage multi-azimut d'un MNT → PNG + calque KML ; `--demo` fournit un terrain d'essai |
+| `outils/prospection.py` | `grille` (découpage en tuiles) et `proximite` (contrôle de doublon) |
+| `outils/test_alignements.py` | test statistique d'alignement, avec les deux modèles nuls |
+
+**Enchaînement type d'une campagne :**
+
+```bash
+cd outils
+python3 soleil.py profil --lat 26.7917 --lon 37.9528             # 1. quand chercher
+python3 prospection.py grille --bbox 26.55 37.80 26.90 38.10 \
+    --tuile-km 4 --nom ALULA-01 --kml ../zones/g.kml --csv ../zones/g.csv   # 2. où, dans quel ordre
+python3 relief.py --hgt N26E037.hgt --elevation 12 --sortie r.png --kml r.kml  # 3. avec quel éclairage
+#   ... balayage dans Google Earth Pro, consignation dans le journal ...
+python3 prospection.py proximite --journal ../journal-de-prospection.csv \
+    --kml ../coordonnees.kml                                      # 4. est-ce déjà connu ?
+```
 
 ---
 
@@ -483,16 +611,20 @@ Signatures spécifiquement arabiques, toutes découvertes ou cartographiées **p
 
 ---
 
-## 9. Pour resserrer : choisissez une cible
+## 9. Par où commencer
 
-Le dossier est volontairement large. La prospection sérieuse est locale. Dites-moi laquelle vous
-voulez et je produis la boîte de travail, les dates d'imagerie utiles et la grille de balayage :
+Le dossier est volontairement large ; la prospection sérieuse est locale. Les cinq zones sont
+désormais découpées et chiffrées dans [`zones/`](zones/) — emprise, grille, cibles, faux positifs
+propres à chacune, critère d'arrêt.
 
-1. **Marib (Yémen)** — réseaux d'irrigation fossiles autour du barrage : le terrain le plus riche
-   techniquement, à distance obligatoire.
-2. **Dhofar / Rubʿ al-Khālī (Oman)** — pistes caravanières et *sabkhas* autour de Shiṣr : reproduire
-   la méthode de 1990 avec les données gratuites d'aujourd'hui.
-3. **Al-ʿUlā / Taymāʾ (Arabie saoudite)** — mustatils, tombes à pendentif, enceintes : la zone où la
-   prospection satellite a le meilleur taux de succès documenté.
-4. **Jérusalem / Bethléem** — hydraulique antique (aqueducs, bassins) : dense, déjà cartographiée,
-   bon terrain d'entraînement méthodologique.
+| Zone | Charge | Chances de trouver | À faire |
+|---|---|---|---|
+| [Jérusalem / Bethléem](zones/jerusalem-bethleem.md) | ~12 h | nulles, et c'est voulu | **en premier** — vous y mesurez votre taux d'erreur sur des structures dont la position est publiée |
+| [al-ʿUlā / Taymāʾ](zones/al-ula-tayma.md) | ~18 h | **les meilleures** | ensuite — mustatils, kites, tombes à pendentif |
+| [Marib](zones/marib.md) | ~5 h | moyennes | réseaux d'irrigation fossiles, à distance obligatoire |
+| [Dhofar](zones/dhofar.md) | ~11 h | faibles | pour apprendre à distinguer une piste fossile d'une ligne sismique |
+
+**Le conseil qui compte** : ne commencez pas par la zone la plus excitante. Faites Bethléem d'abord.
+Deux heures passées à rater des aqueducs dont on connaît le tracé vous épargneront dix heures
+d'illusions au Nefoud — et c'est le seul moyen de savoir si votre œil vaut quelque chose avant de
+lui faire confiance sur du terrain inconnu.

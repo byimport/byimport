@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>MARIB-01 — grille de balayage</name>
+    <description><![CDATA[Grille de balayage MARIB-01. 35 tuiles de 5.0 km. Balayer en bandes, avec 20 % de recouvrement a l'oeil. Cocher chaque tuile dans le CSV.]]></description>
+    <Style id="tuile">
+      <LineStyle><color>ff00aaff</color><width>2</width></LineStyle>
+      <PolyStyle><fill>0</fill></PolyStyle>
+    </Style>
+    <Placemark>
+      <name>MARIB-01-A1</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.32261, 45.17329</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.150000,15.300000,0 45.196571,15.300000,0 45.196571,15.345219,0 45.150000,15.345219,0 45.150000,15.300000,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-B1</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.32261, 45.21986</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.196571,15.300000,0 45.243142,15.300000,0 45.243142,15.345219,0 45.196571,15.345219,0 45.196571,15.300000,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-C1</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.32261, 45.26643</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.243142,15.300000,0 45.289713,15.300000,0 45.289713,15.345219,0 45.243142,15.345219,0 45.243142,15.300000,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-D1</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.32261, 45.31300</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.289713,15.300000,0 45.336284,15.300000,0 45.336284,15.345219,0 45.289713,15.345219,0 45.289713,15.300000,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-E1</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.32261, 45.35957</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.336284,15.300000,0 45.382855,15.300000,0 45.382855,15.345219,0 45.336284,15.345219,0 45.336284,15.300000,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-F1</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.32261, 45.40614</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.382855,15.300000,0 45.429426,15.300000,0 45.429426,15.345219,0 45.382855,15.345219,0 45.382855,15.300000,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-G1</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.32261, 45.43971</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.429426,15.300000,0 45.450000,15.300000,0 45.450000,15.345219,0 45.429426,15.345219,0 45.429426,15.300000,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-A2</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.36783, 45.17329</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.150000,15.345219,0 45.196581,15.345219,0 45.196581,15.390437,0 45.150000,15.390437,0 45.150000,15.345219,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-B2</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.36783, 45.21987</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.196581,15.345219,0 45.243162,15.345219,0 45.243162,15.390437,0 45.196581,15.390437,0 45.196581,15.345219,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-C2</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.36783, 45.26645</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.243162,15.345219,0 45.289743,15.345219,0 45.289743,15.390437,0 45.243162,15.390437,0 45.243162,15.345219,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-D2</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.36783, 45.31303</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.289743,15.345219,0 45.336324,15.345219,0 45.336324,15.390437,0 45.289743,15.390437,0 45.289743,15.345219,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-E2</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.36783, 45.35961</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.336324,15.345219,0 45.382905,15.345219,0 45.382905,15.390437,0 45.336324,15.390437,0 45.336324,15.345219,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-F2</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.36783, 45.40620</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.382905,15.345219,0 45.429487,15.345219,0 45.429487,15.390437,0 45.382905,15.390437,0 45.382905,15.345219,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-G2</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.36783, 45.43974</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.429487,15.345219,0 45.450000,15.345219,0 45.450000,15.390437,0 45.429487,15.390437,0 45.429487,15.345219,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-A3</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.41305, 45.17330</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.150000,15.390437,0 45.196591,15.390437,0 45.196591,15.435656,0 45.150000,15.435656,0 45.150000,15.390437,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-B3</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.41305, 45.21989</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.196591,15.390437,0 45.243182,15.390437,0 45.243182,15.435656,0 45.196591,15.435656,0 45.196591,15.390437,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-C3</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.41305, 45.26648</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.243182,15.390437,0 45.289774,15.390437,0 45.289774,15.435656,0 45.243182,15.435656,0 45.243182,15.390437,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-D3</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.41305, 45.31307</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.289774,15.390437,0 45.336365,15.390437,0 45.336365,15.435656,0 45.289774,15.435656,0 45.289774,15.390437,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-E3</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.41305, 45.35966</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.336365,15.390437,0 45.382956,15.390437,0 45.382956,15.435656,0 45.336365,15.435656,0 45.336365,15.390437,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-F3</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.41305, 45.40625</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.382956,15.390437,0 45.429547,15.390437,0 45.429547,15.435656,0 45.382956,15.435656,0 45.382956,15.390437,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-G3</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.41305, 45.43977</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.429547,15.390437,0 45.450000,15.390437,0 45.450000,15.435656,0 45.429547,15.435656,0 45.429547,15.390437,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-A4</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.45827, 45.17330</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.150000,15.435656,0 45.196601,15.435656,0 45.196601,15.480874,0 45.150000,15.480874,0 45.150000,15.435656,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-B4</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.45827, 45.21990</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.196601,15.435656,0 45.243203,15.435656,0 45.243203,15.480874,0 45.196601,15.480874,0 45.196601,15.435656,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-C4</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.45827, 45.26650</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.243203,15.435656,0 45.289804,15.435656,0 45.289804,15.480874,0 45.243203,15.480874,0 45.243203,15.435656,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-D4</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.45827, 45.31310</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.289804,15.435656,0 45.336405,15.435656,0 45.336405,15.480874,0 45.289804,15.480874,0 45.289804,15.435656,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-E4</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.45827, 45.35971</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.336405,15.435656,0 45.383007,15.435656,0 45.383007,15.480874,0 45.336405,15.480874,0 45.336405,15.435656,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-F4</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.45827, 45.40631</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.383007,15.435656,0 45.429608,15.435656,0 45.429608,15.480874,0 45.383007,15.480874,0 45.383007,15.435656,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-G4</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.45827, 45.43980</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.429608,15.435656,0 45.450000,15.435656,0 45.450000,15.480874,0 45.429608,15.480874,0 45.429608,15.435656,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-A5</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.49044, 45.17330</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.150000,15.480874,0 45.196609,15.480874,0 45.196609,15.500000,0 45.150000,15.500000,0 45.150000,15.480874,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-B5</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.49044, 45.21991</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.196609,15.480874,0 45.243217,15.480874,0 45.243217,15.500000,0 45.196609,15.500000,0 45.196609,15.480874,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-C5</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.49044, 45.26652</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.243217,15.480874,0 45.289826,15.480874,0 45.289826,15.500000,0 45.243217,15.500000,0 45.243217,15.480874,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-D5</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.49044, 45.31313</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.289826,15.480874,0 45.336434,15.480874,0 45.336434,15.500000,0 45.289826,15.500000,0 45.289826,15.480874,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-E5</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.49044, 45.35974</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.336434,15.480874,0 45.383043,15.480874,0 45.383043,15.500000,0 45.336434,15.500000,0 45.336434,15.480874,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-F5</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.49044, 45.40635</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.383043,15.480874,0 45.429652,15.480874,0 45.429652,15.500000,0 45.383043,15.500000,0 45.383043,15.480874,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+      <name>MARIB-01-G5</name>
+      <styleUrl>#tuile</styleUrl>
+      <description>Centre 15.49044, 45.43983</description>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        45.429652,15.480874,0 45.450000,15.480874,0 45.450000,15.500000,0 45.429652,15.500000,0 45.429652,15.480874,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+  </Document>
+</kml>
