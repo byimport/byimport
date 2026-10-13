@@ -36,6 +36,10 @@ Pour chaque entreprise de la liste brute, dans l'ordre (s'arrêter au premier si
 2. Fiche Google Business Profile : champ site web vide ?
 3. Variantes de domaine évidentes : `<nom>.fr`, `<nom>.ch`, `<nom-ville>.fr`.
 4. Page Facebook/Instagram utilisée **comme site** (menu, horaires, réservation) → compte comme présence partielle : prospect valable mais angle différent (« votre page Facebook ne vous appartient pas »).
+5. **Recherche par numéro de téléphone puis par adresse** (`"04 50 12 34 56"`, `"12 rue X" <ville>`), pas seulement par nom : un site publié sous un nom commercial différent de la raison sociale ne ressort que comme ça. Un annuaire qui affiche une URL sur la fiche (118712, PagesJaunes, local.ch) suffit à écarter le prospect.
+6. **Revérifier moins de 7 jours avant tout envoi.** Une liste vieillit vite : un prospect jugé « sans site » peut en avoir un trois mois plus tard, ou l'avoir déjà eu sans que la première passe le voie.
+
+> Retour d'expérience (pilote menuiserie, 1ʳᵉ liste) : un prospect classé « priorité 1 » avait un site au même numéro et à la même adresse, manqué parce que la vérification n'avait porté que sur le nom. Le coût d'un faux positif n'est pas nul : l'email « vous n'avez pas de site » envoyé à quelqu'un qui en a un détruit la crédibilité de l'agence en une phrase.
 
 **Classement :**
 - **A — aucun site, fiche Google active avec avis** : cible prioritaire (se soucie déjà de son image).
