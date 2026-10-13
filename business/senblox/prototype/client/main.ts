@@ -63,9 +63,10 @@ async function main(): Promise<void> {
   let firstFrameSeen = false;
 
   const frame = (now: number) => {
-    const dtMs = Math.min(now - last, 100);
+    const rawMs = now - last;
+    const dtMs = Math.min(rawMs, 100); // simulation step is capped; the measured frame time is not
     last = now;
-    if (dtMs > 0) clock.push(dtMs);
+    if (rawMs > 0) clock.push(Math.min(rawMs, 1000));
 
     input.updateCamera(dtMs / 1000);
     net.update(dtMs, input);
