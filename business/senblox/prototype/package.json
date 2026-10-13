@@ -1,0 +1,34 @@
+{
+  "name": "senblox-prototype",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Senblox H1 prototype: authoritative multiplayer 3D world in the browser (three.js client, Node WebSocket server).",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "vite build",
+    "start": "tsx server/index.ts",
+    "dev:client": "vite",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "bots": "tsx tools/bots.ts",
+    "e2e": "tsx tools/e2e.ts",
+    "bench": "tsx tools/bench-browser.ts"
+  },
+  "dependencies": {
+    "three": "0.186.1",
+    "ws": "8.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@types/three": "0.186.0",
+    "@types/ws": "8.18.2",
+    "playwright-core": "1.64.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "8.3.4",
+    "vitest": "5.0.4"
+  }
+}

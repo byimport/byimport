@@ -27,5 +27,13 @@
 - **Phase 2 (mois 9–18)** — Lancement public : croissance organique via la boucle URL-virale, 100+ créateurs actifs monétisés, série A.
 - **Phase 3 (mois 18–36)** — Échelle & exit : KPIs d'acquisition atteints (voir [04](04_STRATEGIE_EXIT.md)), process M&A avec 2+ acquéreurs en compétition.
 
+## Statut du prototype (H1)
+
+Un prototype 3D multijoueur existe dans [`prototype/`](prototype/README.md) : TypeScript + three.js côté client, serveur Node autoritatif. Résultats et limites dans [`prototype/H1_RESULTS.md`](prototype/H1_RESULTS.md).
+
+- **H1 reste ouvert** : le 60 fps sur téléphone milieu de gamme n'est pas mesuré (pas de GPU dans l'environnement de test). Un protocole à exécuter sur appareil réel est fourni.
+- Le prototype valide la **catégorie** (un monde multijoueur jouable sur un simple lien : 191 Kio, première image en 1,8 s sous « Slow 4G » émulé), **pas** le runtime propriétaire Rust/wgpu décrit dans `01_` et `02_`. Ce runtime n'est justifié que si le profilage sur appareil montre que three.js est le goulot.
+- Écart avec le budget de `02_` §2.2 : 36 kbit/s par joueur en déplacement libre (dans la cible) mais 86 kbit/s en foule dense (hors cible).
+
 ---
 *Document de travail interne. Aucun lien avec le plugin Toprank ; ce dossier vit dans `business/` conformément aux conventions du dépôt.*
