@@ -15,7 +15,7 @@ export const INPUT_BYTES = 10;
 export const SNAPSHOT_HEADER_BYTES = 20;
 export const SNAPSHOT_ENTITY_BYTES = 11;
 
-export function encodeInput(seq: number, cmd: InputCmd): Uint8Array {
+export function encodeInput(seq: number, cmd: InputCmd): Uint8Array<ArrayBuffer> {
   const buf = new Uint8Array(INPUT_BYTES);
   const dv = new DataView(buf.buffer);
   dv.setUint8(0, Msg.Input);
@@ -52,7 +52,7 @@ export function decodeWelcome(dv: DataView): { id: number; seed: number; tickHz:
   return { id: dv.getUint16(1, true), seed: dv.getUint32(3, true), tickHz: dv.getUint8(7) };
 }
 
-export function encodePing(t: number): Uint8Array {
+export function encodePing(t: number): Uint8Array<ArrayBuffer> {
   const buf = new Uint8Array(9);
   const dv = new DataView(buf.buffer);
   dv.setUint8(0, Msg.Ping);
