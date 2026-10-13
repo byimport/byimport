@@ -49,6 +49,8 @@ SKILL_ENTRIES=(
   "google-ads-audit:google-ads/audit"
   "google-ads-copy:google-ads/copy"
   "google-ads-landing:google-ads/landing"
+  "meta-ads:meta-ads/manage"
+  "meta-ads-audit:meta-ads/audit"
   "seo-analysis:seo/seo-analysis"
   "content-writer:seo/content-writer"
   "content-planner:seo/content-planner"
@@ -117,7 +119,7 @@ for entry in "${SKILL_ENTRIES[@]}"; do
 done
 
 # Guard: actual SKILL.md count must match
-actual_skill_count=$(find "$REPO_ROOT/google-ads" "$REPO_ROOT/seo" "$REPO_ROOT/toprank-upgrade-skill" "$REPO_ROOT/gemini" -name "SKILL.md" | wc -l | tr -d ' ')
+actual_skill_count=$(find "$REPO_ROOT/google-ads" "$REPO_ROOT/meta-ads" "$REPO_ROOT/seo" "$REPO_ROOT/toprank-upgrade-skill" "$REPO_ROOT/gemini" -name "SKILL.md" | wc -l | tr -d ' ')
 if [ "$actual_skill_count" -ne "${#SKILL_ENTRIES[@]}" ]; then
   fail "Expected ${#SKILL_ENTRIES[@]} SKILL.md files but found $actual_skill_count"
 else

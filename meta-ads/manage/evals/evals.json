@@ -1,0 +1,16 @@
+{
+  "skill_name": "meta-ads",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Can you help me manage my Meta Ads campaigns?",
+      "expected_output": "The skill should check for NotFair MCP server connection and guide through Meta account setup if needed.",
+      "files": [],
+      "expectations": [
+        "Skill verifies MCP connectivity before proceeding",
+        "Skill checks for metaAccountId in config",
+        "Skill guides user through setup if account not connected"
+      ]
+    }
+  ]
+}
