@@ -1,0 +1,16 @@
+{
+  "skill_name": "meta-ads-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Can you audit my Meta Ads account for performance issues?",
+      "expected_output": "The skill should analyze Meta campaigns and identify optimization opportunities.",
+      "files": [],
+      "expectations": [
+        "Skill verifies MCP connectivity before analysis",
+        "Skill checks for metaAccountId in config",
+        "Skill returns structured audit findings with metrics"
+      ]
+    }
+  ]
+}
